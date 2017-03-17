@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: SpringBootTutorial Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.ld
+Build-Jdk: 1.7.0_03
+Built-By: Xerxes
+Created-By: Maven Integration for Eclipse
+Implementation-URL: http://maven.apache.org
+
