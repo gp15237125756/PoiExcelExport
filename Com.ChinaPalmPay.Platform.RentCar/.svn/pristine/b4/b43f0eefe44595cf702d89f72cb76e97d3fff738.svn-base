@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D36AFE1F-B356-43CB-904F-A6B2CCE1B88E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SuperSocketServer</RootNamespace>
+    <AssemblyName>SuperSocketServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.6.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility, Version=1.6.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.ServerManager, Version=1.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SuperSocket.ServerManager.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.6.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine, Version=1.6.3.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.WebSocket, Version=1.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SuperSocket.WebSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aut.cs" />
+    <Compile Include="myReceiveFilterFactory.cs" />
+    <Compile Include="Analysis.cs" />
+    <Compile Include="ReceiveFilter.cs" />
+    <Compile Include="MyRequestInfo.cs" />
+    <Compile Include="Run.cs" />
+    <Compile Include="myServer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MySession.cs" />
+    <Compile Include="Stop.cs" />
+    <Compile Include="StopRealTimeCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\log4net.dll" />
+    <Content Include="lib\SuperSocket.Common.dll" />
+    <Content Include="lib\SuperSocket.Facility.dll" />
+    <Content Include="lib\SuperSocket.ServerManager.dll" />
+    <Content Include="lib\SuperSocket.SocketBase.dll" />
+    <Content Include="lib\SuperSocket.SocketEngine.dll" />
+    <Content Include="lib\SuperSocket.WebSocket.dll" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="config\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="log4net.config" />
+    <None Include="log4net.unix.config" />
+    <None Include="packages.config" />
+    <None Include="supersocket.cmd" />
+    <None Include="supersocket.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\Com.ChinaPalmPay.Platform.RentCar.BLLFacs.csproj">
+      <Project>{6fa17442-3a6f-4cd4-847f-682f1ee1f0bc}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.BLLFacs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.Common\Com.ChinaPalmPay.Platform.RentCar.Common.csproj">
+      <Project>{01f4b52c-b1f1-48eb-847a-1f23c075f2e9}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.DALFactory\Com.ChinaPalmPay.Platform.RentCar.DALFactory.csproj">
+      <Project>{28b12cd7-ff7f-4d9a-8001-ee559b5e95e6}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IBLLS\Com.ChinaPalmPay.Platform.RentCar.IBLLS.csproj">
+      <Project>{e1136b68-4644-4c95-8e71-441d9369af79}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IBLLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IDAL\Com.ChinaPalmPay.Platform.RentCar.IDAL.csproj">
+      <Project>{f4fb631b-8ec9-4d9f-83bb-dce8dcedb9a5}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.Model\Com.ChinaPalmPay.Platform.RentCar.Model.csproj">
+      <Project>{2bf57ced-16b7-42d3-a14c-24ba162fa766}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.SQLServer\Com.ChinaPalmPay.Platform.RentCar.SQLServer.csproj">
+      <Project>{5afe77b6-2f76-45bf-a604-6d3a7cdd6a3c}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.SQLServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

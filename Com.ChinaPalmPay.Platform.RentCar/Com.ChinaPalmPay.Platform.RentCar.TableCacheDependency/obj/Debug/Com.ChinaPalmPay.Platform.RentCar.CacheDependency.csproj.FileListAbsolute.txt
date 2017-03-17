@@ -1,0 +1,14 @@
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.dll
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.pdb
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.dll
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.pdb
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.csprojResolveAssemblyReference.cache
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.dll
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.pdb
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.dll
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.pdb
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.dll
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.pdb
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.csprojResolveAssemblyReference.cache
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.dll
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.pdb

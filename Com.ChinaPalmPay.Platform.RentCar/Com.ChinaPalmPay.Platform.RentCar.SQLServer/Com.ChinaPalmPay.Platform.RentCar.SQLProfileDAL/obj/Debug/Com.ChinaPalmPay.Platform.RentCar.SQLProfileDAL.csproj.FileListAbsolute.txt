@@ -1,0 +1,12 @@
+F:\Project\Net\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.dll
+F:\Project\Net\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.pdb
+F:\Project\Net\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.dll
+F:\Project\Net\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.pdb
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.dll
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.pdb
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.dll
+C:\Users\Xerxes\Desktop\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.pdb
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.dll
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\bin\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.pdb
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.dll
+F:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\obj\Debug\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.pdb

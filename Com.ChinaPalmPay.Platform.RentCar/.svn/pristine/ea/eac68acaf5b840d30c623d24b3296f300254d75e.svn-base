@@ -1,0 +1,32 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.Order
+@{
+    ViewBag.Title = "Query";
+}
+
+<h2>Query</h2>
+@using (Html.BeginForm("Query","Order",FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Order</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserID)
+            @Html.ValidationMessageFor(model => model.UserID)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarID)
+            @Html.ValidationMessageFor(model => model.CarID)
+        </div>
+        <p>
+            <input type="submit" value="查询" />
+        </p>
+        </fieldset>
+}

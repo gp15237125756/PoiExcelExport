@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<title>轨迹查询</title>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4&ak=mCdSMMOpUjFQjE2lYDzaDiYPG"></script>
+	<script type="text/javascript" src="js/CurveLine.min.js"></script>
+	<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/changeMore.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<style type="text/css">
+		html,body{
+			width:100%;
+			height:100%;
+			margin:0;
+			overflow:hidden;
+			font-family:"微软雅黑";
+		}
+	</style>
+<script type="text/javascript">
+//批量转换坐标
+var j = 0,step=20;//定义起始点i,point为坐标数组，step每次发送个数
+var points;
+var dst=new Array();
+var bd=new Array();
+//回调函数
+//function DrawPolyline(map,points2) {
+	//var map = new BMap.Map("container");
+ //  var polyline = new BMap.Polyline(points2, {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5});
+ //  map.addOverlay(polyline);
+//  }
+function callback(xyResults){
+	//连接多个点成折线
+	var xyResult = null;
+	for(var index in xyResults){
+		xyResult = xyResults[index];
+		if(xyResult.error != 0){continue;}//出错就直接返回;
+		 bd.push(new BMap.Point(xyResult.x, xyResult.y));
+	}
+	for(var k=0;k<bd.length;k++){
+	dst.push(bd[k]);
+	}
+	//dst.push(bd[0],bd[1],bd[2],bd[3],bd[4],bd[5],bd[6],bd[7],bd[8],bd[9],bd[10],bd[11],bd[12],bd[13],bd[14],bd[15],bd[16],bd[17],bd[18],bd[19]);
+	bd.length=0;
+	 j = j + step;
+		//超过数量则直接return
+	 if(j>points.length){
+			var map = new BMap.Map("container");
+			map.clearOverlays();
+			map.centerAndZoom(dst[0], 20);
+			map.enableScrollWheelZoom();
+			//DrawPolyline(map,dst);
+			map.setViewport(dst); 
+		 	var polyline = new BMap.Polyline(dst, {strokeColor:"blue", strokeWeight:5, strokeOpacity:1});   //创建折线
+			map.addOverlay(polyline);   //增加折线
+		    return;
+	 }
+	 var point = points.slice(j,j+step);//取出本次要发送的坐标数组
+		BMap.Convertor.transMore(point,0,callback);
+	}
+
+$(function () {
+// 百度地图API功能
+var map = new BMap.Map("container");
+map.centerAndZoom(new BMap.Point(118.454, 32.955), 6);
+map.addControl(new BMap.MapTypeControl());
+var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+/*缩放控件type有四种类型:
+BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+//添加控件和比例尺
+	map.addControl(top_left_control);        
+	map.addControl(top_left_navigation);     
+	map.addControl(top_right_navigation);    
+map.enableScrollWheelZoom();
+		var i;
+	var markers = [];
+	//点击事件
+	$("#btn").click(function(){
+		//var map = new BMap.Map("container");
+		map.clearOverlays();//清除覆盖物
+	    var id = $('#id').val();
+	    var start = $('#start').val();
+	    var end = $('#end').val();
+	    $.get("/VechileSystem/historyPath.active", { terminalID: id, begin: start, end: end }, function (json) {
+	    	var jsonObj = eval(json);
+	    	//非空判断
+	    	if(jsonObj!=null){
+			points=new Array(jsonObj[0].length);
+			//获得全部的历史坐标点
+			for(var i = 0;i<jsonObj[0].length;i++){
+				points[i]=new BMap.Point(jsonObj[0][i].longitude,jsonObj[0][i].latitude);
+			}
+			var point = points.slice(j,step);//取出第一次要发送的坐标数组
+			BMap.Convertor.transMore(point,0,callback);
+	    	}else{
+	    	}
+			//显示注册信息
+			//$('#btn').remove();
+	  		$('#app').append("注册时间："+jsonObj[1].sampleTime.substr(0,4)+"年"+jsonObj[1].sampleTime.substr(4,2)+"月"+
+	  				jsonObj[1].sampleTime.substr(6,2)+"日"+jsonObj[1].sampleTime.substr(8,2)+"时"+jsonObj[1].sampleTime.substr(10,2)
+	  				+"分"+jsonObj[1].sampleTime.substr(12,2)+"秒"+jsonObj[1].sampleTime.substr(14,3)+"毫秒<br/>");
+	  		$('#app').append("车辆类型："+(("02"==jsonObj[1].terminalType)?"路侧设备":(("03"==jsonObj[1].terminalType)?"手持终端":"车辆"))+"<br/>");
+	  		$('#app').append("车长："+jsonObj[1].length/100+"cm<br/>");
+	  		$('#app').append("车宽："+jsonObj[1].wide/100+"cm<br/>");
+	  		$('#app').append("天线距车前方距离："+jsonObj[1].aheadDistance/100+"cm<br/>");
+	  		$('#app').append("天线距车后方距离："+jsonObj[1].backDistance/100+"cm<br/>");
+	    });
+	});
+});
+</script>
+</head>
+
+<body style=" background-image:url(image/2.jpg)">
+ <div id="logindisplay" style="text-align:right">
+        [ <a href="/VechileSystem/logout.active">退出</a> ]
+            </div> 
+           <div style="text-align:right">
+            [ <a href="Index.html">回到主页</a> ]
+            </div>
+   <div style="width:1200px; line-height:50px; margin:10px auto; font-size:32px; 
+   font-family:Helvetica Neue; color:#FFF; font-weight:bold align:center" >
+    <a>欢迎使用在线轨迹查询系统</a><br/>
+   </div>
+   <div style="overflow:hidden; width:1200px; margin:10px auto; height:500px;">
+	<div style="float:right; width:210px" align='left'>
+	<div style=" margin-top:50px">
+   	 终端Id：<input type="text" name="id" id="id" />
+    </div>
+    <div style=" margin-top:20px">
+	开始时间：<input type="text" name="start" id="start"/>
+    </div>
+    <div style=" margin-top:20px">
+	结束时间：<input type="text" name="end" id="end"/>
+    </div>
+	<div style=" margin:20px auto">
+    <input type="button" value="查询" id="btn"/>
+    </div>
+    <div id="app"></div>
+	</div>
+	<div style="width:80%;height:80%;border:1px solid gray; background-color:#FFF; 
+    float:left; margin-top:50px;" id="container">
+    </div>
+  </div>  
+</body>
+</html>

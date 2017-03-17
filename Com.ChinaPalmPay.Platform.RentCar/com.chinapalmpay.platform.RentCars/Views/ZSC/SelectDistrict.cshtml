@@ -1,0 +1,69 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.City
+
+@{
+    ViewBag.Title = "SelectDistrict";
+}
+
+<h2>SelectDistrict</h2>
+
+@using (Html.BeginForm("SelectDistrict", "ZSC", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>City</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CityName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CityName)
+            @Html.ValidationMessageFor(model => model.CityName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ZipCode)
+            @Html.ValidationMessageFor(model => model.ZipCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProvinceID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProvinceID)
+            @Html.ValidationMessageFor(model => model.ProvinceID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateCreated)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateCreated)
+            @Html.ValidationMessageFor(model => model.DateCreated)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateUpdated)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateUpdated)
+            @Html.ValidationMessageFor(model => model.DateUpdated)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

@@ -1,0 +1,156 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.User
+
+@{
+    ViewBag.Title = "UserInfomation";
+}
+
+<h2>UserInfomation</h2>
+
+@using (Html.BeginForm("UserInfomation", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>User</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserId)
+            @Html.ValidationMessageFor(model => model.UserId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserGroupID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserGroupID)
+            @Html.ValidationMessageFor(model => model.UserGroupID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CardID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CardID)
+            @Html.ValidationMessageFor(model => model.CardID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhoneNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhoneNumber)
+            @Html.ValidationMessageFor(model => model.PhoneNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserMailbox)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserMailbox)
+            @Html.ValidationMessageFor(model => model.UserMailbox)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserRegDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserRegDate)
+            @Html.ValidationMessageFor(model => model.UserRegDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserStatus)
+            @Html.ValidationMessageFor(model => model.UserStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserDeniedCos)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserDeniedCos)
+            @Html.ValidationMessageFor(model => model.UserDeniedCos)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserDriverLicense)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserDriverLicense)
+            @Html.ValidationMessageFor(model => model.UserDriverLicense)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserAprvDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserAprvDate)
+            @Html.ValidationMessageFor(model => model.UserAprvDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CardPath)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CardPath)
+            @Html.ValidationMessageFor(model => model.CardPath)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PitcurePath)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PitcurePath)
+            @Html.ValidationMessageFor(model => model.PitcurePath)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateTime)
+            @Html.ValidationMessageFor(model => model.CreateTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UpdateTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UpdateTime)
+            @Html.ValidationMessageFor(model => model.UpdateTime)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

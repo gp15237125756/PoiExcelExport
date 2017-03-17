@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="/css/framework7.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="/css/my-app.css">
+</head>
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-cover">
+        <!-- Left view-->
+        <div class="view view-left navbar-through">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center sliding">区域列表</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="pages">
+                <div data-page="index-left" class="page">
+                    <div class="page-content">
+                        <div class="content-block-title">城市</div>
+                        <div id="city-list" class="list-block">
+                            <ul>
+                                <li onclick="getDistrict();">
+                                    <a href="left-page-1.html" class="item-link">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div id="city" class="item-title"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right panel content goes here</p>
+        </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class-->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We have home navbar without left link-->
+                    <div class="center sliding">曼德拉</div>
+                    <div class="right">
+                        <!-- Right link contains only icon - additional "icon-only" class-->
+                        <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+                <div class="subnavbar">
+                    <div class="page">
+                        <!-- Search bar -->
+                        <form class="searchbar">
+                            <div class="searchbar-input">
+                                <input type="search" placeholder="Search">
+                                <a href="#" class="searchbar-clear"></a>
+                            </div>
+                            <a href="#" class="searchbar-cancel">Cancel</a>
+                        </form>
+
+                        <!-- Search bar overlay-->
+                        <div class="searchbar-overlay"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, data-page contains page name-->
+                <div data-page="map" class="page">
+                    <!-- Scrollable page content-->
+                    <div id="baidumap" style="width: 100%;height: 100%;overflow: hidden;margin:0;">
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Toolbar-->
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    
+                    <a href="#" class="link">
+                       ID<input type="text" id="TermId" />
+                    </a>
+                    <a href="#" class="link">
+                        开始时间<input type="text" id="begin" />
+                    </a>
+                    <a href="#" class="link">
+                        结束时间<input type="text" id="end" />
+                    </a>
+                    <a href="#" class="link">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="/js/my-app.js"></script>
+    <!-- 百度地图API -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OGrpYYfXIRz3Cu4AhOs7REON"></script>
+    <script type="text/javascript"> 
+        var $$ = Dom7;
+        var district = false;
+        var stationList = [];
+
+        // 百度地图API功能
+        var map = new BMap.Map("baidumap");    // 创建Map实例
+        map.enableScrollWheelZoom(true);   //开启鼠标滚轮缩放
+
+
+        //根据IP定位
+        function getLocation(result){
+            var cityName = result.name;
+            map.centerAndZoom(cityName, 13);
+            $$("#city").text(cityName);
+
+        }
+        var myCity = new BMap.LocalCity();
+        myCity.get(getLocation);
+        //map.setCurrentCity(cityName);// 设置地图显示的城市
+
+
+
+
+       // <!-- 显示所有租赁点 -->
+        $$.post('http://192.168.0.5:8787/ZSC/SelectStation', {DistrictID: 1}, function (data) {
+            var obj = eval('(' + data + ')').Data;
+            for (var i = 0; i < obj.length; i++) {
+                var id = obj[i].id;
+
+                var point = new BMap.Point(obj[i].Longitude / Math.pow(10, 7), obj[i].Latitude / Math.pow(10, 7));
+                var marker = new BMap.Marker(point);  // 创建标注
+                marker.label= "stationinfo.html?DistrictID="+id;
+                map.addOverlay(marker);
+                marker.addEventListener("click",function(){
+                    location=this.label;
+                });
+            }
+        });
+        //获取区列表
+        function getDistrict(){
+            $$.post('http://192.168.0.5:8787/ZSC/SelectDistrict', {CityName: $$("#city").text()}, function (data) {
+                if(!district) {
+                    $$("#city-list").append(" <div class='content-block-title'>区</div> <div class='list-block'> <ul id='district'> </ul> </div>");
+                }
+                $$("#district").html("");
+                alert(data);
+                var obj = eval('(' + data + ')').Data;
+                for(var i = 0; i < obj.length; i++){
+
+                    $$("#district").append("<li><a id='"+obj[i].DistrictID+"' href='#'  onclick='getStationInfo("+obj[i].DistrictID+");'  class='item-link'>"+
+                    "<div class='item-content'> <div class='i1tem-inner'>"+
+                    "<div class='item-title'>"+obj[i].DistrictName+"</div> </div> </div></a></li>");
+                }
+                district=true;
+            });
+
+        };
+
+        //获取租赁点列表
+        function getStationInfo(value){
+            $$.post('http://192.168.0.5:8787/ZSC/SelectStation', {DistrictID: value}, function (data) {
+                //alert(data);
+
+                var obj = eval('(' + data + ')').Data;
+                var str = " <div> <ul> 租赁点列表";
+                for(var i = 0;i<obj.length;i++){
+                    str+="<li><a id='"+obj[i].id+"' href='#'  onclick=';'  class='item-link'>"+
+                    "<div class='item-content'> <div class='i1tem-inner'>"+
+                    "<div class='item-title'>"+obj[i].Addr+"</div> </div> </div></a></li>";
+                }
+
+                str +="</ul> </div>";
+                $$("#"+value).append(str);
+            });
+        };
+        //批量转换坐标
+        var j = 0,step=20;//定义起始点i,point为坐标数组，step每次发送个数
+        var points;
+        var dst=new Array();
+        var bd=new Array();
+        //回调函数
+        //function DrawPolyline(map,points2) {
+        //var map = new BMap.Map("container");
+        //  var polyline = new BMap.Polyline(points2, {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5});
+        //  map.addOverlay(polyline);
+        //  }
+        function callback(xyResults){
+            //连接多个点成折线
+            var xyResult = null;
+            for(var index in xyResults){
+                xyResult = xyResults[index];
+                if(xyResult.error != 0){continue;}//出错就直接返回;
+                bd.push(new BMap.Point(xyResult.x, xyResult.y));
+            }
+            for(var k=0;k<bd.length;k++){
+                dst.push(bd[k]);
+            }
+            //dst.push(bd[0],bd[1],bd[2],bd[3],bd[4],bd[5],bd[6],bd[7],bd[8],bd[9],bd[10],bd[11],bd[12],bd[13],bd[14],bd[15],bd[16],bd[17],bd[18],bd[19]);
+            bd.length=0;
+            j = j + step;
+            //超过数量则直接return
+            if(j>points.length){
+                var map = new BMap.Map("container");
+                map.clearOverlays();
+                map.centerAndZoom(dst[0], 20);
+                map.enableScrollWheelZoom();
+                //DrawPolyline(map,dst);
+                map.setViewport(dst); 
+                var polyline = new BMap.Polyline(dst, {strokeColor:"blue", strokeWeight:5, strokeOpacity:1});   //创建折线
+                map.addOverlay(polyline);   //增加折线
+                return;
+            }
+            var point = points.slice(j,j+step);//取出本次要发送的坐标数组
+            BMap.Convertor.transMore(point,0,callback);
+        }
+
+        $(function () {
+            // 百度地图API功能
+            map = new BMap.Map("container");
+            map.centerAndZoom("苏州", 11);
+            map.enableScrollWheelZoom();
+            map.setCurrentCity("苏州");
+            map.addControl(new BMap.MapTypeControl());
+            var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+            var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+            var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+            /*缩放控件type有四种类型:
+            BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+            //添加控件和比例尺
+            map.addControl(top_left_control);        
+            map.addControl(top_left_navigation);     
+            map.addControl(top_right_navigation);    
+            map.enableScrollWheelZoom();
+            var i;
+            var markers = [];
+            //点击事件
+            $("#btn").click(function(){
+                //var map = new BMap.Map("container");
+                map.clearOverlays();//清除覆盖物
+                var id = $('#TermId').val();
+                var start = $('#begin').val();
+                var end = $('#end').val();
+                $.get("/Map/history", { TermId: id, begin: start, end: end }, function (jsonObj) {
+                    //非空判断
+                    if(jsonObj!=null){
+                        $("#TermId").text(@ViewData["Id"]);
+                        $("#begin").text(@ViewData["begin"]);
+                        $("#end").text(@ViewData["end"]);
+                        points=new Array(jsonObj.length);
+                        //获得全部的历史坐标点
+                        for(var i = 0;i<jsonObj.length;i++){
+                            points[i]=new BMap.Point(jsonObj[i].longitude,jsonObj[i].latitude);
+                        }
+                        var point = points.slice(j,step);//取出第一次要发送的坐标数组
+                        BMap.Convertor.transMore(point,0,callback);
+                    }else{
+
+                    }
+                  
+                });
+            });
+        });
+    </script>
+</body>
+</html>

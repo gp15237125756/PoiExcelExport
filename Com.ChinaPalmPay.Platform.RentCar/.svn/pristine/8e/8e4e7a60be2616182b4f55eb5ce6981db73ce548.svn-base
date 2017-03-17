@@ -1,0 +1,147 @@
+﻿using Com.Chinapalmpay.Component.Log;
+using Com.ChinaPalmPay.Platform.RentCar.Common;
+using Com.ChinaPalmPay.Platform.RentCar.DALFactory;
+using Com.ChinaPalmPay.Platform.RentCar.IBLLS;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.IMessaging;
+using Com.ChinaPalmPay.Platform.RentCar.MessagingFactory;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.BLL
+{
+    public class OrderHandler : IOrderHandler
+    {
+        private static readonly int Amounts = int.Parse(ConfigurationManager.AppSettings["UserAmount"]);
+        private static readonly IOrderManager cache_manager = DataAccess.CreateOrderCacheManager();
+        private static readonly IOrderManager db_manager = DataAccess.CreateOrderDbManager();
+        private static readonly IZSCManager zsc_manager = DataAccess.CreateZSCDbManager();
+        private static readonly IOrderMsmq msmq_manager = QueueAccess.CreateOrder();
+        public Order createOrder(Order order,out string Msg)
+        {
+                if (order.UserID != null && order.Time != null && !String.IsNullOrWhiteSpace(order.CarID))
+                {
+                    //如果有预约订单，不能再次创建
+                    IList<Order> ORDER = db_manager.Select(order.UserID);
+                    if(ORDER.Count()>0){
+                        foreach (var x in ORDER)
+                        {
+                            if(x.State==(int)Commons.Type.BOOK){
+                                Msg = "存在已预约订单,不能重复预约";
+                                return null;
+                            }
+                        }
+                    }
+                    
+                    //如果用户账户余额低于500，不能租车
+                    if (db_manager.QueryMoney(order.UserID) < 500)
+                    {
+                        Msg = "账户余额不足,请充值";
+                        return null;
+
+                    }
+                    order.ID = OrderIdUtil.create();
+                    order.CreateTime = string.Format("{0:F}", DateTime.Now); 
+                    order.State = (int)Commons.Type.BOOK;
+                    //生成公私钥
+                    //RSAHelper.RSAKey(secKey, pubKey);
+                    string pubKey = null, secKey = null;
+                    RSAHelper.GenerateRSAKey(out secKey, out pubKey);
+                    order.Pubkey = pubKey;
+                    order.SecKey = secKey;
+                    order.Creater = Commons.orderHandler.USER.ToString();
+                    Car c = zsc_manager.findCarByCarId(order.CarID);
+                    if (c != null)
+                    {
+                        order.TerminalId = c.TermID;
+                        order.CarType = c.CarType;
+                        order.CarNo = c.CarNo;
+                    }
+                    //1.发送到消息队列 2.存入缓存
+                    cache_manager.Create(order);
+                    msmq_manager.Send(order);
+                    string type = null;
+                    string carNo = null;
+                    Car CAR=zsc_manager.findCarByCarId(order.CarID);
+                    if(c!=null){
+                      type= CAR.CarType;
+                         carNo=CAR.CarNo;
+                    }
+                    Messages msg = new Messages()
+                    {
+                        userid = order.UserID,
+                        content = new StringBuilder().
+                            Append(Commons.orderMsg1)
+                            .Append(string.Format("{0:U}", DateTime.Now)).
+                            Append(Commons.orderMsg2).
+                            Append(type).
+                            Append(Commons.orderMsg3).Append(carNo).Append(Commons.orderMsg4).ToString(),
+                        time = string.Format("{0:yyyyMMddHHmmssfff}", DateTime.Now), 
+                        type = Convert.ToInt32(Commons.MessagesType.serviceType).ToString()
+                    };
+                    db_manager.AddMsg(msg);
+                    //修改车状态
+                    Msg = "预约成功";
+                    return order;
+                }
+                Msg = "预约失败";
+            return null;
+        }
+
+
+        public IList<Order> selectOrder(string userId)
+        {
+                if (!String.IsNullOrWhiteSpace(userId))
+                {
+                    return cache_manager.Select(userId);
+                }
+                return null;
+        }
+
+        public bool cancelOrder(string orderId)
+        {
+                if (!String.IsNullOrWhiteSpace(orderId))
+                {
+                    bool result = db_manager.cancelOrder(orderId);
+                    if (result)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+        }
+
+
+        public int selectOrderNum(string userId)
+        {
+                if (!String.IsNullOrWhiteSpace(userId))
+                {
+                    int result = db_manager.SelectNum(userId);
+                    return result;
+                }
+            return 0;
+        }
+
+
+        public Station queryLocation(string carId, string userId)
+        {
+            //根据车id查询租赁点位置
+            //1.找到充电桩
+            //2.找到租赁点
+            CarStat carstat=zsc_manager.findCarStat(carId, userId);
+            if (carstat!=null)
+            {
+               return zsc_manager.findStaByPileId(carstat.PilesID.ToString()); ;
+            }
+           
+            return null;
+        }
+    }
+}

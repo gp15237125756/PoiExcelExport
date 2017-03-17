@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "ChangePhoto";
+}
+
+<h2>ChangePhoto</h2>
+<form action="ChangePhoto" method="post" new { enctype="multipart/form-data" }>
+    <input type="text" name="UserID" />
+    <input type="file" name="filePhoto" />
+    <input type="submit" name="提交">
+</form>

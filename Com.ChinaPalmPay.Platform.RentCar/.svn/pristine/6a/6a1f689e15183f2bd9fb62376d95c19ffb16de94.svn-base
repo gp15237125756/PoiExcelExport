@@ -1,0 +1,81 @@
+﻿2015-04-28 10:55:41,620 [4184] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 10:55:41,766 [4184] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 10:56:09,308 [6648] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 10:56:09,440 [6648] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 10:56:31,755 [624] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 10:56:31,892 [624] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 10:56:56,088 [4320] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 10:56:56,220 [4320] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 10:58:07,370 [6864] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 10:58:07,502 [6864] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 10:58:51,049 [1708] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 10:58:51,173 [1708] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 10:59:29,291 [5384] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 10:59:29,422 [5384] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:01:02,333 [7844] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:01:02,466 [7844] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:04:57,276 [6672] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:04:57,330 [6672] DEBUG myServer - The command RunRealTimeCommand(SuperSocketServer.RunRealTimeCommand, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:05:00,835 [6672] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:05:06,401 [6672] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2015-04-28 11:05:06,401 [6672] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2015-04-28 11:06:00,627 [7216] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:06:00,680 [7216] DEBUG myServer - The command RunRealTimeCommand(SuperSocketServer.RunRealTimeCommand, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:06:07,986 [5920] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:06:08,040 [5920] DEBUG myServer - The command RunRealTimeCommand(SuperSocketServer.RunRealTimeCommand, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:06:08,059 [5920] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:06:10,205 [5920] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2015-04-28 11:06:10,205 [5920] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2015-04-28 11:06:10,289 [5920] DEBUG myServer - Listener (0.0.0.0:2020) was started
+2015-04-28 11:06:10,323 [5920] DEBUG DefaultBootstrap - The PerformanceMonitor has been started!
+2015-04-28 11:08:52,702 [4220] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:08:52,784 [4220] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:08:52,804 [4220] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:08:54,761 [4220] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2015-04-28 11:08:54,761 [4220] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2015-04-28 11:08:54,834 [4220] DEBUG myServer - Listener (0.0.0.0:2020) was started
+2015-04-28 11:08:54,840 [4220] DEBUG DefaultBootstrap - The PerformanceMonitor has been started!
+2015-04-28 11:10:11,912 [7164] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:10:11,967 [7164] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:10:11,987 [7164] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:10:13,994 [7164] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2015-04-28 11:10:13,994 [7164] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2015-04-28 11:10:14,031 [7164] DEBUG myServer - Listener (0.0.0.0:8888) was started
+2015-04-28 11:10:14,038 [7164] DEBUG DefaultBootstrap - The PerformanceMonitor has been started!
+2015-04-28 11:14:13,869 [5792] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:14:13,922 [5792] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:14:13,941 [5792] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:16:17,066 [5684] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:16:17,119 [5684] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:16:17,138 [5684] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:16:19,325 [5684] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2015-04-28 11:16:19,325 [5684] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2015-04-28 11:16:19,366 [5684] DEBUG myServer - Listener (0.0.0.0:8888) was started
+2015-04-28 11:16:19,372 [5684] DEBUG DefaultBootstrap - The PerformanceMonitor has been started!
+2015-04-28 11:26:08,592 [7872] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:26:08,645 [7872] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:26:08,664 [7872] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:26:10,785 [7872] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2015-04-28 11:26:10,785 [7872] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2015-04-28 11:26:10,821 [7872] DEBUG myServer - Listener (0.0.0.0:8888) was started
+2015-04-28 11:26:10,828 [7872] DEBUG DefaultBootstrap - The PerformanceMonitor has been started!
+2015-04-28 11:41:37,904 [5848] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:41:37,956 [5848] DEBUG myServer - The command AuthorizationRealTimeCommand(SuperSocketServer.AuthorizationRealTimeCommand, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:41:37,957 [5848] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:41:37,976 [5848] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 11:41:44,110 [2536] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 11:41:44,164 [2536] DEBUG myServer - The command AuthorizationRealTimeCommand(SuperSocketServer.AuthorizationRealTimeCommand, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:41:44,165 [2536] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 11:41:44,184 [2536] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 12:43:35,700 [6636] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 12:43:35,932 [6636] DEBUG myServer - The command Aut(SuperSocketServer.Aut, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 12:43:35,932 [6636] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 12:43:35,972 [6636] DEBUG DefaultBootstrap - The server instance myServer has been initialized!
+2015-04-28 12:43:39,222 [6636] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2015-04-28 12:43:39,222 [6636] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2015-04-28 12:43:39,757 [6636] DEBUG myServer - Listener (0.0.0.0:8888) was started
+2015-04-28 12:43:39,825 [6636] DEBUG DefaultBootstrap - The PerformanceMonitor has been started!
+2015-04-28 15:20:54,358 [6580] DEBUG DefaultBootstrap - The server instance myServer has been created!
+2015-04-28 15:20:54,499 [6580] DEBUG myServer - The command Aut(SuperSocketServer.Aut, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 15:20:54,499 [6580] DEBUG myServer - The command Run(SuperSocketServer.Run, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-28 15:20:54,541 [6580] DEBUG DefaultBootstrap - The server instance myServer has been initialized!

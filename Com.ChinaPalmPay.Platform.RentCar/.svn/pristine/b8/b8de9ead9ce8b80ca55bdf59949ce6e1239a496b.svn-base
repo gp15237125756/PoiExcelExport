@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>在线终端位置实时显示</title>
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script> -->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=czoKALlQyXK85Al2BYVmQcZf"></script> 
+<link href="style2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/changeMore.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<style type="text/css">
+		html,body{
+			width:100%;
+			height:100%;
+			margin:0;
+			overflow:hidden;
+			font-family:"微软雅黑";
+		}
+</style>
+<script type="text/javascript">
+var j = 0,step=20;//定义起始点i,point为坐标数组，step每次发送个数
+var points,p;
+var dst=new Array();
+var bd=new Array();
+var map;
+	//map.centerAndZoom(new BMap.Point(116.404, 39.915),11);
+function overlay(map,point){
+	 var marker = new BMap.Marker(point);
+	 	map.addOverlay(marker);   //增加覆盖物
+}
+
+$(function(){
+	map = new BMap.Map("container");
+	map.centerAndZoom("北京",11);
+	map.enableScrollWheelZoom();
+	map.setCurrentCity("北京");
+	map.addControl(new BMap.MapTypeControl());
+	var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+	var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+	var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+	/*缩放控件type有四种类型:
+	BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+	//添加控件和比例尺
+				map.addControl(top_left_control);        
+				map.addControl(top_left_navigation);     
+				map.addControl(top_right_navigation);    
+
+	var i;
+	var markers = [];
+	var intervals=setInterval("single()",3000);
+  // var intervel=setInterval(
+		   //, 1000);
+});
+	function  single(){
+    	 $('#table').empty();
+    	 $.get("/VechileSystem/activeUsers.active",null,function (data) {
+	    	var jsonObj= eval(data);
+	    	if(jsonObj!=null){
+	    	var txt="";
+	    	$("#process").text(jsonObj[0]);
+	    	$("#pro").text(jsonObj[1]);
+	    	$("#refer").text(jsonObj[2]);
+	    	$("#ref").text(jsonObj[3]);
+	    	$("#termi").text(jsonObj[4]);
+	    	$("#ter").text(jsonObj[5].length);
+	    	$("#info").text("");
+	    		for(var i=0;i<jsonObj[5].length;i++){
+	    			var obj=jsonObj[5][i];
+	    			$("#info").append("<a href='/VechileSystem/currentStatus.active?terminalID="+obj.terminalID+"'>TerminalId:"+obj.terminalID+"</a><br/>Longitude:"+obj.longitude+"<br/>Latitude:"+obj.latitude+"<br/>");
+	    		}
+				points=new Array();
+				for(var i = 0;i<jsonObj[5].length;i++){
+					points[i]=new BMap.Point(jsonObj[5][i].longitude/Math.pow(10,7),jsonObj[5][i].latitude/Math.pow(10,7));
+				}
+				var point = points.slice(j,step);
+				if(point.length>0){
+				BMap.Convertor.transMore(point,0,callback);
+				}
+	    	}
+	   	});
+    }
+
+//编写自定义函数,创建标注
+function callback(xyResults){
+	//连接多个点成折线
+	var xyResult = null;
+	for(var index in xyResults){
+		xyResult = xyResults[index];
+		if(xyResult.error != 0){continue;}//出错就直接返回;
+		 bd.push(new BMap.Point(xyResult.x, xyResult.y));
+	}
+	
+	for(var k=0;k<bd.length;k++){
+		dst.push(bd[k]);
+	}
+	
+	bd.length=0;
+	 j = j + step;
+		//超过数量则直接return
+	 if(j>points.length){
+		 	j=0;
+			//var map = new BMap.Map("container");
+			map.clearOverlays();
+			map.addControl(new BMap.MapTypeControl());
+			map.centerAndZoom(dst[0], 10);
+			map.enableScrollWheelZoom();
+			var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+			var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+			var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+			/*缩放控件type有四种类型:
+			BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+			//添加控件和比例尺
+				map.addControl(top_left_control);        
+				map.addControl(top_left_navigation);     
+				map.addControl(top_right_navigation);    
+			map.setViewport(dst); 
+			for(var m=0;m<dst.length;m++){
+			overlay(map,dst[m]);
+			}
+		    return;
+	 }
+		//没有超过坐标数，继续转换
+	 var point = points.slice(j,j+step);//取出本次要发送的坐标数组
+	BMap.Convertor.transMore(point,0,callback);
+	}
+
+</script>
+</head>
+
+<body style="background-image:url(image/2.jpg)">
+ <div id="logindisplay" style="text-align:right">
+        [ <a href="/VechileSystem/logout.active">退出</a> ]
+            </div> 
+ <div style="text-align:right">
+            [ <a href="Index.html">回到主页</a> ]
+            </div>
+	<div class="page">
+		<!--页面头部分 ：开始-->
+		<div id="header" style="line-height:50px;font-size:32px; 
+        font-family:Helvetica Neue; color:#FFF; font-weight:bold; overflow:hidden">
+			<div style="float:left">
+				<a>欢迎使用在线终端实时显示系统</a>
+			</div>
+		</div>
+		<!--页面头部分：结束 -->
+		<!--页面主体部分：开始-->
+		<div style="overflow:hidden; width:1230px; height:500px ">
+        <div style="width:210px; height:80%; float:right; ">
+        <div style="font-size:16px; color:#000;font-weight:bold ">
+        数据中心、参考站、终端信息
+        </div>
+        <div style=" margin-top:4px; color:#333; font-size:14px">
+        数据中心数量：<span type="text" name="id" id="process"> </span>
+       </div>
+        <div style=" margin-top:4px; color:#333; font-size:14px">
+        可用数据中心数量：<span type="text" name="id" id="pro"></span>
+       </div>
+       <div style=" margin-top:4px; color:#333; font-size:14px">
+       参考站数量：<span type="text" name="id" id="refer"> </span>
+       </div>
+       <div style=" margin-top:4px; color:#333; font-size:14px">
+        可用参考站数量：<span type="text" name="id" id="ref"> </span>
+       </div>
+       <div style=" margin-top:4px; color:#333; font-size:14px">
+        终端数量：<span type="text" name="id" id="termi"> </span>
+       </div>
+       <div style=" margin-top:4px; color:#333; font-size:14px">
+        在线终端数量：<span type="text" name="id" id="ter"> </span>
+       </div >
+       <div id="info"></div>
+        </div>
+        <div style="width:80%;height:90%;border:1px solid gray; background-color:#FFF; 
+        float:left;" id="container"></div>
+		</div>
+	</div>
+	<div id="footer">江苏掌付网络科技有限公司版权所有©2014</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+----------------------Header--------------------------
+【日志级别】ERROR 
+【记录时间】2015-05-08 11:19:47,381 
+【线程编号】[8] 
+【执行时间】[194194]毫秒 
+【出错文件】 
+【出错行号】0 
+【出错的类】exceptionLoger 属性[(null)] 
+【错误描述】异常说明:Com.ChinaPalmPay.Platform.RentCar.SQLServer---未将对象引用设置到对象的实例。 
+【错误详情】
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Com.ChinaPalmPay.Platform.RentCar.SQLServer.OrderOperations.updateToOpenDoor(String userId) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLServer\OrderOperations.cs:行号 429
+   在 Com.ChinaPalmPay.Platform.RentCar.BLL.RealTimeHandler.uploadOpenOrCloseGate(OpenOrCloseGateRequest input)
+   在 com.chinapalmpay.platform.RentCars.Controllers.RealTimeController.OpenCloseGate() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\com.chinapalmpay.platform.RentCars\Controllers\RealTimeController.cs:行号 145
+----------------------Header--------------------------
+【日志级别】ERROR 
+【记录时间】2015-05-08 11:32:41,418 
+【线程编号】[9] 
+【执行时间】[104067]毫秒 
+【出错文件】 
+【出错行号】0 
+【出错的类】exceptionLoger 属性[(null)] 
+【错误描述】异常说明:Com.ChinaPalmPay.Platform.RentCar.SQLServer---未将对象引用设置到对象的实例。 
+【错误详情】
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Com.ChinaPalmPay.Platform.RentCar.SQLServer.OrderOperations.updateToOpenDoor(String userId) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLServer\OrderOperations.cs:行号 429
+   在 Com.ChinaPalmPay.Platform.RentCar.BLL.RealTimeHandler.uploadOpenOrCloseGate(OpenOrCloseGateRequest input) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLL\RealTimeHandler.cs:行号 72
+   在 com.chinapalmpay.platform.RentCars.Controllers.RealTimeController.OpenCloseGate() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\com.chinapalmpay.platform.RentCars\Controllers\RealTimeController.cs:行号 145
+----------------------Header--------------------------
+【日志级别】ERROR 
+【记录时间】2015-05-08 11:42:18,115 
+【线程编号】[7] 
+【执行时间】[34906]毫秒 
+【出错文件】 
+【出错行号】0 
+【出错的类】exceptionLoger 属性[(null)] 
+【错误描述】异常说明:Com.ChinaPalmPay.Platform.RentCar.SQLServer---未将对象引用设置到对象的实例。 
+【错误详情】
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Com.ChinaPalmPay.Platform.RentCar.SQLServer.OrderOperations.updateToOpenDoor(String userId) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLServer\OrderOperations.cs:行号 429
+   在 Com.ChinaPalmPay.Platform.RentCar.BLL.RealTimeHandler.uploadOpenOrCloseGate(OpenOrCloseGateRequest input) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLL\RealTimeHandler.cs:行号 72
+   在 com.chinapalmpay.platform.RentCars.Controllers.RealTimeController.OpenCloseGate() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\com.chinapalmpay.platform.RentCars\Controllers\RealTimeController.cs:行号 145

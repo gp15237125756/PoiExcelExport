@@ -1,0 +1,78 @@
+----------------------Header------------------------------------------------Footer------------------------------------------------Header------------------------------------------------Footer------------------------------------------------Header------------------------------------------------Footer------------------------------------------------Header--------------------------
+【日志级别】ERROR 
+【记录时间】2015-05-07 19:56:03,619 
+【线程编号】[29] 
+【执行时间】[28046]毫秒 
+【出错文件】 
+【出错行号】0 
+【出错的类】exceptionLoger 属性[(null)] 
+【错误描述】异常说明:System.Data.Linq---不允许在查询中显式构造实体类型“Com.ChinaPalmPay.Platform.RentCar.Model.Order”。 
+【错误详情】
+System.NotSupportedException: 不允许在查询中显式构造实体类型“Com.ChinaPalmPay.Platform.RentCar.Model.Order”。
+   在 System.Data.Linq.SqlClient.QueryConverter.VisitMemberInit(MemberInitExpression init)
+   在 System.Data.Linq.SqlClient.QueryConverter.VisitInner(Expression node)
+   在 System.Data.Linq.SqlClient.QueryConverter.Visit(Expression node)
+   在 System.Data.Linq.SqlClient.QueryConverter.VisitSelect(Expression sequence, LambdaExpression selector)
+   在 System.Data.Linq.SqlClient.QueryConverter.VisitSequenceOperatorCall(MethodCallExpression mc)
+   在 System.Data.Linq.SqlClient.QueryConverter.VisitInner(Expression node)
+   在 System.Data.Linq.SqlClient.QueryConverter.ConvertOuter(Expression node)
+   在 System.Data.Linq.SqlClient.SqlProvider.BuildQuery(Expression query, SqlNodeAnnotations annotations)
+   在 System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   在 System.Data.Linq.DataQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Com.ChinaPalmPay.Platform.RentCar.SQLServer.OrderOperations.Select(String userId) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLServer\OrderOperations.cs:行号 43
+   在 Com.ChinaPalmPay.Platform.RentCar.BLL.OrderHandler.createOrder(Order order, String& Msg) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLL\OrderHandler.cs:行号 32
+   在 com.chinapalmpay.platform.RentCars.Controllers.OrderController.Create(Order order) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\com.chinapalmpay.platform.RentCars\Controllers\OrderController.cs:行号 91
+----------------------Footer------------------------------------------------Header------------------------------------------------Footer------------------------------------------------Header------------------------------------------------Footer------------------------------------------------Header------------------------------------------------Footer------------------------------------------------Header--------------------------
+【日志级别】ERROR 
+【记录时间】2015-05-07 22:06:14,310 
+【线程编号】[17] 
+【执行时间】[895090]毫秒 
+【出错文件】 
+【出错行号】0 
+【出错的类】exceptionLoger 属性[(null)] 
+【错误描述】异常说明:.Net SqlClient Data Provider---将截断字符串或二进制数据。
+语句已终止。 
+【错误详情】
+System.Data.SqlClient.SqlException (0x80131904): 将截断字符串或二进制数据。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader()
+   在 System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   在 System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   在 System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   在 System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   在 System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   在 System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   在 System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   在 System.Data.Linq.DataContext.SubmitChanges()
+   在 Com.ChinaPalmPay.Platform.RentCar.SQLServer.RealTimeManager.AddOpenOrCloseGate(OpenOrCloseGateRequest open) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLServer\RealTimeManager.cs:行号 75
+   在 Com.ChinaPalmPay.Platform.RentCar.BLL.RealTimeHandler.uploadOpenOrCloseGate(OpenOrCloseGateRequest input) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLL\RealTimeHandler.cs:行号 66
+   在 com.chinapalmpay.platform.RentCars.Controllers.RealTimeController.OpenCloseGate()
+ClientConnectionId:7c63a513-a22e-4733-85d6-bb8428e77946
+
+【日志级别】ERROR 
+【记录时间】2015-05-07 22:06:29,865 
+【线程编号】[17] 
+【执行时间】[910645]毫秒 
+【出错文件】 
+【出错行号】0 
+【出错的类】exceptionLoger 属性[(null)] 
+【错误描述】异常说明:Com.ChinaPalmPay.Platform.RentCar.SQLServer---未将对象引用设置到对象的实例。 
+【错误详情】
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Com.ChinaPalmPay.Platform.RentCar.SQLServer.OrderOperations.updateToOpenDoor(String userId) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLServer\OrderOperations.cs:行号 413
+   在 Com.ChinaPalmPay.Platform.RentCar.BLL.RealTimeHandler.uploadOpenOrCloseGate(OpenOrCloseGateRequest input) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLL\RealTimeHandler.cs:行号 72
+   在 com.chinapalmpay.platform.RentCars.Controllers.RealTimeController.OpenCloseGate()

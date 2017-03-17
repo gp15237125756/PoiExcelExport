@@ -1,0 +1,766 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System.Data.Common;
+using System.Data.Linq;
+using System.Data;
+using System.Threading;
+using System.Configuration;
+using Com.ChinaPalmPay.Platform.RentCar.Common;
+using Com.ChinaPalmPay.Platform.RentCar.Model.ParamModel;
+using Com.Chinapalmpay.Component.Log;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.SQLServer
+{
+    public class UserOperations : IUserManager
+    {
+        private static object SaveLock = new object();
+        private static object DelLock = new object();
+        //***********************用户注册DB操作BEGIN*********************************
+        public UserLogin Create(UserGroup Base, UserLogin login, User info, UserRegister register)
+        {
+            //DbTransaction tran = null;
+            //DbConnection conn = null;
+            try
+            {//内存中不包含该用户,保存用户信息
+                if (Base != null && info != null && login != null && register != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<UserGroup> T_UserGroup = db.GetTable<UserGroup>();
+                        Table<UserLogin> T_UserLogin = db.GetTable<UserLogin>();
+                        Table<User> T_User = db.GetTable<User>();
+                        Table<UserRegister> T_UserRegister = db.GetTable<UserRegister>();
+                        //conn = db.Connection;
+                        //if (conn.State == ConnectionState.Closed)
+                        //{
+                        //    conn.Open();
+                        //    tran = conn.BeginTransaction();
+                        //}
+                        T_UserGroup.InsertOnSubmit(Base);
+                        T_UserLogin.InsertOnSubmit(login);
+                        T_User.InsertOnSubmit(info);
+                        T_UserRegister.InsertOnSubmit(register);
+                        //tran.Commit();
+                        db.SubmitChanges();
+                        LogerHelper.debug("REGESTER SUCCESS");
+                        //conn.Close();
+                        return login;
+                        //注册账号已经存在
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                //tran.Rollback();
+                 LogerHelper.exception("REGESTER ERROR",e);
+                //  ctx.Connection.Close();
+                //数据保存出错
+                //HashOperator.getInstance().Set<UserGroup>("InsertUserBaseError", Base.ID, Base);
+                //HashOperator.getInstance().Set<User>("InsertUserInfoError", info.UserGroupID, info);
+            }
+            finally
+            {
+                //保存失败，继续存储，保证数据库与内存数据实现同步
+                //Thread oThread = new Thread(delegate()
+                //{
+                //    List<UserGroup> _userbase = HashOperator.getInstance().GetAll<UserGroup>("InsertUserBaseError");
+                //    List<User> _userinfo = HashOperator.getInstance().GetAll<User>("InsertUserInfoError");
+                //    SaveOrUpdateError.insertUser(_userbase, _userinfo);
+                //});
+                //oThread.Name = "INSERT_User";
+                //oThread.Start();
+                //存储日志
+            }
+            return null;
+        }
+        public UserGroup Create(UserGroup Base)
+        {
+            //DbTransaction tran = null;
+            //DbConnection conn = null;
+            try
+            {//内存中不包含该用户,保存用户信息
+                if (Base != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<UserGroup> T_UserGroup = db.GetTable<UserGroup>();
+                        T_UserGroup.InsertOnSubmit(Base);
+                        db.SubmitChanges();
+                        return Base;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+        public UserLogin CreateOrUpdate(UserLogin Base)
+        {
+            //DbTransaction tran = null;
+            //DbConnection conn = null;
+            try
+            {//内存中不包含该用户,保存用户信息
+                if (Base != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<UserLogin> T_UserGroup = db.GetTable<UserLogin>();
+                        UserLogin login = T_UserGroup.FirstOrDefault<UserLogin>(o => o.UserId.Equals(Base.UserId));
+                        if (login != null)
+                        {
+                            //修改
+                            if (!String.IsNullOrWhiteSpace(Base.LoginID))
+                            {
+                                login.LoginID = Base.LoginID;
+                              
+                            }
+                            else if (!String.IsNullOrWhiteSpace(Base.LoginPwd))
+                            {
+                                login.LoginPwd = Base.LoginPwd;
+                            }
+                            login.UpdateTime = DateTime.Now.ToString();
+                            db.SubmitChanges();
+                            return login;
+                        }
+                        else
+                        {
+                            //添加
+                            T_UserGroup.InsertOnSubmit(Base);
+                            db.SubmitChanges();
+                            return Base;
+                        }
+                    }
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+        public User CreateOrUpdate(User info)
+        {
+            //DbTransaction tran = null;
+            //DbConnection conn = null;
+            try
+            {//内存中不包含该用户,保存用户信息
+                if (info != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<User> T_USER = db.GetTable<User>();
+                        User u = T_USER.FirstOrDefault<User>(o => o.UserId.Equals(info.UserId));
+                        if (u != null)
+                        {
+                            u.CardID = info.CardID;
+                            u.Name = info.Name;
+                            u.UserDriverLicense = info.UserDriverLicense;
+                            u.UserStatus = ((int)(Commons.Authentication.Verified)).ToString();
+                            db.SubmitChanges();
+                            return u;
+                        }
+                        else
+                        {
+                            T_USER.InsertOnSubmit(info);
+                            db.SubmitChanges();
+                            return info;
+                        }
+                    }
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+        public UserRegister Create(UserRegister Base)
+        {
+            //DbTransaction tran = null;
+            //DbConnection conn = null;
+            try
+            {//内存中不包含该用户,保存用户信息
+                if (Base != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<UserRegister> T_UserGroup = db.GetTable<UserRegister>();
+                        T_UserGroup.InsertOnSubmit(Base);
+                        db.SubmitChanges();
+                        return Base;
+                    }
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString()); ;
+            }
+            finally
+            {
+
+            }
+            return null;
+
+
+        }
+        //查询用户是否已经注册
+        //false 没有注册  true  已经注册
+        public bool verifyUser(UserReg login)
+        {
+            try
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<UserLogin> T_UserLogin = db.GetTable<UserLogin>();
+                    //db账号不存在
+                    if (T_UserLogin.FirstOrDefault(o => login.LoginID.Equals(o.LoginID)&&login.LoginPwd.Equals(o.LoginPwd))==null)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return true;
+        }
+        //查询用户旧密码是否正确
+        public UserLogin verifyUserPwd(string UserId,string oldPwd)
+        {
+            // DbTransaction tran = null;
+            DbConnection conn = null;
+            try
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<UserLogin> T_UserLogin = db.GetTable<UserLogin>();
+                    //db账号不存在
+                    UserLogin users=T_UserLogin.FirstOrDefault(o => UserId.Equals(o.UserId) && oldPwd.Equals(o.LoginPwd));
+                    if (users!=null)
+                    {
+                        return users;
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+        //根据登录名查询userid
+        public string getUserId(UserLogin login)
+        {
+            try
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<UserLogin> T_UserLogin = db.GetTable<UserLogin>();
+                    return T_UserLogin.FirstOrDefault<UserLogin>(x => x.LoginID.Equals(login.LoginID)).UserId;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+        //***********************用户注册DB操作END*********************************
+        //修改用户信息
+        public User updateUser(User info)
+        {
+            lock (SaveLock)
+            {
+                DbTransaction tran = null;
+                DbConnection conn = null;
+                DataContext ctx = null;
+                User infos = null;
+                try
+                {
+                    if (info != null)
+                    {
+                        // using (ctx = DatabasesManager.GetConnection())
+                        {
+                            if (ctx.Connection.State == ConnectionState.Closed)
+                                ctx.Connection.Open();
+                            tran = ctx.Connection.BeginTransaction();
+                            Table<User> T_UserInfo = ctx.GetTable<User>();
+                            infos = T_UserInfo.FirstOrDefault(o => o.PhoneNumber.Equals(info.PhoneNumber));
+                            infos.CardPath = info.CardPath;
+                            tran.Commit();
+                            ctx.SubmitChanges();
+                            conn.Close();
+                            return infos;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+                }
+                finally
+                {
+                    //保存失败，继续存储，保证数据库与内存数据实现同步
+                    Thread oThread = new Thread(delegate()
+                    {
+                        //SaveOrUpdateError.updateUser(updateUserInfoError);
+                    });
+                    oThread.Name = "UPDATE_User";
+                    oThread.Start();
+
+                }
+            }
+            return null;
+        }
+        public User selectUser(User info)
+        {
+            //User User = null;
+            //if (HashOperator.getInstance().Exist<User>("UserInfo", info.PhoneNumber))
+            //{
+            //    User = HashOperator.getInstance().Get<User>("UserInfo", info.PhoneNumber);
+            //    return User;
+            //}
+            return null;
+        }
+        //1.add priviledges according to types
+        //2.add to db and local memory
+        public void addPrivilege(UserLogin bases)
+        {
+            //  DbTransaction tran = null;
+            // DbConnection conn = null;
+            //Privileges pri = null;
+            try
+            {
+                if (bases != null)
+                {//普通用户
+                    //if (Commons.NORMAL_USER.Equals(bases))
+                    //{
+                    //    pri = new Privileges() { ID = Guid.NewGuid(), UserId = bases.ID, Privilege = Common.Commons.NORMAL_USER };
+                    //    HashOperator.getInstance().Set<Privileges>("Privileges", bases.ID, pri);
+                    //    MsgQueueManager.SendPriMessage(pri);
+                    //}
+                    ////公司用户
+                    //else if (Common.Commons.COMPANY_USER.Equals(Convert.ToInt32(bases)))
+                    //{
+                    //    pri = new Privileges() { ID = System.Guid.NewGuid(), UserId = bases.ID, Privilege = Common.Commons.COMPANY_USER };
+                    //    HashOperator.getInstance().Set<Privileges>("Privileges", bases.ID, pri);
+                    //    MsgQueueManager.SendPriMessage(pri);
+                    //}
+                    //else
+                    //{
+                    //    //其他用户
+                    //}
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+        }
+
+        public void deleteUser(string uid)
+        {
+            lock (DelLock)
+            {
+                //using (DataContext ctx = DatabasesManager.GetConnection())
+                //{
+                //    Table<UserGroup> T_UserBase = ctx.GetTable<UserGroup>();
+                //    Table<User> T_UserInfo = ctx.GetTable<User>();
+                //    UserGroup usebase = T_UserBase.FirstOrDefault(o => uid.Equals(o.ID));
+                //    User userinfo = T_UserInfo.FirstOrDefault(o => uid.Equals(o.UserGroupID));
+                //    try
+                //    {
+                //        if (dicUserBase.ContainsKey(uid) && dicUserInfo.ContainsKey(uid))
+                //        {
+                //            dicUserBase[uid] = null;
+                //            T_UserBase.DeleteOnSubmit(usebase);
+                //            T_UserInfo.DeleteOnSubmit(userinfo);
+                //            ctx.SubmitChanges();
+                //        }
+                //    }
+                //    catch
+                //    {
+                //        delUserBaseError.Add(uid, usebase);
+                //        delUserInfoError.Add(uid, userinfo);
+                //    }
+                //    finally
+                //    {
+                //        Thread delThread = new Thread(delegate()
+                //        {
+                //            SaveOrUpdateError.deleteUser(delUserBaseError, delUserInfoError);
+                //        });
+                //        delThread.Name = "DELETE_User";
+                //        delThread.Start();
+                //    }
+                //}
+            }
+        }
+
+
+
+
+
+        public User UserComplete(User info)
+        {
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(info.Name) && !String.IsNullOrWhiteSpace(info.UserDriverLicense)
+                     && !String.IsNullOrWhiteSpace(info.PitcurePath) && !String.IsNullOrWhiteSpace(info.CardPath))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<User> T_USER = db.GetTable<User>();
+                        User u = T_USER.FirstOrDefault<User>(o => o.UserId.Equals(info.UserId));
+                        u.PitcurePath = info.PitcurePath;
+                        u.CardPath = info.CardPath;
+                        u.Name = info.Name;
+                        u.UserDriverLicense = info.UserDriverLicense;
+                        u.UserStatus =((int)Commons.Authentication.Verified).ToString();
+                        db.SubmitChanges();
+                        return u;
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            return null;
+        }
+
+
+        public User findLoginUser(UserLogin LoginUser)
+        {
+            try
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<User> T_UserLogin = db.GetTable<User>();
+                    User users=T_UserLogin.FirstOrDefault<User>(x => x.PhoneNumber.Equals(LoginUser.LoginID)&&x.Password.Equals(LoginUser.LoginPwd));
+                    if(users!=null){
+                        return users;
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+        public User findUserInfomation(string id)
+        {
+            try
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<User> T_UserLogin = db.GetTable<User>();
+                    User users = T_UserLogin.FirstOrDefault<User>(x =>x.UserId.Equals(id));
+                    if (users != null)
+                    {
+                       // users.PitcurePath = "121.41.22.161:8787"+users.PitcurePath;
+                       // users.UserDriverLicense = "121.41.22.161:8787"+users.UserDriverLicense;
+                        users.PitcurePath = Properties.getHost()+ users.PitcurePath;
+                        users.UserDriverLicense = Properties.getHost() + users.UserDriverLicense;
+                        return users;
+                    }
+                 
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+
+
+        public User findUserId(string id)
+        {
+           try{
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<User> T_UserLogin = db.GetTable<User>();
+                    User users = T_UserLogin.FirstOrDefault<User>(x =>x.UserId.Equals(id));
+                    if (users != null)
+                    {
+                        return users;
+                    }
+                  
+                }
+            }
+           catch (Exception ex)
+           {
+               LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+           }
+              finally
+            {
+
+
+            }
+           return null;
+        }
+        //修改头像
+        public User userChangePhoto(User user)
+        {
+            try
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<User> T_UserLogin = db.GetTable<User>();
+                    User users = T_UserLogin.FirstOrDefault<User>(x => x.UserId.Equals(user.UserId));
+                    if (users != null)
+                    {
+                        users.PitcurePath = user.PitcurePath;
+                        db.SubmitChanges();
+                        return users;
+                    }
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+        //查询微信用户是否已经注册
+        public string WechatBinding(string tel,string openId){
+            try
+            {
+                using(DataContext db=new SqlserverContext()){
+                    Table<UserLogin> T_UserLogin = db.GetTable<UserLogin>();
+                   // Table<WcUser> T_WcUser = db.GetTable<WcUser>();
+                    UserLogin login=T_UserLogin.FirstOrDefault(x=>x.LoginID.Equals(tel));
+                    //手机号
+                    if(login==null){
+
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+
+            }
+        return null;
+        }
+
+
+        public User selectOpenId(string id)
+        {
+            try {
+                if(!String.IsNullOrWhiteSpace(id)){
+                    using(DataContext ctx=new SqlserverContext()){
+                        Table<UserLogin> T_wcUser = ctx.GetTable<UserLogin>();
+                        Table<User> T_User = ctx.GetTable<User>();
+                        UserLogin user = T_wcUser.FirstOrDefault<UserLogin>(o => o.LoginID.Equals(id));
+                        if(user!=null&&!String.IsNullOrWhiteSpace(user.UserId)){
+                            User use=T_User.FirstOrDefault<User>(y=>y.UserId.Equals(user.UserId)) as User;
+                            if(use!=null){
+                                return use;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+        /**
+         param: userReg
+         * return: true--用户存在
+         *         false--用户不存在
+          */
+        public bool veriryUserExistOrNot(string CardId,string UserDriveLicense)
+        {
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(CardId)||!String.IsNullOrWhiteSpace(UserDriveLicense))
+                {
+                    using (DataContext ctx = new SqlserverContext())
+                    {
+                        Table<User> wcUser = ctx.GetTable<User>();
+                        User user=wcUser.FirstOrDefault<User>(o => o.CardID.Equals(CardId) && o.UserDriverLicense.EndsWith(UserDriveLicense));
+                        if (user != null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return false;
+        }
+
+
+        public string selectUserIdByCardId(string id)
+        {
+            try {
+                if(!String.IsNullOrWhiteSpace(id)){
+                    using (DataContext ctx = new SqlserverContext())
+                    {
+                        Table<User> wcUser = ctx.GetTable<User>();
+                        User user=wcUser.FirstOrDefault<User>(x=>x.CardID.Equals(id));
+                        if(user!=null){
+                            return user.UserId;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+
+
+        public UserLogin AddExistUserLogin(UserLogin log)
+        {
+            try {
+                if(log!=null){
+                    using (DataContext ctx = new SqlserverContext())
+                    {
+                        Table<UserLogin> wcUser = ctx.GetTable<UserLogin>();
+                        wcUser.InsertOnSubmit(log);
+                        ctx.SubmitChanges();
+                        return log;
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+
+
+        public IList<Messages> queryMsg(string id)
+        {
+            IList<Messages> msgs = new List<Messages>();
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(id))
+                {
+                    using (DataContext ctx = new SqlserverContext())
+                    {
+                        Table<Messages> MSG = ctx.GetTable<Messages>();
+                        msgs=(from c in MSG where c.userid== id || c.type ==(((int)(Commons.MessagesType.sysType)).ToString()) select c).ToList(); 
+                        if(msgs.Count()>0){
+                            return msgs;
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+    }
+}

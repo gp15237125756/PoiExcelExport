@@ -1,0 +1,107 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.Car
+
+@{
+    ViewBag.Title = "SelectCarById";
+}
+
+<h2>SelectCarById</h2>
+
+@using (Html.BeginForm("SelectCarById","ZSC",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Car</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id)
+            @Html.ValidationMessageFor(model => model.id)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TermID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TermID)
+            @Html.ValidationMessageFor(model => model.TermID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarNo)
+            @Html.ValidationMessageFor(model => model.CarNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarFac)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarFac)
+            @Html.ValidationMessageFor(model => model.CarFac)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarType)
+            @Html.ValidationMessageFor(model => model.CarType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarVolume)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarVolume)
+            @Html.ValidationMessageFor(model => model.CarVolume)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarCharge)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarCharge)
+            @Html.ValidationMessageFor(model => model.CarCharge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarStartDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarStartDate)
+            @Html.ValidationMessageFor(model => model.CarStartDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateTime)
+            @Html.ValidationMessageFor(model => model.CreateTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UpdateTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UpdateTime)
+            @Html.ValidationMessageFor(model => model.UpdateTime)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

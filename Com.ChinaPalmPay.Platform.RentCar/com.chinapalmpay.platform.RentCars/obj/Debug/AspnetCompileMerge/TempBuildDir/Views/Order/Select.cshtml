@@ -1,0 +1,92 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.Order
+
+@{
+    ViewBag.Title = "Select";
+}
+
+<h2>Select</h2>
+
+@using (Html.BeginForm("Select","Order",FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Order</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserID)
+            @Html.ValidationMessageFor(model => model.UserID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CarID)
+            @Html.ValidationMessageFor(model => model.CarID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Time)
+            @Html.ValidationMessageFor(model => model.Time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.State)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.State)
+            @Html.ValidationMessageFor(model => model.State)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pubkey)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Pubkey)
+            @Html.ValidationMessageFor(model => model.Pubkey)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SecKey)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecKey)
+            @Html.ValidationMessageFor(model => model.SecKey)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateTime)
+            @Html.ValidationMessageFor(model => model.CreateTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Creater)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Creater)
+            @Html.ValidationMessageFor(model => model.Creater)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

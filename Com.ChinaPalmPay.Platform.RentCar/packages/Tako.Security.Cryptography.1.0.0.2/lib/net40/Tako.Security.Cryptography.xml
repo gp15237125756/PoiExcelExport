@@ -1,0 +1,637 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tako.Security.Cryptography</name>
+    </assembly>
+    <members>
+        <member name="T:Tako.Security.Cryptography.CryptoProviderBase">
+            <summary>
+            Class CryptoProviderBase.
+            </summary>
+        </member>
+        <member name="T:Tako.Security.Cryptography.ICryptoProvider">
+            <summary>
+            Interface ICryptoProvider
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.Encryptor(System.Byte[])">
+            <summary>
+            Encryptors the specified source.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.Decryptor(System.Byte[])">
+            <summary>
+            Decryptors the specified encrypt.
+            </summary>
+            <param name="encrypt">The encrypt.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.Encrypt``1(``0)">
+            <summary>
+            Encrypts the specified source.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.Dencrypt``1(System.Byte[])">
+            <summary>
+            Dencrypts the specified encrypt.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="encrypt">The encrypt.</param>
+            <returns>T.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.EncryptFile(System.String,System.String)">
+            <summary>
+            Encrypts the file.
+            </summary>
+            <param name="originalFilePath">The original file path.</param>
+            <param name="targetFilePath">The target file path.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.DecryptFile(System.String,System.String)">
+            <summary>
+            Decrypts the file.
+            </summary>
+            <param name="encryptFilePath">The encrypt file path.</param>
+            <param name="targetFilePath">The target file path.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.EncryptStream(System.IO.Stream)">
+            <summary>
+            Encrypts the stream.
+            </summary>
+            <param name="originalStream">The original stream.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.DecryptStream(System.IO.Stream)">
+            <summary>
+            Decrypts the stream.
+            </summary>
+            <param name="encryptStream">The encrypt stream.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.EncryptString(System.String)">
+            <summary>
+            Encrypts the bas64 string.
+            </summary>
+            <param name="originalString">The original string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.ICryptoProvider.DecryptString(System.String)">
+            <summary>
+            Decrypts the base64 string.
+            </summary>
+            <param name="encryptString">The encrypt string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="P:Tako.Security.Cryptography.ICryptoProvider.Encode">
+            <summary>
+            Gets or sets the encode.
+            </summary>
+            <value>The encode.</value>
+        </member>
+        <member name="F:Tako.Security.Cryptography.CryptoProviderBase._encode">
+            <summary>
+            The _encode
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.Encryptor(System.Byte[])">
+            <summary>
+            Encryptors the specified source.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.Decryptor(System.Byte[])">
+            <summary>
+            Decryptors the specified encrypt.
+            </summary>
+            <param name="encrypt">The encrypt.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.Encrypt``1(``0)">
+            <summary>
+            Encrypts the specified object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="o">The object.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.Dencrypt``1(System.Byte[])">
+            <summary>
+            Dencrypts the specified encrypt.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="encrypt">The encrypt.</param>
+            <returns>T.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.EncryptFile(System.String,System.String)">
+            <summary>
+            Encrypts the file.
+            </summary>
+            <param name="originalFilePath">The original file.</param>
+            <param name="targetFilePath">The target file.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.DecryptFile(System.String,System.String)">
+            <summary>
+            Decrypts the file.
+            </summary>
+            <param name="encryptFilePath">The encrypt file.</param>
+            <param name="targetFilePath">The target file.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.EncryptStream(System.IO.Stream)">
+            <summary>
+            Encrypts the stream.
+            </summary>
+            <param name="originalStream">The original stream.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.DecryptStream(System.IO.Stream)">
+            <summary>
+            Decrypts the stream.
+            </summary>
+            <param name="encryptStream">The encrypt stream.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.EncryptString(System.String)">
+            <summary>
+            Encrypts the bas64 string.
+            </summary>
+            <param name="originalString">The original string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.DecryptString(System.String)">
+            <summary>
+            Decrypts the base64 string.
+            </summary>
+            <param name="encryptString">The encrypt string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptoProviderBase.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="P:Tako.Security.Cryptography.CryptoProviderBase.Disposed">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Tako.Security.Cryptography.CryptoProviderBase"/> is disposed.
+            </summary>
+            <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Tako.Security.Cryptography.CryptoProviderBase.Encode">
+            <summary>
+            Gets or sets the encode.
+            </summary>
+            <value>The encode.</value>
+        </member>
+        <member name="T:Tako.Security.Cryptography.RsaCryptoProvider">
+            <summary>
+            Class RsaCryptoProvider.
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.RsaCryptoProvider._rsa">
+            <summary>
+            The _rsa
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.RsaCryptoProvider._publicKey">
+            <summary>
+            The _public key
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.RsaCryptoProvider._keySize">
+            <summary>
+            The _key size
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.RsaCryptoProvider._password">
+            <summary>
+            The _password
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tako.Security.Cryptography.RsaCryptoProvider"/> class.
+            </summary>
+            <param name="keySize">Size of the key.</param>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.initialCspParameters(System.String)">
+            <summary>
+            Initials the CSP parameters.
+            </summary>
+            <param name="containerName">Name of the container.</param>
+            <returns>CspParameters.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.GenerateKey(System.Int32,System.Boolean)">
+            <summary>
+            Generates the key.
+            </summary>
+            <param name="keySize">Size of the key.</param>
+            <param name="isIncludePrivateKey">if set to <c>true</c> [is include private key].</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.Encryptor(System.Byte[])">
+            <summary>
+            Encryptors the specified source.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>System.Byte[].</returns>
+            <exception cref="T:System.NotSupportedException">Source</exception>
+            <exception cref="T:System.ArgumentNullException">No PublicKey</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.Decryptor(System.Byte[])">
+            <summary>
+            Decryptors the specified encrypt.
+            </summary>
+            <param name="encrypt">The encrypt.</param>
+            <returns>System.Byte[].</returns>
+            <exception cref="T:System.NotSupportedException">Encrypt</exception>
+            <exception cref="T:System.ArgumentNullException">No PublicKey</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.ExportKeyFile(System.String)">
+            <summary>
+            Exports the key.
+            </summary>
+            <param name="exportFilePath">The export file path.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.FieldAccessException">exportFilePath</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.ExportKeyData">
+            <summary>
+            Exports the key data.
+            </summary>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.ImportKeyFile(System.String,System.Boolean)">
+            <summary>
+            Imports the key.
+            </summary>
+            <param name="importFilePath">The import file path.</param>
+            <param name="isSaveToMachine">if set to <c>true</c> [is save to machine].</param>
+            <returns>System.String.</returns>
+            <exception cref="T:System.IO.FileNotFoundException">importFilePath</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.ImportKeyData(System.String)">
+            <summary>
+            Imports the key data.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.initialCryptoServiceProvider(System.Security.Cryptography.AesCryptoServiceProvider)">
+            <summary>
+            Initials the crypto service provider.
+            </summary>
+            <param name="aes">The aes.</param>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Tako.Security.Cryptography.RsaCryptoProvider.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Tako.Security.Cryptography.RsaCryptoProvider"/> class.
+            </summary>
+        </member>
+        <member name="P:Tako.Security.Cryptography.RsaCryptoProvider.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>The password.</value>
+        </member>
+        <member name="P:Tako.Security.Cryptography.RsaCryptoProvider.PublicKey">
+            <summary>
+            Gets or sets the public key.
+            </summary>
+            <value>The public key.</value>
+            <exception cref="T:System.ArgumentNullException">PublicKey</exception>
+        </member>
+        <member name="T:Tako.Security.Cryptography.X509CryptoProvider">
+            <summary>
+            Class X509CryptoProvider.
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.X509CryptoProvider._x509">
+            <summary>
+            The _X509
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.X509CryptoProvider.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tako.Security.Cryptography.X509CryptoProvider"/> class.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="password">The password.</param>
+            <exception cref="T:System.ArgumentNullException">fileName
+            or
+            password</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.X509CryptoProvider.Encryptor(System.Byte[])">
+            <summary>
+            Encryptors the specified source.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>System.Byte[].</returns>
+            <exception cref="T:System.ArgumentNullException">source</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">source</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.X509CryptoProvider.Decryptor(System.Byte[])">
+            <summary>
+            Decryptors the specified encrypt.
+            </summary>
+            <param name="encrypt">The encrypt.</param>
+            <returns>System.Byte[].</returns>
+            <exception cref="T:System.ArgumentNullException">encrypt</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">encrypt</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.X509CryptoProvider.Dispose">
+            <summary>
+            Disposes this instance.
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.X509CryptoProvider.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Tako.Security.Cryptography.X509CryptoProvider.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Tako.Security.Cryptography.X509CryptoProvider"/> class.
+            </summary>
+        </member>
+        <member name="T:Tako.Security.Cryptography.EnumSymmetricCryptoType">
+            <summary>
+            Enum EnumSymmetric
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.EnumSymmetricCryptoType.AES">
+            <summary>
+            The aes
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.EnumSymmetricCryptoType.DES">
+            <summary>
+            The DES
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.EnumSymmetricCryptoType.RC2">
+            <summary>
+            The r c2
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.EnumSymmetricCryptoType.Rijndael">
+            <summary>
+            The rijndael
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.EnumSymmetricCryptoType.Triple">
+            <summary>
+            The triple
+            </summary>
+        </member>
+        <member name="T:Tako.Security.Cryptography.SymmetricCryptoProvider">
+            <summary>
+            Class SymmetricCryptoProviderBase.
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.SymmetricCryptoProvider._iv">
+            <summary>
+            The _iv
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.SymmetricCryptoProvider._salt">
+            <summary>
+            The _salt
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.SymmetricCryptoProvider.#ctor(Tako.Security.Cryptography.EnumSymmetricCryptoType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tako.Security.Cryptography.SymmetricCryptoProvider"/> class.
+            </summary>
+            <param name="SymmetricCryptoType">Type of the symmetric crypto.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">symmetricCrypto</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.SymmetricCryptoProvider.initializeRfc2898(System.String,System.String)">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.SymmetricCryptoProvider.Encryptor(System.Byte[])">
+            <summary>
+            Encryptors the specified sources.
+            </summary>
+            <param name="sources">The sources.</param>
+            <returns>System.Byte[].</returns>
+            <exception cref="T:System.ArgumentNullException">sources</exception>
+            <exception cref="T:System.NotSupportedException">sources</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.SymmetricCryptoProvider.Decryptor(System.Byte[])">
+            <summary>
+            Decryptors the specified encrypt bytes.
+            </summary>
+            <param name="encryptBytes">The encrypt bytes.</param>
+            <returns>System.Byte[].</returns>
+            <exception cref="T:System.ArgumentNullException">encryptBytes</exception>
+            <exception cref="T:System.NotSupportedException">encryptBytes</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.SymmetricCryptoProvider.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.SymmetricCryptoProvider.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Tako.Security.Cryptography.SymmetricCryptoProvider.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Tako.Security.Cryptography.SymmetricCryptoProvider"/> class.
+            </summary>
+        </member>
+        <member name="P:Tako.Security.Cryptography.SymmetricCryptoProvider.SymmetricAlgorithm">
+            <summary>
+            Gets or sets the crypto provider.
+            </summary>
+            <value>The crypto provider.</value>
+        </member>
+        <member name="P:Tako.Security.Cryptography.SymmetricCryptoProvider.IV">
+            <summary>
+            Gets or sets the iv.
+            </summary>
+            <value>The iv.</value>
+        </member>
+        <member name="P:Tako.Security.Cryptography.SymmetricCryptoProvider.Salt">
+            <summary>
+            Gets or sets the salt.
+            </summary>
+            <value>The salt.</value>
+        </member>
+        <member name="T:Tako.Security.Cryptography.IAsymmetricCrypto">
+            <summary>
+            Interface IAsymmetricCrypto
+            </summary>
+        </member>
+        <member name="T:Tako.Security.Cryptography.CryptographyGenericExtension">
+            <summary>
+            Class GenericExtensionSyntax.
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.CryptographyGenericExtension.s_cryptoProvider">
+            <summary>
+            The s_crypto provider
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyGenericExtension.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyGenericExtension.Encrypt``1(``0)">
+            <summary>
+            Encrypts the object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="original">The original.</param>
+            <returns>System.Byte[].</returns>
+            <exception cref="T:System.ArgumentNullException">original</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyGenericExtension.Decrypt``1(System.Byte[])">
+            <summary>
+            Decrypts the object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="encryptArray">The encrypt array.</param>
+            <returns>T.</returns>
+            <exception cref="T:System.ArgumentNullException">encryptArray</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyGenericExtension.Serialize``1(``0)">
+            <summary>
+            Serializes the specified o.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="o">The o.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyGenericExtension.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserializes the specified stream array.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="streamArray">The stream array.</param>
+            <returns>T.</returns>
+        </member>
+        <member name="T:Tako.Security.Cryptography.CryptographyStreamExtension">
+            <summary>
+            Class ExtensionSyntax.
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.CryptographyStreamExtension.s_cryptoProvider">
+            <summary>
+            The s_crypto provider
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStreamExtension.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStreamExtension.Encrypt(System.IO.Stream,System.String)">
+            <summary>
+            檔案加密
+            </summary>
+            <param name="originalStream">擴充串流</param>
+            <param name="encryptFilePath">The encrypt file path.</param>
+            <returns>System.Int64.</returns>
+            <exception cref="T:System.ArgumentNullException">originalStream
+            or
+            encryptFilePath</exception>
+            檔案加密
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStreamExtension.Encrypt(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Encrypts the specified original stream.
+            </summary>
+            <param name="originalStream">The original stream.</param>
+            <param name="encryptStream">The encrypt stream.</param>
+            <returns>System.Int64.</returns>
+            <exception cref="T:System.ArgumentNullException">originalStream
+            or
+            encryptStream</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStreamExtension.Decrypt(System.IO.Stream,System.String)">
+            <summary>
+            檔案解密
+            </summary>
+            <param name="encryptStream">擴充串流</param>
+            <param name="decryptFilePath">解密檔案名稱</param>
+            <returns>System.Int64.</returns>
+            <exception cref="T:System.ArgumentNullException">encryptStream
+            or
+            decryptFilePath</exception>
+            檔案解密
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStreamExtension.Decrypt(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Decrypts the specified encrypt stream.
+            </summary>
+            <param name="encryptStream">The encrypt stream.</param>
+            <param name="decryptStream">The decrypt stream.</param>
+            <returns>System.Int64.</returns>
+            <exception cref="T:System.ArgumentNullException">encryptStream
+            or
+            decryptStream</exception>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStreamExtension.WriteTo(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Writes to.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="destination">The destination.</param>
+        </member>
+        <member name="T:Tako.Security.Cryptography.CryptographyStringExtension">
+            <summary>
+            Class StringExtensionSyntax.
+            </summary>
+        </member>
+        <member name="F:Tako.Security.Cryptography.CryptographyStringExtension.s_cryptoProvider">
+            <summary>
+            The s_crypto provider
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStringExtension.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStringExtension.Encrypt(System.String)">
+            <summary>
+            Encrypts the specified original.
+            </summary>
+            <param name="original">The original.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Tako.Security.Cryptography.CryptographyStringExtension.Decrypt(System.String)">
+            <summary>
+            Decrypts the specified encrypt.
+            </summary>
+            <param name="encrypt">The encrypt.</param>
+            <returns>System.String.</returns>
+        </member>
+    </members>
+</doc>

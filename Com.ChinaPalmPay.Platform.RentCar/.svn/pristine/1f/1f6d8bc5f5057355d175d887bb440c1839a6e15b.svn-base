@@ -1,0 +1,42 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.ParamModel.PilesState
+
+@{
+    ViewBag.Title = "State";
+}
+
+<h2>State</h2>
+
+@using (Html.BeginForm("State","Piles",FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PilesState</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id,"@ViewData['id']")
+            @Html.ValidationMessageFor(model => model.id)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.state)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.state, "@ViewData['state']")
+            @Html.ValidationMessageFor(model => model.state)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

@@ -1,0 +1,15 @@
+﻿2015-04-27 14:07:23,021 [7776] DEBUG AppServer-46104728 - Listener (0.0.0.0:8888) was started
+2015-04-27 14:07:33,881 [7776] DEBUG AppServer-46104728 - Listener (0.0.0.0:8888) was stoppped
+2015-04-27 14:07:57,555 [6184] DEBUG AppServer-46104728 - Listener (0.0.0.0:8888) was started
+2015-04-27 14:25:59,227 [8748] DEBUG AppServer-37121646 - Listener (0.0.0.0:8888) was started
+2015-04-27 14:28:28,964 [4248] DEBUG AppServer-37121646 - Listener (0.0.0.0:8888) was started
+2015-04-27 14:55:57,468 [8000] DEBUG myServer-46104728 - The command Command(SuperSocketServer.Command, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-27 14:55:57,521 [8000] DEBUG myServer-46104728 - Listener (0.0.0.0:8888) was started
+2015-04-27 18:07:34,624 [9500] DEBUG myServer-46104728 - The command Command(SuperSocketServer.Command, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-27 18:07:34,998 [9500] DEBUG myServer-46104728 - Listener (0.0.0.0:8888) was started
+2015-04-27 18:13:56,785 [7472] DEBUG myServer-46104728 - The command Command(SuperSocketServer.Command, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-27 18:13:56,844 [7472] DEBUG myServer-46104728 - Listener (0.0.0.0:8888) was started
+2015-04-27 18:18:17,279 [5336] DEBUG myServer-46104728 - The command Command(SuperSocketServer.Command, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-27 18:18:17,335 [5336] DEBUG myServer-46104728 - Listener (0.0.0.0:8888) was started
+2015-04-27 18:26:25,554 [9704] DEBUG myServer-46104728 - The command Command(SuperSocketServer.Command, SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null) has been discovered
+2015-04-27 18:26:25,608 [9704] DEBUG myServer-46104728 - Listener (0.0.0.0:8888) was started

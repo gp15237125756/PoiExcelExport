@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1358042-B5BE-48FB-B82C-FAB4A25CAF21}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DBHander</RootNamespace>
+    <AssemblyName>DBHander</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Com.Chinapalmpay.Component.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\com.chinapalmpay.platform.RentCars\lib\Com.Chinapalmpay.Component.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\com.chinapalmpay.platform.RentCars\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\Com.ChinaPalmPay.Platform.RentCar.BLLFacs.csproj">
+      <Project>{6fa17442-3a6f-4cd4-847f-682f1ee1f0bc}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.BLLFacs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory\Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory.csproj">
+      <Project>{15081fb6-3024-46b4-9b6c-95591a3c801c}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.Common\Com.ChinaPalmPay.Platform.RentCar.Common.csproj">
+      <Project>{01f4b52c-b1f1-48eb-847a-1f23c075f2e9}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.DALFactory\Com.ChinaPalmPay.Platform.RentCar.DALFactory.csproj">
+      <Project>{28b12cd7-ff7f-4d9a-8001-ee559b5e95e6}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.DataProx\Com.ChinaPalmPay.Platform.RentCar.DataProx.csproj">
+      <Project>{c2e76b74-a64d-45ab-9cfd-e157fec953eb}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.DataProx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IBLLS\Com.ChinaPalmPay.Platform.RentCar.IBLLS.csproj">
+      <Project>{e1136b68-4644-4c95-8e71-441d9369af79}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IBLLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.csproj">
+      <Project>{1c0e6f0c-6e0b-41b6-a7bd-c8bd353b7407}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.ICacheDependency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IDAL\Com.ChinaPalmPay.Platform.RentCar.IDAL.csproj">
+      <Project>{f4fb631b-8ec9-4d9f-83bb-dce8dcedb9a5}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IMessaging\Com.ChinaPalmPay.Platform.RentCar.IMessaging.csproj">
+      <Project>{00e037ff-7338-4928-94c0-3cea14ddf48f}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IMessaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.MessagingFactory\Com.ChinaPalmPay.Platform.RentCar.MessagingFactory.csproj">
+      <Project>{aa2aab40-75ae-4afb-a12d-1976754b6af3}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.MessagingFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.Model\Com.ChinaPalmPay.Platform.RentCar.Model.csproj">
+      <Project>{2bf57ced-16b7-42d3-a14c-24ba162fa766}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging\Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging.csproj">
+      <Project>{ecdeacf5-bc62-4c2f-b8ec-2b112eac4a70}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.SQLServer\Com.ChinaPalmPay.Platform.RentCar.SQLServer.csproj">
+      <Project>{5afe77b6-2f76-45bf-a604-6d3a7cdd6a3c}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.SQLServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.csproj">
+      <Project>{5755e8c7-f595-4202-8aa8-7b9b048f8338}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.CacheDependency</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\Com.Chinapalmpay.Component.Log.dll" />
+    <Content Include="lib\log4net.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

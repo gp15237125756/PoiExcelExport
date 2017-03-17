@@ -1,0 +1,331 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Com.ChinaPalmPay.Platform.RentCar.DALFactory;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using Com.ChinaPalmPay.Platform.RentCar.IMessaging;
+using Com.ChinaPalmPay.Platform.RentCar.MessagingFactory;
+using Com.ChinaPalmPay.Platform.RentCar.IBLLS;
+using Com.ChinaPalmPay.Platform.RentCar.SQLServer;
+using System.Web;
+using Com.ChinaPalmPay.Platform.RentCar.Common;
+using System.IO;
+using Com.ChinaPalmPay.Platform.RentCar.Model.ParamModel;
+using Com.Chinapalmpay.Component.Log;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.BLL
+{
+    //用户业务接口主要功能：1.异步将数据存入消息队列 
+    //2.缓存数据
+    //3.加载db到缓存
+    //注：取出消息存db由后台线程完成
+
+    //**本业务层仅执行用户信息缓存和消息存入队列**
+    public class UserHandlers : IUserHandler
+    {
+        // Get an instance of the Category DAL using the DALFactory
+        // Making this static will cache the DAL instance after the initial load
+        private static readonly UserOperations db_manager = DataAccess.CreateUserDbManager();
+        private static readonly IUserManager cache_manager = DataAccess.CreateUserCacheManager();
+        private static readonly IUserCompl asynchUser = QueueAccess.CompleteUser();
+        private static readonly IUserUp updateUser = QueueAccess.UpdateUser();
+        private static readonly IUserChangeTel changeUserTel = QueueAccess.ChangeUserTel();
+        private static readonly IUserChangePhoto changeUserPhoto = QueueAccess.ChangeUserPhoto();
+        private static readonly IExistUserReg exist = QueueAccess.ExistUserReg();
+        private static readonly IUserReg orderQueue = QueueAccess.CreateUserRegister();
+        /// <summary>
+        /// This method serializes the order object and send it to the queue for asynchronous processing
+        /// </summary>
+        /// <param name="order">All information about the order</param>
+        public UserLogin UserRegHandler(UserReg logins)
+        {
+            //判断是否已经存在
+                if (logins != null)
+                {
+                    //验证用户是否重复注册
+                    bool o = db_manager.veriryUserExistOrNot(logins.CardId,logins.UserDriveLicense);
+                    //验证验证码是否发送且和用户输入验证码一致
+                    string subSMS=SMSUtil.ConnectSSL(logins.appkey, logins.phone, logins.zone, logins.code).Substring(10 ,3);
+                    int SMS_RESULT = int.Parse(subSMS);
+                    bool SMS_VERIFY = false;
+                    switch(SMS_RESULT)
+                    {
+                        case Commons.SUCCESS: SMS_VERIFY = true;break;
+                        case Commons.REFUSE_TO_OPERATE: break;
+                        case Commons.APPKEY_NOT_EXIST: break;
+                        case Commons.INSUFFICIENT_PERMISSIONS: break;
+                        case Commons.INTERNAL_SERVER_ERROR: break;
+                        case Commons.MISSING_PARAMETER: break;
+                        case Commons.PHONENUMBER_INCORRECT_FORMAT: break;
+                        case Commons.SEND_NUMBER_EXCEEDS_LIMIT: break;
+                        case Commons.INVALID_VERIFYNO: break;
+                        case Commons.NO_SUFFICIENT_FUND: break;
+
+                    }
+                    //没有注册
+                    if (!o &&SMS_VERIFY)
+                        //if (!o)
+                    {
+                        UserGroup userbase = new UserGroup();
+                        User user = new User();
+                        UserRegister userregister = new UserRegister();
+                        UserLogin login = new UserLogin();
+                        //UserGroup
+                        userbase.Name = "Normal";
+                        //User
+                        user.UserGroupID =(int)Commons.UserGroupType.NORMAL_USER;
+                        user.UserId = Guid.NewGuid().ToString().Replace("-", "");
+                        user.PhoneNumber = logins.LoginID;
+                        user.Password = login.LoginPwd;
+                        user.CreateTime = DateTime.Now.ToString();
+                        user.UpdateTime = DateTime.Now.ToString();
+                        user.CardID = logins.CardId;
+                        user.UserDriverLicense = logins.UserDriveLicense;
+                        user.UserRegDate = DateTime.Now.ToString();
+                        user.UserStatus = ((int)Commons.Authentication.Verified).ToString();
+                       //userregister
+                        userregister.Type = (int)Commons.UserType.app;
+                        userregister.UserId = user.UserId;
+                        userregister.CreateTime = DateTime.Now.ToString();
+                        //login
+                        login.type =(int)Commons.UserType.app;
+                        login.UserId = user.UserId;
+                        login.UpdateTime = DateTime.Now.ToString();
+                        login.CreateTime = DateTime.Now.ToString();
+                        login.LoginID = logins.LoginID;
+                        login.LoginPwd = logins.LoginPwd;
+                      
+                        //加入缓存
+                        cache_manager.Create(userbase, login, user, userregister);
+                        //加入消息
+                        //  asynchUser.Send(userbase, login, user, userregister);
+                        return login;
+                    }//用户已存在，验证码正确
+                    else if (o && SMS_VERIFY)
+                    {
+                        UserLogin log = null;
+                        //T_UserLogin增加相同userId对应的app账号 
+                       string id=db_manager.selectUserIdByCardId(logins.CardId);
+                        if(id!=null){
+                            log = new UserLogin() {
+                                UserId=id,
+                                LoginID=logins.LoginID,
+                                LoginPwd=logins.LoginPwd,
+                                 CreateTime=DateTime.Now.ToString(),
+                                UpdateTime = DateTime.Now.ToString(),
+                                 type=(int)Commons.UserType.app
+                            };
+                            //将userLogin放入消息
+                            exist.Send(log);
+                        }
+                        return log;
+                    }
+                }
+            return null;
+        }
+        //登陆业务
+
+        public string UserLoginHandler(UserReg logins)
+        {
+            //判断是否已经存在
+                if (logins != null)
+                {//已经注册
+                    UserLogin login = new UserLogin() { LoginID = logins.LoginID, LoginPwd = logins.LoginPwd };
+                    if (HttpRuntime.Cache["UserReg_Login"] != null || db_manager.verifyUser(logins))
+                    {
+                        //账号存在，可以登录
+                        return db_manager.getUserId(login) != null ? db_manager.getUserId(login) : null;
+                    }
+                    //账号不存在
+                    else
+                    {
+
+                        return null;
+
+                    }
+
+                }
+                return null;
+        }
+
+
+
+        public User UserCompleteHandler(User info)
+        {
+            if (!String.IsNullOrWhiteSpace(info.UserDriverLicense))
+            {
+                if (db_manager.findUserId(info.UserId)!=null)
+                {
+                asynchUser.Send(info);
+                return info;
+                }
+                return null;
+            }
+            return null;
+        }
+        //修改密码
+        public UserLogin UserUpdateHandler(string OldPwd, string LoginPwd, string UserID)
+        {
+            UserLogin users = new UserLogin();
+            if (!String.IsNullOrWhiteSpace(OldPwd) && !String.IsNullOrWhiteSpace(LoginPwd) && !String.IsNullOrWhiteSpace(UserID))
+            {
+                if (db_manager.verifyUserPwd(UserID, OldPwd) != null)
+                {
+                    users.UserId = UserID;
+                    users.LoginPwd = LoginPwd;
+                    updateUser.Send(users);
+                    return users;
+                }
+                return null;
+            }
+            return null;
+        }
+        //修改头像
+        public User changePhoto(string UserID, string filePhotoPath)
+        {
+            if(!String.IsNullOrWhiteSpace(filePhotoPath)){
+                User users = null;
+                if (db_manager.findUserId(UserID) != null)
+                {
+                    users = new User() { PitcurePath = filePhotoPath, UserId = UserID };
+                    changeUserPhoto.Send(users);
+                    return users;
+                }
+                return null;
+            }
+            return null;
+        }
+        //修改绑定手机号码
+
+        public UserLogin changeTelHandler(ChangeTel info)
+        {
+            if (!String.IsNullOrWhiteSpace(info.LoginID) && !String.IsNullOrWhiteSpace(info.UserID))
+            {
+                UserLogin user = null;
+                string subSMS = SMSUtil.ConnectSSL(info.appkey, info.phone, info.zone, info.code).Substring(10, 3);
+                int SMS_RESULT = int.Parse(subSMS);
+                bool SMS_VERIFY = false;
+                switch (SMS_RESULT)
+                {
+                    case Commons.SUCCESS: SMS_VERIFY = true; break;
+                    case Commons.REFUSE_TO_OPERATE: break;
+                    case Commons.APPKEY_NOT_EXIST: break;
+                    case Commons.INSUFFICIENT_PERMISSIONS: break;
+                    case Commons.INTERNAL_SERVER_ERROR: break;
+                    case Commons.MISSING_PARAMETER: break;
+                    case Commons.PHONENUMBER_INCORRECT_FORMAT: break;
+                    case Commons.SEND_NUMBER_EXCEEDS_LIMIT: break;
+                    case Commons.INVALID_VERIFYNO: break;
+                    case Commons.NO_SUFFICIENT_FUND: break;
+
+                }
+                if (db_manager.findUserId(info.UserID) != null && SMS_VERIFY)
+                {
+                    user = new UserLogin() { LoginID = info.LoginID, UserId = info.UserID };
+                    changeUserTel.Send(user);
+                }
+                return user;
+            }
+            return null;
+        }
+
+
+        public User findUserInfomation(string id)
+        {
+            User users = cache_manager.findUserInfomation(id);
+            if (users != null)
+            {
+                return users;
+            }
+            return null;
+        }
+        //param:  card-身份证 openId-微信唯一识别id  UserDriverLicense-驾驶证地址
+        public User WechatUserReg(string PhoneNumber, string Password, string card, string openId, string UserDriverLicense)
+        {
+            //微信用户注册
+                if(!String.IsNullOrWhiteSpace(card)&&!String.IsNullOrWhiteSpace(openId)
+                    &&!String.IsNullOrWhiteSpace(UserDriverLicense)){
+                //验证用户是否重复注册
+                bool o = db_manager.veriryUserExistOrNot(card, UserDriverLicense);
+                    //如果没有该用户
+                if(!o){
+                    UserGroup userbase = new UserGroup();
+                    User user = new User();
+                    UserRegister userregister = new UserRegister();
+                    UserLogin login = new UserLogin();
+                    //UserGroup
+                    userbase.Name = "Normal";
+                    //User
+                    user.UserGroupID = (int)Commons.UserGroupType.NORMAL_USER;
+                    user.UserId = Guid.NewGuid().ToString().Replace("-", "");
+                    user.CreateTime = DateTime.Now.ToString();
+                    user.UpdateTime = DateTime.Now.ToString();
+                    user.CardID = card;
+                    user.UserDriverLicense = UserDriverLicense;
+                    user.UserRegDate = DateTime.Now.ToString();
+                    user.UserStatus =((int)Commons.Authentication.Verified).ToString();
+                    user.PhoneNumber = PhoneNumber;
+                    user.Password = Password;
+                    //userregister
+                    userregister.Type = (int)Commons.UserType.app;
+                    userregister.UserId = user.UserId;
+                    userregister.CreateTime = DateTime.Now.ToString();
+                    //login
+                    login.type = (int)Commons.UserType.app;
+                    login.UserId = user.UserId;
+                    login.UpdateTime = DateTime.Now.ToString();
+                    login.CreateTime = DateTime.Now.ToString();
+                    login.LoginID = openId;
+                    //加入缓存
+                    orderQueue.Send(userbase);
+                    orderQueue.Send(login);
+                    orderQueue.Send(user);
+                    orderQueue.Send(userregister);
+                   // cache_manager.Create(userbase, login, user, userregister);
+                    return user;
+                }
+                else
+                {
+                    //该用户已经在app端注册
+                    UserLogin log = null;
+                    //T_UserLogin增加相同userId对应的app账号 
+                    string id = db_manager.selectUserIdByCardId(card);
+                    //不能重复绑定
+                    if (id != null&&db_manager.selectOpenId(openId)==null)
+                    {
+                        log = new UserLogin()
+                        {
+                            UserId = id,
+                            LoginID = openId,
+                            CreateTime = DateTime.Now.ToString(),
+                            UpdateTime = DateTime.Now.ToString(),
+                            type = (int)Commons.UserType.app
+                        };
+                        //将userLogin放入消息
+                        exist.Send(log);
+                    }
+                    User user=db_manager.findUserInfomation(id);
+                    if(user!=null){
+                        return user;
+                    }
+                }
+                }
+            return null;
+        }
+
+
+        public User queryOpenIdHandler(string openId)
+        {
+          return  cache_manager.selectOpenId(openId);
+        }
+
+
+        public IList<Messages> queryMessageHandler(string userid)
+        {
+            return db_manager.queryMsg(userid);
+        }
+    }
+}

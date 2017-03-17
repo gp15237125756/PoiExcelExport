@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BF57CED-16B7-42D3-A14C-24BA162FA766}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.ChinaPalmPay.Platform.RentCar.Model</RootNamespace>
+    <AssemblyName>Com.ChinaPalmPay.Platform.RentCar.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SuperSocket.Common">
+      <HintPath>..\SuperSocketServer\lib\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility">
+      <HintPath>..\SuperSocketServer\lib\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase">
+      <HintPath>..\SuperSocketServer\lib\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine">
+      <HintPath>..\SuperSocketServer\lib\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alipay.cs" />
+    <Compile Include="AuthorizationRequest.cs" />
+    <Compile Include="AuthorizationResponse.cs" />
+    <Compile Include="Car.cs" />
+    <Compile Include="CarInfo.cs" />
+    <Compile Include="CarStat.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Cup.cs" />
+    <Compile Include="District.cs" />
+    <Compile Include="Messages.cs" />
+    <Compile Include="NFCAccept.cs" />
+    <Compile Include="OpenOrCloseGateRequest.cs" />
+    <Compile Include="OperationResult\CarSelResult.cs" />
+    <Compile Include="OperationResult\CreateOrderResult.cs" />
+    <Compile Include="OperationResult\DefaultResult.cs" />
+    <Compile Include="OperationResult\StationSelResult.cs" />
+    <Compile Include="OperationResult\UserLoginResult.cs" />
+    <Compile Include="OperationResult\UserRegisterResult.cs" />
+    <Compile Include="OperationResult\UserUpdateResult.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderEx.cs" />
+    <Compile Include="OrderLog.cs" />
+    <Compile Include="OrderSel.cs" />
+    <Compile Include="ParamModel\ChangePwd.cs" />
+    <Compile Include="ParamModel\ChangeTel.cs" />
+    <Compile Include="ParamModel\PilesRun.cs" />
+    <Compile Include="ParamModel\PilesState.cs" />
+    <Compile Include="ParamModel\UserReg.cs" />
+    <Compile Include="ParamModel\WeChatUserReg.cs" />
+    <Compile Include="Piles.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealTimeThread.cs" />
+    <Compile Include="Recharge.cs" />
+    <Compile Include="RunRealTime.cs" />
+    <Compile Include="Station.cs" />
+    <Compile Include="StopRealTime.cs" />
+    <Compile Include="TerminalSession.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserAuthorization.cs" />
+    <Compile Include="UserGroup.cs" />
+    <Compile Include="UserLogin.cs" />
+    <Compile Include="UserRegister.cs" />
+    <Compile Include="ValidCar.cs" />
+    <Compile Include="ViewRentCarLog.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

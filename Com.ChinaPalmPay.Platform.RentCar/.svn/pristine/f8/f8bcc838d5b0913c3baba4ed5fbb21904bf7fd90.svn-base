@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\发布</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>04/21/2015 16:09:41</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>04/21/2015 16:09:41</publishTime>
+    </File>
+    <File Include="bin/Com.Chinapalmpay.Component.Log.dll">
+      <publishTime>04/02/2015 13:22:19</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.BLL.dll">
+      <publishTime>05/08/2015 18:11:47</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.BLL.pdb">
+      <publishTime>05/08/2015 18:11:47</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.BLLFacs.exe">
+      <publishTime>05/08/2015 18:11:41</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.BLLFacs.pdb">
+      <publishTime>05/08/2015 18:11:41</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.CacheDependency.dll">
+      <publishTime>05/08/2015 18:11:35</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.CacheDependency.pdb">
+      <publishTime>05/08/2015 18:11:35</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory.dll">
+      <publishTime>05/08/2015 18:11:45</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory.pdb">
+      <publishTime>05/08/2015 18:11:45</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Common.exe">
+      <publishTime>05/08/2015 18:11:37</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Common.pdb">
+      <publishTime>05/08/2015 18:11:37</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.DALFactory.dll">
+      <publishTime>05/08/2015 18:11:42</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.DALFactory.pdb">
+      <publishTime>05/08/2015 18:11:42</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.DataProx.exe">
+      <publishTime>05/08/2015 18:11:46</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.DataProx.pdb">
+      <publishTime>05/08/2015 18:11:46</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.DBUtility.dll">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.DBUtility.pdb">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IBLLS.exe">
+      <publishTime>05/08/2015 18:11:38</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IBLLS.pdb">
+      <publishTime>05/08/2015 18:11:38</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IBllStrategy.dll">
+      <publishTime>05/08/2015 18:11:35</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IBllStrategy.pdb">
+      <publishTime>05/08/2015 18:11:35</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.dll">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.pdb">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IDAL.dll">
+      <publishTime>05/08/2015 18:11:39</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IDAL.pdb">
+      <publishTime>05/08/2015 18:11:39</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IMessaging.dll">
+      <publishTime>05/08/2015 18:11:38</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IMessaging.pdb">
+      <publishTime>05/08/2015 18:11:38</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IProfileDAL.dll">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.IProfileDAL.pdb">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Membership.dll">
+      <publishTime>05/08/2015 18:11:35</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Membership.pdb">
+      <publishTime>05/08/2015 18:11:35</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.MessagingFactory.dll">
+      <publishTime>05/08/2015 18:11:39</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.MessagingFactory.pdb">
+      <publishTime>05/08/2015 18:11:39</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Model.dll">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Model.pdb">
+      <publishTime>05/08/2015 18:11:34</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging.dll">
+      <publishTime>05/08/2015 18:11:40</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging.pdb">
+      <publishTime>05/08/2015 18:11:39</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Profile.dll">
+      <publishTime>05/08/2015 18:11:38</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.Profile.pdb">
+      <publishTime>05/08/2015 18:11:38</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.ProfileFactory.dll">
+      <publishTime>05/08/2015 18:11:36</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.ProfileFactory.pdb">
+      <publishTime>05/08/2015 18:11:36</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.dll">
+      <publishTime>05/08/2015 18:11:39</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.pdb">
+      <publishTime>05/08/2015 18:11:39</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.SQLServer.dll">
+      <publishTime>05/08/2015 18:11:40</publishTime>
+    </File>
+    <File Include="bin/Com.ChinaPalmPay.Platform.RentCar.SQLServer.pdb">
+      <publishTime>05/08/2015 18:11:40</publishTime>
+    </File>
+    <File Include="bin/com.chinapalmpay.platform.RentCars.dll">
+      <publishTime>05/08/2015 18:11:55</publishTime>
+    </File>
+    <File Include="bin/com.chinapalmpay.platform.RentCars.pdb">
+      <publishTime>05/08/2015 18:11:55</publishTime>
+    </File>
+    <File Include="bin/DBHander.exe">
+      <publishTime>05/08/2015 18:11:49</publishTime>
+    </File>
+    <File Include="bin/DBHander.pdb">
+      <publishTime>05/08/2015 18:11:49</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>05/04/2015 14:25:31</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>04/02/2015 13:22:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/01/2015 11:14:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>04/01/2015 11:14:21</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/01/2015 11:14:20</publishTime>
+    </File>
+    <File Include="bin/Senparc.Weixin.MP.dll">
+      <publishTime>05/04/2015 10:59:08</publishTime>
+    </File>
+    <File Include="bin/Senparc.Weixin.MP.pdb">
+      <publishTime>05/04/2015 10:58:57</publishTime>
+    </File>
+    <File Include="bin/SuperSocket.Common.dll">
+      <publishTime>04/27/2015 14:01:29</publishTime>
+    </File>
+    <File Include="bin/SuperSocket.Facility.dll">
+      <publishTime>04/27/2015 15:55:40</publishTime>
+    </File>
+    <File Include="bin/SuperSocket.SocketBase.dll">
+      <publishTime>04/27/2015 14:01:29</publishTime>
+    </File>
+    <File Include="bin/SuperSocket.SocketEngine.dll">
+      <publishTime>04/27/2015 14:01:29</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>04/01/2015 11:14:22</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>04/01/2015 11:14:21</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>04/01/2015 11:14:22</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>04/01/2015 11:14:22</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>04/01/2015 11:14:21</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>04/01/2015 11:14:21</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>04/01/2015 11:14:21</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>04/01/2015 11:14:21</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>04/01/2015 11:14:21</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>04/01/2015 11:14:24</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>04/01/2015 11:14:23</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>04/01/2015 11:14:24</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.WebHost.resources.dll">
+      <publishTime>04/01/2015 11:14:24</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>04/01/2015 11:14:23</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>04/01/2015 11:14:23</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>04/01/2015 11:14:23</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>04/01/2015 11:14:23</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>04/01/2015 11:14:23</publishTime>
+    </File>
+    <File Include="css/framework7.css">
+      <publishTime>04/25/2015 10:27:19</publishTime>
+    </File>
+    <File Include="css/framework7.min.css">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="css/framework7.rtl.css">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="css/framework7.rtl.min.css">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="css/framework7.themes.css">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="css/framework7.themes.min.css">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="css/my-app.css">
+      <publishTime>04/24/2015 19:35:48</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/01/2015 11:16:47</publishTime>
+    </File>
+    <File Include="image/2.jpg">
+      <publishTime>04/24/2015 15:06:28</publishTime>
+    </File>
+    <File Include="img/i-f7.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-calendar.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-comment.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-email.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-gender.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-name.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-password.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-settings.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-tel.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-toggle.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="img/i-form-url.png">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="js/framework7.js">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="js/framework7.js.map">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="js/framework7.min.js">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="js/framework7.min.js.map">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="js/jquery.min.js">
+      <publishTime>04/24/2015 14:47:09</publishTime>
+    </File>
+    <File Include="js/my-app.js">
+      <publishTime>04/24/2015 12:00:48</publishTime>
+    </File>
+    <File Include="lib/Com.Chinapalmpay.Component.Log.dll">
+      <publishTime>04/02/2015 13:22:19</publishTime>
+    </File>
+    <File Include="lib/log4net.dll">
+      <publishTime>04/02/2015 13:22:19</publishTime>
+    </File>
+    <File Include="log4net.config">
+      <publishTime>04/30/2015 10:17:49</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/02/2015 15:05:37</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>04/21/2015 13:39:04</publishTime>
+    </File>
+    <File Include="style2.css">
+      <publishTime>04/24/2015 14:38:13</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>04/30/2015 19:50:17</publishTime>
+    </File>
+    <File Include="Views/Home/Tests.cshtml">
+      <publishTime>04/14/2015 17:14:16</publishTime>
+    </File>
+    <File Include="Views/Map/history.cshtml">
+      <publishTime>04/27/2015 10:24:44</publishTime>
+    </File>
+    <File Include="Views/Map/idleStation.cshtml">
+      <publishTime>04/27/2015 10:41:09</publishTime>
+    </File>
+    <File Include="Views/Map/Map.cshtml">
+      <publishTime>04/27/2015 10:07:27</publishTime>
+    </File>
+    <File Include="Views/Map/Map2.cshtml">
+      <publishTime>04/25/2015 16:01:46</publishTime>
+    </File>
+    <File Include="Views/Map/MapDisplay.cshtml">
+      <publishTime>04/24/2015 15:44:12</publishTime>
+    </File>
+    <File Include="Views/Order/CancelOrder.cshtml">
+      <publishTime>04/10/2015 09:59:08</publishTime>
+    </File>
+    <File Include="Views/Order/Create.cshtml">
+      <publishTime>04/08/2015 15:42:51</publishTime>
+    </File>
+    <File Include="Views/Order/Query.cshtml">
+      <publishTime>05/04/2015 13:02:44</publishTime>
+    </File>
+    <File Include="Views/Order/Select.cshtml">
+      <publishTime>04/21/2015 11:53:33</publishTime>
+    </File>
+    <File Include="Views/Order/SelectNum.cshtml">
+      <publishTime>04/17/2015 16:59:36</publishTime>
+    </File>
+    <File Include="Views/Pay/AlipayComplete.cshtml">
+      <publishTime>04/30/2015 19:50:03</publishTime>
+    </File>
+    <File Include="Views/Pay/Recharge.cshtml">
+      <publishTime>04/10/2015 14:30:58</publishTime>
+    </File>
+    <File Include="Views/Piles/Run.cshtml">
+      <publishTime>05/06/2015 19:45:30</publishTime>
+    </File>
+    <File Include="Views/Piles/State.cshtml">
+      <publishTime>05/06/2015 19:50:08</publishTime>
+    </File>
+    <File Include="Views/User/ChangePhoto.cshtml">
+      <publishTime>04/15/2015 15:59:06</publishTime>
+    </File>
+    <File Include="Views/User/ChangeTel.cshtml">
+      <publishTime>04/14/2015 11:55:10</publishTime>
+    </File>
+    <File Include="Views/User/Complete.cshtml">
+      <publishTime>04/13/2015 15:44:45</publishTime>
+    </File>
+    <File Include="Views/User/Login.cshtml">
+      <publishTime>04/07/2015 10:15:25</publishTime>
+    </File>
+    <File Include="Views/User/queryMsg.cshtml">
+      <publishTime>05/04/2015 13:22:21</publishTime>
+    </File>
+    <File Include="Views/User/Register.cshtml">
+      <publishTime>04/23/2015 15:37:23</publishTime>
+    </File>
+    <File Include="Views/User/UpdateUser.cshtml">
+      <publishTime>04/14/2015 14:56:50</publishTime>
+    </File>
+    <File Include="Views/User/UserInfomation.cshtml">
+      <publishTime>04/14/2015 18:06:12</publishTime>
+    </File>
+    <File Include="Views/User/WeChatUserReg.cshtml">
+      <publishTime>05/06/2015 13:50:55</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>04/01/2015 11:16:47</publishTime>
+    </File>
+    <File Include="Views/ZSC/SelectCar.cshtml">
+      <publishTime>04/07/2015 20:03:41</publishTime>
+    </File>
+    <File Include="Views/ZSC/SelectCarById.cshtml">
+      <publishTime>04/21/2015 15:28:53</publishTime>
+    </File>
+    <File Include="Views/ZSC/SelectDistrict.cshtml">
+      <publishTime>04/08/2015 10:40:13</publishTime>
+    </File>
+    <File Include="Views/ZSC/SelectStation.cshtml">
+      <publishTime>04/10/2015 11:30:16</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/08/2015 18:12:09</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,27 @@
+﻿using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.IDAL
+{
+  public  interface IOrderManager
+    {
+        Order Create(Order order);
+        IList<Order> Select(string userid);
+        int SelectNum(string userid);
+        bool cancelOrder(string orderid);
+        Order QueryOrder(string orderId);
+      //视图查询余额
+        int QueryMoney(string id);
+      //增加订单消息
+        Messages AddMsg(Messages msg);
+        Order SelectOrder(string userId,string orderId);
+      //查询扣款履历
+        IList<Recharge> queryRecharge(string userId, string orderId);
+      //修改订单状态为已经使用
+        Order updateStatus(Order order);
+    }
+}

@@ -1,0 +1,46 @@
+﻿2015-04-27 14:07:23,074 [7776] INFO  AppServer-46104728 - The server instance AppServer-46104728 has been started!
+2015-04-27 14:07:33,890 [7776] INFO  AppServer-46104728 - The server instance AppServer-46104728 has been stopped!
+2015-04-27 14:07:57,582 [6184] INFO  AppServer-46104728 - The server instance AppServer-46104728 has been started!
+2015-04-27 14:09:50,104 [7156] INFO  AppServer-46104728 - Session: f0467022-24ad-4459-92f5-78b082c9b57b/127.0.0.1:5971
+A new session connected!
+2015-04-27 14:10:28,819 [5160] INFO  AppServer-46104728 - Session: f0467022-24ad-4459-92f5-78b082c9b57b/127.0.0.1:5971
+This session was closed for ClientClosing!
+2015-04-27 14:11:15,269 [7520] INFO  AppServer-46104728 - Session: 4a3285e4-4773-4ad0-90ce-03bc95b627df/127.0.0.1:5986
+A new session connected!
+2015-04-27 14:25:59,252 [8748] INFO  AppServer-37121646 - The server instance AppServer-37121646 has been started!
+2015-04-27 14:26:32,643 [5752] INFO  AppServer-37121646 - Session: fb40b218-3790-45b0-9c25-28dbfcf748e1/127.0.0.1:6142
+A new session connected!
+2015-04-27 14:28:28,986 [4248] INFO  AppServer-37121646 - The server instance AppServer-37121646 has been started!
+2015-04-27 14:28:47,048 [6960] INFO  AppServer-37121646 - Session: 18971ac5-9635-4c76-9f66-6a57ec3b2b29/127.0.0.1:6172
+A new session connected!
+2015-04-27 14:29:26,518 [5620] INFO  AppServer-37121646 - Session: 18971ac5-9635-4c76-9f66-6a57ec3b2b29/127.0.0.1:6172
+This session was closed for ClientClosing!
+2015-04-27 14:29:40,359 [6960] INFO  AppServer-37121646 - Session: 8e94c031-5c18-4d5f-8f2b-a2f0c1a738c9/127.0.0.1:6180
+A new session connected!
+2015-04-27 14:29:52,379 [5620] INFO  AppServer-37121646 - Session: 8e94c031-5c18-4d5f-8f2b-a2f0c1a738c9/127.0.0.1:6180
+This session was closed for ClientClosing!
+2015-04-27 14:30:04,328 [6960] INFO  AppServer-37121646 - Session: b4675235-747b-4b3e-bf4f-9815fe9fa0e2/127.0.0.1:6187
+A new session connected!
+2015-04-27 14:55:57,523 [8000] INFO  myServer-46104728 - The server instance myServer-46104728 has been started!
+2015-04-27 14:56:29,001 [3296] INFO  myServer-46104728 - Session: 76b9115e-755b-4d8e-be3e-f7fb884b3ae3/127.0.0.1:6540
+A new session connected!
+2015-04-27 18:07:13,269 [2452] INFO  myServer-46104728 - Session: 76b9115e-755b-4d8e-be3e-f7fb884b3ae3/127.0.0.1:6540
+This session was closed for ClientClosing!
+2015-04-27 18:07:35,009 [9500] INFO  myServer-46104728 - The server instance myServer-46104728 has been started!
+2015-04-27 18:07:51,957 [9872] INFO  myServer-46104728 - Session: d63263a4-5504-4ac7-b550-ea25756c3c09/127.0.0.1:8943
+A new session connected!
+2015-04-27 18:07:59,254 [5852] INFO  myServer-46104728 - Session: d63263a4-5504-4ac7-b550-ea25756c3c09/127.0.0.1:8943
+This session was closed for ClientClosing!
+2015-04-27 18:09:00,251 [9872] INFO  myServer-46104728 - Session: c7017618-49ee-45e4-b8a9-46e9440c45c3/127.0.0.1:8947
+A new session connected!
+2015-04-27 18:13:56,845 [7472] INFO  myServer-46104728 - The server instance myServer-46104728 has been started!
+2015-04-27 18:14:03,288 [9444] INFO  myServer-46104728 - Session: 59ff56d8-1c93-4a0c-9326-2168146376bc/127.0.0.1:9065
+A new session connected!
+2015-04-27 18:18:17,336 [5336] INFO  myServer-46104728 - The server instance myServer-46104728 has been started!
+2015-04-27 18:18:44,866 [2740] INFO  myServer-46104728 - Session: bd225464-c52e-4614-8109-a95760e6fa60/127.0.0.1:9123
+A new session connected!
+2015-04-27 18:21:42,914 [2740] INFO  myServer-46104728 - Session: bfb3048f-7929-4882-a403-ff7904fbab9d/127.0.0.1:9169
+A new session connected!
+2015-04-27 18:26:25,610 [9704] INFO  myServer-46104728 - The server instance myServer-46104728 has been started!
+2015-04-27 18:26:32,441 [9984] INFO  myServer-46104728 - Session: f59d7361-cd1b-46a3-bc33-3e4bcab5fb74/127.0.0.1:9217
+A new session connected!

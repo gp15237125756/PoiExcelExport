@@ -1,0 +1,17 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.UserLogin
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+
+    @Html.LabelFor(o => o.LoginID)
+    @Html.TextBoxFor(o => o.LoginID)
+
+    <br />
+    @Html.LabelFor(o => o.LoginPwd)
+    @Html.TextBoxFor(o => o.LoginPwd)
+    <input type="submit" value="登陆" />
+}

@@ -1,0 +1,426 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System.Data.Linq;
+using System.Data.SqlClient;
+using Com.ChinaPalmPay.Platform.RentCar.Common;
+using System.Collections;
+using Com.Chinapalmpay.Component.Log;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.SQLServer
+{
+    public class OrderOperations : IOrderManager
+    {
+        public Order Create(Order order)
+        {
+            if (order != null)
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Order> T_order = db.GetTable<Order>();
+                    T_order.InsertOnSubmit(order);
+                    db.SubmitChanges();
+                    return order;
+                }
+            }
+
+            return null;
+        }
+        //根据用户id订单查询
+        public IList<Order> Select(string userId)
+        {
+            List<Order> ret = new List<Order>();
+            if (!String.IsNullOrWhiteSpace(userId))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<UserAuthorization> UserAuthTable = db.GetTable<UserAuthorization>();
+                    Table<Order> T_order = db.GetTable<Order>();
+                    var tmp_list = (from m in T_order
+                                    join n in UserAuthTable on m.ID equals n.OrderId
+                                    where n.UserId == userId && n.Status != (int)Commons.Authorized.UNAUTHORIZE
+                                    select new OrderEx
+                                    {
+                                        CarID = m.CarID,
+                                        CarNo = m.CarNo,
+                                        CarType = m.CarType,
+                                        Creater = m.Creater,
+                                        CreateTime = m.CreateTime,
+                                        ID = m.ID,
+                                        Pubkey = m.Pubkey,
+                                        SecKey = m.SecKey,
+                                        State = m.State,
+                                        TerminalId = m.TerminalId,
+                                        Time = m.Time,
+                                        UserID = m.UserID,
+                                        AuthStatus = n.Status.ToString(),
+                                        AuthUserID = n.UserId,
+                                        AuthDate = n.Date,
+                                        CanAuth = false
+                                    }).ToList();
+
+                    //1.根据用户Id查询全部授权履历
+                    //2.遍历授权履历查询全部订单，并返回订单
+
+
+
+                    foreach (var item in tmp_list)
+                    {
+                        UserAuthorization ua = (from m in UserAuthTable where m.OrderId == item.ID orderby m.Date descending select m).FirstOrDefault();
+                        if (ua.Status == (int)Commons.Authorized.BASED || ua.Status == (int)Commons.Authorized.UNAUTHORIZE)
+                        {
+                            item.CanAuth = true;
+                        }
+
+                        Order order = new Order()
+                        {
+                            CarID = item.CarID,
+                            CarNo = item.CarNo,
+                            CarType = item.CarType,
+                            Creater = item.Creater,
+                            CreateTime = item.CreateTime,
+                            ID = item.ID,
+                            Pubkey = item.Pubkey,
+                            SecKey = item.SecKey,
+                            State = item.State,
+                            TerminalId = item.TerminalId,
+                            Time = item.Time,
+                            UserID = item.UserID,
+                            AuthStatus = item.AuthStatus.ToString(),
+                            AuthUserID = item.AuthUserID,
+                            AuthDate = item.AuthDate,
+                            CanAuth = item.CanAuth
+                        };
+
+
+                        ret.Add(order);
+
+                    }
+                }
+
+
+            }
+            return ret;
+        }
+        //订单撤销
+        //return  true:成功  false：失败
+        public bool cancelOrder(string orderid)
+        {
+            if (!String.IsNullOrWhiteSpace(orderid))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Order> T_order = db.GetTable<Order>();
+                    Table<OrderLog> T_orderLog = db.GetTable<OrderLog>();
+                    Table<CarStat> carStatTable = db.GetTable<CarStat>();
+                    IEnumerable<OrderLog> orders = T_orderLog.Where<OrderLog>(o => o.OrderID.Equals(orderid));
+                    IList<UserAuthorization> list = null;
+                    Table<UserAuthorization> AuthTable = db.GetTable<UserAuthorization>();
+                    if (orders != null && orders.Count() > 0)
+                    {
+                        return false;
+                    }
+                    //如果当前时间可以取消，修改该订单状态
+                    Order order = T_order.FirstOrDefault<Order>(x => x.ID.Equals(orderid));
+                    // DateTime t1 = DateTime.ParseExact(order.Time,"yyyy-MM-dd HH:mm:ss",System.Globalization.CultureInfo.CurrentCulture);
+                    if (order != null && order.State == (int)Commons.Type.BOOK)
+                    {
+                        CarStat carStat = (from m in carStatTable where m.CarID == order.CarID orderby m.CreateTime descending select m).FirstOrDefault();
+                        if (carStat.stat == (int)Commons.CatStatus.book)
+                        {
+                            order.State = (int)Commons.Type.CANCEL;
+                            CarStat stat = new CarStat();
+                            stat.id = Guid.NewGuid().ToString().Replace("-", "");
+                            stat.stat = (int)Commons.CatStatus.idle;
+                            stat.UserID = order.UserID;
+                            stat.CarID = order.CarID;
+                            stat.PilesID = carStat.PilesID;
+                            stat.CreateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                            carStatTable.InsertOnSubmit(stat);
+
+                            //收回授权状态
+                            list = (from c in AuthTable
+                                    where c.OrderId.Equals(orderid)
+                                        && c.Status == (int)Commons.Authorized.AUTHORIZE
+                                    select c).ToList();
+                            foreach (UserAuthorization item in list)
+                            {
+                                item.Status = (int)Commons.Authorized.UNAUTHORIZE;
+                            }
+                            db.SubmitChanges();
+                            return true;
+
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+
+        public Order QueryOrder(string orderId)
+        {
+            if (!String.IsNullOrWhiteSpace(orderId))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Order> T_order = db.GetTable<Order>();
+                    Order order = T_order.FirstOrDefault<Order>(x => x.ID.Equals(orderId));
+                    if (order != null)
+                    {
+                        return order;
+                    }
+                }
+
+            }
+            return null;
+        }
+
+
+        public int SelectNum(string userid)
+        {
+            if (!String.IsNullOrWhiteSpace(userid))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Order> T_order = db.GetTable<Order>();
+                    int num = T_order.Where(o => o.UserID.Equals(userid)).ToList().Count();
+                    return num;
+                }
+            }
+            return 0;
+        }
+
+
+        public int QueryMoney(string userid)
+        {
+            if (!String.IsNullOrWhiteSpace(userid))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<ViewRentCarLog> v = db.GetTable<ViewRentCarLog>();
+                    var query = from c in v
+                                where c.UserId == userid
+                                select c.TotalAmount;
+                    if (query != null && query.Count() > 0)
+                    {
+                        int money = query.FirstOrDefault();
+                        return money / 100;
+                    }
+                }
+            }
+            return 0;
+        }
+
+
+        public Messages AddMsg(Messages msg)
+        {
+            if (msg != null)
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Messages> T_Msg = db.GetTable<Messages>();
+                    T_Msg.InsertOnSubmit(msg);
+                    db.SubmitChanges();
+                    return msg;
+                }
+            }
+            return null;
+        }
+
+
+        public Order SelectOrder(string userId, string orderId)
+        {
+            LogerHelper.DefaultInfo(string.Format("SelectOrder:{0}---{1}", userId, orderId));
+            if (!String.IsNullOrWhiteSpace(userId) && !String.IsNullOrWhiteSpace(orderId))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Order> T_Order = db.GetTable<Order>();
+                    //Order orders = (from c in T_Order where c.UserID == userId && c.ID == orderId select c) as Order;
+                    Order orders = T_Order.FirstOrDefault<Order>(x => x.UserID.Equals(userId) && x.ID.Equals(orderId));
+                    if (orders != null)
+                    {
+                        LogerHelper.DefaultInfo(string.Format("SelectOrder11:{0}", orders.ID));
+                        return orders;
+                    }
+                }
+
+            }
+
+            return null;
+        }
+
+
+        public IList<Recharge> queryRecharge(string userId, string orderId)
+        {
+            IList<Recharge> list = null;
+            if (!String.IsNullOrWhiteSpace(userId) && !String.IsNullOrWhiteSpace(orderId))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Recharge> T_REC = db.GetTable<Recharge>();
+                    list = (from c in T_REC where c.UserID.Equals(userId) && c.OrderID.Equals(orderId) && c.Type == (int)Commons.PayType.CONSUME select c).ToList() as IList<Recharge>;
+                    return list;
+                }
+
+            }
+            return new List<Recharge>();
+        }
+
+
+        public Order updateStatus(Order order)
+        {
+
+            if (order != null)
+            {
+
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Order> T_Order = db.GetTable<Order>();
+                    //Order orders = (from c in T_Order where c.UserID == userId && c.ID == orderId select c) as Order;
+                    Order orders = T_Order.FirstOrDefault<Order>(x => x.ID.Equals(order.ID));
+                    LogerHelper.debug(orders.UserID);
+                    if (orders != null)
+                    {
+
+                        Order order1 = T_Order.FirstOrDefault<Order>(x => x.ID.Equals(order.ID));
+                        order1.State = (int)Commons.Type.USING;
+                        db.SubmitChanges();
+                        LogerHelper.debug("还车修改订单状态成功！" + orders.State);
+                        if (orders != null)
+                        {
+                            return orders;
+                        }
+                    }
+                    else
+                    {
+                        LogerHelper.debug("还车修改订单状态失败！");
+                    }
+                }
+
+            }
+            else
+            {
+                LogerHelper.debug("输入order为空");
+            }
+
+            return null;
+        }
+
+
+        public UserAuthorization Add(UserAuthorization auth)
+        {
+            if (auth != null)
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<UserAuthorization> AuthTable = db.GetTable<UserAuthorization>();
+                    AuthTable.InsertOnSubmit(auth);
+                    db.SubmitChanges();
+                    return auth;
+                }
+
+            }
+            return null;
+        }
+
+
+        public Order queryValidOrderById(string userId)
+        {
+            if (!String.IsNullOrWhiteSpace(userId))
+            {
+                IList<Order> ords = new List<Order>();
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Order> OrderTable = db.GetTable<Order>();
+                    ords = OrderTable.Where(o => o.UserID.Equals(userId)).ToList();
+                    if (ords.Count() > 0)
+                    {
+                        foreach (var k in ords)
+                        {
+                            if (k.State == (int)Commons.Type.BOOK)
+                            {
+                                return k;
+                            }
+                        }
+                    }
+                }
+
+            }
+            return null;
+        }
+
+        //return  true--可以授权 false--不可以授权
+        public bool AuthorizeOrNot(string orderId)
+        {
+            if (!String.IsNullOrWhiteSpace(orderId))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<UserAuthorization> AuthTable = db.GetTable<UserAuthorization>();
+                    UserAuthorization aut = (from c in AuthTable
+                                             where c.OrderId == orderId && c.Status == (int)Commons.Authorized.AUTHORIZE
+                                             orderby c.Date descending
+                                             select c).FirstOrDefault();
+                    if (aut != null)
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+
+        public bool cancelAuth(string userId, string OrderId)
+        {
+            if (!String.IsNullOrWhiteSpace(userId) && !String.IsNullOrWhiteSpace(OrderId))
+            {
+                using (DataContext db = new SqlserverContext())
+                {
+                    IList<UserAuthorization> list = null;
+                    Table<UserAuthorization> AuthTable = db.GetTable<UserAuthorization>();
+                    list = (from c in AuthTable
+                            where c.OrderId.Equals(OrderId)
+                                && c.Status == (int)Commons.Authorized.AUTHORIZE
+                            select c).ToList();
+                    foreach (UserAuthorization item in list)
+                    {
+                        item.Status = (int)Commons.Authorized.UNAUTHORIZE;
+                    }
+                    db.SubmitChanges();
+                }
+                return true;
+            }
+            return false;
+        }
+
+
+        public bool updateToOpenDoor(string userId)
+        {//修改Order状态为开门
+            using (DataContext db = new SqlserverContext())
+            {
+                Table<Order> orderTable = db.GetTable<Order>();
+                Table<UserAuthorization> AuthTable = db.GetTable<UserAuthorization>();
+                UserAuthorization auth = AuthTable.Where(o => o.UserId.Equals(userId)).OrderByDescending(p => p.Date).FirstOrDefault();
+                if (auth.Status == (int)Commons.Authorized.BASED && auth.Status == (int)Commons.Authorized.AUTHORIZE)
+                {
+                    Order order = orderTable.Where(x => x.ID.Equals(auth.OrderId)).FirstOrDefault();
+                    if (order != null)
+                    {
+                        order.State = (int)Commons.Type.OPENDOOR;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+}

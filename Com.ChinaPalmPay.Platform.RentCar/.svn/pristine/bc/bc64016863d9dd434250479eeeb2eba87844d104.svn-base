@@ -1,0 +1,145 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.Common
+{
+    public class Commons
+    {
+        //授权定义
+        public enum Authorized
+        {//生成订单默认值
+            BASED=1,
+            //授权
+            AUTHORIZE=2,
+            //取消授权
+            UNAUTHORIZE = 3
+        }
+        public enum cancelAuthorized
+        {
+                        
+
+        }
+        //短信验证结果
+        public const int SUCCESS = 200;
+        public const int REFUSE_TO_OPERATE = 512;
+        public const int APPKEY_NOT_EXIST = 513;
+        public const int INSUFFICIENT_PERMISSIONS = 514;
+        public const int INTERNAL_SERVER_ERROR = 515;
+        public const int MISSING_PARAMETER = 517;
+        public const int PHONENUMBER_INCORRECT_FORMAT = 518;
+        public const int SEND_NUMBER_EXCEEDS_LIMIT = 519;
+        public const int INVALID_VERIFYNO = 520;
+        public const int NO_SUFFICIENT_FUND = 526;
+        //支付宝交易状态
+        public const string wait = "WAIT_BUYER_PAY";
+        public const string closed = "TRADE_CLOSED";
+        public const string success = "TRADE_SUCCESS";
+        public const string finished = "TRADE_FINISHED";
+        //银联交易应答
+        public const string CUP_SUCCESS ="01";
+        public const string CUP_FAIL = "01";
+        //用户组类型
+        //public enum UserGroupType
+        //{
+        //    NORMAL_USER = 1,
+        //    SYSTEM = 2
+        //}
+        //订单操作者
+        public enum orderHandler
+        {
+            USER = 1,
+            SYSTEM = 2,
+        }
+        //用户认证状态
+        public enum Authentication
+        {
+            APPLY = 1,
+            Verified = 2,
+            Denied = 3
+        }
+        public enum UserType
+        {//注册类型
+            app = 1,
+            wechat = 2,
+            other = 3
+        }
+        public enum Type
+        {
+            //订单状态:已预约/已取消/超时无效/已取车/已还车/已支付
+            //已预约,此时可以取消
+            BOOK = 1,
+            //已取消
+            CANCEL = 2,
+            //已失效（超过订单生成时的取车时间）
+            TIMEOUT = 3,
+            //已使用（完成付款）
+            USING = 4,
+            OPENDOOR=5,
+            GETCAR = 6,
+            RETURNCAR = 7,
+            COMPLETEPAY = 8
+        }
+        public enum CatStatus
+        {
+            idle = 1,
+            book = 2,
+            run=3,
+            broken = 4,
+            unavaiable = 5
+
+        }
+        //订单类型
+        public enum OrderStatus
+        {
+            //订单状态
+            RENT_CAR = 1,
+            RETURN_CAR = 2,
+            BOOK_RETURN_CAR = 3,
+        }
+        //支付类型
+        public enum PayType
+        {
+            //订单状态
+            //充值
+            //消费
+            //现金支付
+            RECHARGE = 1,
+            CONSUME = 2,
+            PAYMENT = 3,
+            OTHERCONSUME = 4
+        }
+        public enum LogEvent
+        {
+            Regist = 1,
+            Login = 2,
+            Rent = 3,
+            Return = 4,
+            BookReturn = 5,
+        }
+        //用户组类型
+        public enum UserGroupType
+        {
+            NORMAL_USER = 1,
+            COMPANY_USER = 2,
+            VIP_USER = 3
+        }
+        //用户类型
+        //public const string NORMAL_USER = "01";
+        //public const string COMPANY_USER = "02";
+        //public const string VIP_USER = "03";
+        //系统消息推送
+        public const string orderMsg1 = "尊敬的用户你好！本条信息为系统确认消息,欢迎使用曼德拉租车服务.您的车牌号为:";
+        public const string orderMsg2 = "预定的汽车，型号为:";
+        public const string orderMsg3 = ",车牌号为:";
+        public const string orderMsg4 = ",请您安全驾驶.请在车辆电量范围内驾驶并及时充电，以防给您带来不便.";
+        public const string systemMsg = "尊敬的用户你好！本条信息为服务消息.喝酒不开车，开车不喝酒.";
+        public enum MessagesType
+        {
+           sysType =1,
+           serviceType =2
+        }
+    }
+}

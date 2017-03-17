@@ -1,0 +1,184 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory", "Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory\Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory.csproj", "{15081FB6-3024-46B4-9B6C-95591A3C801C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.DALFactory", "Com.ChinaPalmPay.Platform.RentCar.DALFactory\Com.ChinaPalmPay.Platform.RentCar.DALFactory.csproj", "{28B12CD7-FF7F-4D9A-8001-EE559B5E95E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.DBUtility", "Com.ChinaPalmPay.Platform.RentCar.DBUtility\Com.ChinaPalmPay.Platform.RentCar.DBUtility.csproj", "{4F260220-8F2B-4F18-A196-E063975D1810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.IBllStrategy", "Com.ChinaPalmPay.Platform.RentCar.IBllStrategy\Com.ChinaPalmPay.Platform.RentCar.IBllStrategy.csproj", "{170EBBD8-D6A6-4602-BE2E-4FFB4AF404F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.ICacheDependency", "Com.ChinaPalmPay.Platform.RentCar.ICacheDependency\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.csproj", "{1C0E6F0C-6E0B-41B6-A7BD-C8BD353B7407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.IDAL", "Com.ChinaPalmPay.Platform.RentCar.IDAL\Com.ChinaPalmPay.Platform.RentCar.IDAL.csproj", "{F4FB631B-8EC9-4D9F-83BB-DCE8DCEDB9A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.IMessaging", "Com.ChinaPalmPay.Platform.RentCar.IMessaging\Com.ChinaPalmPay.Platform.RentCar.IMessaging.csproj", "{00E037FF-7338-4928-94C0-3CEA14DDF48F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.IProfileDAL", "Com.ChinaPalmPay.Platform.RentCar.IProfileDAL\Com.ChinaPalmPay.Platform.RentCar.IProfileDAL.csproj", "{738538C0-C6EE-49E2-B45C-1D11AD9293CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.Membership", "Com.ChinaPalmPay.Platform.RentCar.Membership\Com.ChinaPalmPay.Platform.RentCar.Membership.csproj", "{9A1CAB88-FFE0-4F06-BFA6-13578F1DAB7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging", "Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging\Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging.csproj", "{ECDEACF5-BC62-4C2F-B8EC-2B112EAC4A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.Profile", "Com.ChinaPalmPay.Platform.RentCar.Profile\Com.ChinaPalmPay.Platform.RentCar.Profile.csproj", "{91892634-C201-4B8F-B340-E973ACC9C8B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.ProfileFactory", "Com.ChinaPalmPay.Platform.RentCar.ProfileFactory\Com.ChinaPalmPay.Platform.RentCar.ProfileFactory.csproj", "{9B3FA548-F7AC-40F9-978E-A84AB0594680}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL", "Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL\Com.ChinaPalmPay.Platform.RentCar.SQLProfileDAL.csproj", "{190B3D31-019F-4425-B8A5-1F4126B330A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.SQLServer", "Com.ChinaPalmPay.Platform.RentCar.SQLServer\Com.ChinaPalmPay.Platform.RentCar.SQLServer.csproj", "{5AFE77B6-2F76-45BF-A604-6D3A7CDD6A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.CacheDependency", "Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.csproj", "{5755E8C7-F595-4202-8AA8-7B9B048F8338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.Model", "Com.ChinaPalmPay.Platform.RentCar.Model\Com.ChinaPalmPay.Platform.RentCar.Model.csproj", "{2BF57CED-16B7-42D3-A14C-24BA162FA766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.MessagingFactory", "Com.ChinaPalmPay.Platform.RentCar.MessagingFactory\Com.ChinaPalmPay.Platform.RentCar.MessagingFactory.csproj", "{AA2AAB40-75AE-4AFB-A12D-1976754B6AF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Chinapalmpay.Platform.RentCars", "com.chinapalmpay.platform.RentCars\Com.Chinapalmpay.Platform.RentCars.csproj", "{FF174B43-46A8-4AD0-9DFB-793E618747A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.chinapalmpay.platform.RentCars.Tests", "com.chinapalmpay.platform.RentCars.Tests\com.chinapalmpay.platform.RentCars.Tests.csproj", "{6C3608B6-E012-498E-B942-1E4D3A69EA37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.DataProx", "Com.ChinaPalmPay.Platform.RentCar.DataProx\Com.ChinaPalmPay.Platform.RentCar.DataProx.csproj", "{C2E76B74-A64D-45AB-9CFD-E157FEC953EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.IBLLS", "Com.ChinaPalmPay.Platform.RentCar.IBLLS\Com.ChinaPalmPay.Platform.RentCar.IBLLS.csproj", "{E1136B68-4644-4C95-8E71-441D9369AF79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.BLLFacs", "Com.ChinaPalmPay.Platform.RentCar.BLLFacs\Com.ChinaPalmPay.Platform.RentCar.BLLFacs.csproj", "{6FA17442-3A6F-4CD4-847F-682F1EE1F0BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.Common", "Com.ChinaPalmPay.Platform.RentCar.Common\Com.ChinaPalmPay.Platform.RentCar.Common.csproj", "{01F4B52C-B1F1-48EB-847A-1F23C075F2E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHander", "DBHander\DBHander.csproj", "{B1358042-B5BE-48FB-B82C-FAB4A25CAF21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "TEST\TEST.csproj", "{A6659AB1-CCFB-4619-8B13-057193DFB469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSocketServer", "SuperSocketServer\SuperSocketServer.csproj", "{D36AFE1F-B356-43CB-904F-A6B2CCE1B88E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPListener", "TCPListener\TCPListener.csproj", "{95ACAB29-A5D5-4E6C-8DA1-3F191E0C6687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.ChinaPalmPay.Platform.RentCar.BLL", "Com.ChinaPalmPay.Platform.RentCar.BLL\Com.ChinaPalmPay.Platform.RentCar.BLL.csproj", "{B0ADE6E2-886F-4B00-98FE-E31664081C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15081FB6-3024-46B4-9B6C-95591A3C801C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15081FB6-3024-46B4-9B6C-95591A3C801C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15081FB6-3024-46B4-9B6C-95591A3C801C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15081FB6-3024-46B4-9B6C-95591A3C801C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B12CD7-FF7F-4D9A-8001-EE559B5E95E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B12CD7-FF7F-4D9A-8001-EE559B5E95E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B12CD7-FF7F-4D9A-8001-EE559B5E95E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B12CD7-FF7F-4D9A-8001-EE559B5E95E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F260220-8F2B-4F18-A196-E063975D1810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F260220-8F2B-4F18-A196-E063975D1810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F260220-8F2B-4F18-A196-E063975D1810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F260220-8F2B-4F18-A196-E063975D1810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{170EBBD8-D6A6-4602-BE2E-4FFB4AF404F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170EBBD8-D6A6-4602-BE2E-4FFB4AF404F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170EBBD8-D6A6-4602-BE2E-4FFB4AF404F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170EBBD8-D6A6-4602-BE2E-4FFB4AF404F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0E6F0C-6E0B-41B6-A7BD-C8BD353B7407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0E6F0C-6E0B-41B6-A7BD-C8BD353B7407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0E6F0C-6E0B-41B6-A7BD-C8BD353B7407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0E6F0C-6E0B-41B6-A7BD-C8BD353B7407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4FB631B-8EC9-4D9F-83BB-DCE8DCEDB9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4FB631B-8EC9-4D9F-83BB-DCE8DCEDB9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4FB631B-8EC9-4D9F-83BB-DCE8DCEDB9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4FB631B-8EC9-4D9F-83BB-DCE8DCEDB9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00E037FF-7338-4928-94C0-3CEA14DDF48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00E037FF-7338-4928-94C0-3CEA14DDF48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00E037FF-7338-4928-94C0-3CEA14DDF48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00E037FF-7338-4928-94C0-3CEA14DDF48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{738538C0-C6EE-49E2-B45C-1D11AD9293CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{738538C0-C6EE-49E2-B45C-1D11AD9293CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{738538C0-C6EE-49E2-B45C-1D11AD9293CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{738538C0-C6EE-49E2-B45C-1D11AD9293CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1CAB88-FFE0-4F06-BFA6-13578F1DAB7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1CAB88-FFE0-4F06-BFA6-13578F1DAB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1CAB88-FFE0-4F06-BFA6-13578F1DAB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1CAB88-FFE0-4F06-BFA6-13578F1DAB7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDEACF5-BC62-4C2F-B8EC-2B112EAC4A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDEACF5-BC62-4C2F-B8EC-2B112EAC4A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDEACF5-BC62-4C2F-B8EC-2B112EAC4A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDEACF5-BC62-4C2F-B8EC-2B112EAC4A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91892634-C201-4B8F-B340-E973ACC9C8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91892634-C201-4B8F-B340-E973ACC9C8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91892634-C201-4B8F-B340-E973ACC9C8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91892634-C201-4B8F-B340-E973ACC9C8B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3FA548-F7AC-40F9-978E-A84AB0594680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3FA548-F7AC-40F9-978E-A84AB0594680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3FA548-F7AC-40F9-978E-A84AB0594680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3FA548-F7AC-40F9-978E-A84AB0594680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{190B3D31-019F-4425-B8A5-1F4126B330A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190B3D31-019F-4425-B8A5-1F4126B330A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190B3D31-019F-4425-B8A5-1F4126B330A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190B3D31-019F-4425-B8A5-1F4126B330A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFE77B6-2F76-45BF-A604-6D3A7CDD6A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFE77B6-2F76-45BF-A604-6D3A7CDD6A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFE77B6-2F76-45BF-A604-6D3A7CDD6A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFE77B6-2F76-45BF-A604-6D3A7CDD6A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5755E8C7-F595-4202-8AA8-7B9B048F8338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5755E8C7-F595-4202-8AA8-7B9B048F8338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5755E8C7-F595-4202-8AA8-7B9B048F8338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5755E8C7-F595-4202-8AA8-7B9B048F8338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF57CED-16B7-42D3-A14C-24BA162FA766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF57CED-16B7-42D3-A14C-24BA162FA766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF57CED-16B7-42D3-A14C-24BA162FA766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF57CED-16B7-42D3-A14C-24BA162FA766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2AAB40-75AE-4AFB-A12D-1976754B6AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA2AAB40-75AE-4AFB-A12D-1976754B6AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA2AAB40-75AE-4AFB-A12D-1976754B6AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA2AAB40-75AE-4AFB-A12D-1976754B6AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF174B43-46A8-4AD0-9DFB-793E618747A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF174B43-46A8-4AD0-9DFB-793E618747A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF174B43-46A8-4AD0-9DFB-793E618747A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF174B43-46A8-4AD0-9DFB-793E618747A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C3608B6-E012-498E-B942-1E4D3A69EA37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C3608B6-E012-498E-B942-1E4D3A69EA37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C3608B6-E012-498E-B942-1E4D3A69EA37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C3608B6-E012-498E-B942-1E4D3A69EA37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E76B74-A64D-45AB-9CFD-E157FEC953EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E76B74-A64D-45AB-9CFD-E157FEC953EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E76B74-A64D-45AB-9CFD-E157FEC953EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E76B74-A64D-45AB-9CFD-E157FEC953EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1136B68-4644-4C95-8E71-441D9369AF79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1136B68-4644-4C95-8E71-441D9369AF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1136B68-4644-4C95-8E71-441D9369AF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1136B68-4644-4C95-8E71-441D9369AF79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA17442-3A6F-4CD4-847F-682F1EE1F0BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA17442-3A6F-4CD4-847F-682F1EE1F0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA17442-3A6F-4CD4-847F-682F1EE1F0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA17442-3A6F-4CD4-847F-682F1EE1F0BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F4B52C-B1F1-48EB-847A-1F23C075F2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F4B52C-B1F1-48EB-847A-1F23C075F2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F4B52C-B1F1-48EB-847A-1F23C075F2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F4B52C-B1F1-48EB-847A-1F23C075F2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1358042-B5BE-48FB-B82C-FAB4A25CAF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1358042-B5BE-48FB-B82C-FAB4A25CAF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1358042-B5BE-48FB-B82C-FAB4A25CAF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1358042-B5BE-48FB-B82C-FAB4A25CAF21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6659AB1-CCFB-4619-8B13-057193DFB469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6659AB1-CCFB-4619-8B13-057193DFB469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6659AB1-CCFB-4619-8B13-057193DFB469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6659AB1-CCFB-4619-8B13-057193DFB469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D36AFE1F-B356-43CB-904F-A6B2CCE1B88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D36AFE1F-B356-43CB-904F-A6B2CCE1B88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D36AFE1F-B356-43CB-904F-A6B2CCE1B88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D36AFE1F-B356-43CB-904F-A6B2CCE1B88E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95ACAB29-A5D5-4E6C-8DA1-3F191E0C6687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95ACAB29-A5D5-4E6C-8DA1-3F191E0C6687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95ACAB29-A5D5-4E6C-8DA1-3F191E0C6687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95ACAB29-A5D5-4E6C-8DA1-3F191E0C6687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0ADE6E2-886F-4B00-98FE-E31664081C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0ADE6E2-886F-4B00-98FE-E31664081C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0ADE6E2-886F-4B00-98FE-E31664081C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0ADE6E2-886F-4B00-98FE-E31664081C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

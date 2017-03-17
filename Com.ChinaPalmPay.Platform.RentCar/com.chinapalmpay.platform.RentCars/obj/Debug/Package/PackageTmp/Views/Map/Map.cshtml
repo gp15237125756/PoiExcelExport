@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>RentCar</title>
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script> -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gn1zAw2nzhQTQM29GuMeXQLC"></script>
+    <link href="style2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/changeMore.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript">
+        var j = 0, step = 20;//定义起始点i,point为坐标数组，step每次发送个数
+        var points, p;
+        var dst = new Array();
+        var bd = new Array();
+        var map;
+        function getAttr() {
+            var p = marker.getPosition();       //获取marker的位置
+            alert("marker的位置是" + p.lng + "," + p.lat);
+        }
+        //map.centerAndZoom(new BMap.Point(116.404, 39.915),11);
+        function overlay(map, point) {
+            var marker = new BMap.Marker(point);
+            map.addOverlay(marker);   //增加覆盖物
+            marker.addEventListener("click", getAttr);
+        }
+        //清除覆盖物
+        function remove_overlay() {
+            map.clearOverlays();
+        }
+        //var myDis = new BMapLib.DistanceTool(map);
+        //map.addEventListener("load", function () {
+        //    myDis.open();  //开启鼠标测距
+        //    //myDis.close();  //关闭鼠标测距大
+        //});
+            $(function(){
+                map = new BMap.Map("container");
+                map.centerAndZoom("苏州", 11);
+                map.enableScrollWheelZoom();
+                map.setCurrentCity("苏州");
+                map.addControl(new BMap.MapTypeControl());
+                var top_left_control = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_TOP_LEFT });// 左上角，添加比例尺
+                var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+                var top_right_navigation = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL }); //右上角，仅包含平移和缩放按钮
+                /*缩放控件type有四种类型:
+                BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+                //添加控件和比例尺
+                map.addControl(top_left_control);
+                map.addControl(top_left_navigation);
+                map.addControl(top_right_navigation);
+
+                var i;
+                var markers = [];
+                var intervals = setInterval("single()", 5000);
+                // var intervel=setInterval(
+                //, 1000);
+            });
+            function single() {
+                $.get("/Map/MapDisplay?TermId=@ViewData["TermId"]", null, function (jsonObj) {
+                    if (jsonObj != null) {
+                        $("#id").text(@ViewData["TermId"]);
+                        $("#long").text(jsonObj.Longitude / Math.pow(10, 7) + "度");
+                        $("#lat").text(jsonObj.Latitude / Math.pow(10, 7) + "度");
+                        $("#power").text(jsonObj.Power+"C");
+                        $("#voltage").text(jsonObj.Voltage+"V");
+                        $("#current").text(jsonObj.Current+"A");
+                        $("#speed").text(jsonObj.Speed+"米/S");
+                        $("#mile").text(jsonObj.Mile);
+                        points = new Array();
+                        points.push(new BMap.Point(jsonObj.Longitude / Math.pow(10, 7), jsonObj.Latitude / Math.pow(10, 7)));
+                        var point = points.slice(j, step);
+                        if (point.length>0){
+                            BMap.Convertor.transMore(point, 0, callback);
+                        }
+                    }
+                });
+            }
+
+            //编写自定义函数,创建标注
+            function callback(xyResults) {
+                //连接多个点成折线
+                var xyResult = null;
+                for (var index in xyResults) {
+                    xyResult = xyResults[index];
+                    if (xyResult.error != 0) { continue; }//出错就直接返回;
+                    bd.push(new BMap.Point(xyResult.x, xyResult.y));
+                }
+
+                for (var k = 0; k < bd.length; k++) {
+                    dst.push(bd[k]);
+                }
+
+                bd.length = 0;
+                j = j + step;
+                //超过数量则直接return
+                if (j > points.length) {
+                    j = 0;
+                    //var maps = new BMap.Map("container");
+                    remove_overlay();
+                    map.addControl(new BMap.MapTypeControl());
+                    map.centerAndZoom(dst[0], 10);
+                    map.enableScrollWheelZoom();
+                    var top_left_control = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_TOP_LEFT });// 左上角，添加比例尺
+                    var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+                    var top_right_navigation = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL }); //右上角，仅包含平移和缩放按钮
+                    /*缩放控件type有四种类型:
+                    BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+                    //添加控件和比例尺
+                    map.addControl(top_left_control);
+                    map.addControl(top_left_navigation);
+                    map.addControl(top_right_navigation);
+                    map.setViewport(dst);
+                    for (var m = 0; m < dst.length; m++) {
+                        overlay(map, dst[m]);
+                    }
+                    return;
+                }
+                //没有超过坐标数，继续转换
+                var point = points.slice(j, j + step);//取出本次要发送的坐标数组
+                BMap.Convertor.transMore(point, 0, callback);
+            }
+        </script>
+</head>
+
+<body style="background-image:url(/image/2.jpg)">
+    <div class="page">
+        <!--页面头部分 ：开始-->
+        <div id="header" style="line-height:50px;font-size:32px;
+        font-family:Helvetica Neue; color:#FFF; font-weight:bold; overflow:hidden">
+            <div style="float:left">
+                <a>RentCarMap</a>
+            </div>
+        </div>
+        <!--页面头部分：结束 -->
+        <!--页面主体部分：开始-->
+        <div style="overflow:hidden; width:1230px; height:500px ">
+            <div style="width:210px; height:80%; float:right; ">
+                <div>
+                    车牌&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span >苏A2451</span><br /><br /><br />
+                    终端ID&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="id"> </span><br /><br /><br />
+                    经度&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="long"> </span><br /><br /><br />
+                    纬度&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="lat"> </span><br /><br /><br />
+                    电量&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="power"> </span><br /><br /><br />
+                    电压&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="voltage"> </span><br /><br /><br />
+                    @*电流&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="current"> </span><br />*@
+                    车速&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="speed"> </span><br />
+                    @*公里&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="mile"> </span><br />*@
+                </div>
+            </div>
+            <div style="width:80%;height:90%;border:1px solid gray; background-color:#FFF;
+        float:left;" id="container"></div>
+        </div>
+    </div>
+    <div id="footer" align="center">苏州曼德拉网络科技有限公司版权所有©2015</div>
+</body>
+</html>

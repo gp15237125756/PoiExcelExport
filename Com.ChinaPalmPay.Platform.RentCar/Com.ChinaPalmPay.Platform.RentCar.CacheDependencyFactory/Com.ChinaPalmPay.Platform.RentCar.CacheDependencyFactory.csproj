@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15081FB6-3024-46B4-9B6C-95591A3C801C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory</RootNamespace>
+    <AssemblyName>Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DependencyAccess.cs" />
+    <Compile Include="DependencyFacade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.DALFactory\Com.ChinaPalmPay.Platform.RentCar.DALFactory.csproj">
+      <Project>{28b12cd7-ff7f-4d9a-8001-ee559b5e95e6}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.csproj">
+      <Project>{1c0e6f0c-6e0b-41b6-a7bd-c8bd353b7407}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.ICacheDependency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.MessagingFactory\Com.ChinaPalmPay.Platform.RentCar.MessagingFactory.csproj">
+      <Project>{aa2aab40-75ae-4afb-a12d-1976754b6af3}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.MessagingFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.Model\Com.ChinaPalmPay.Platform.RentCar.Model.csproj">
+      <Project>{2bf57ced-16b7-42d3-a14c-24ba162fa766}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging\Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging.csproj">
+      <Project>{ecdeacf5-bc62-4c2f-b8ec-2b112eac4a70}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.TableCacheDependency\Com.ChinaPalmPay.Platform.RentCar.CacheDependency.csproj">
+      <Project>{5755e8c7-f595-4202-8aa8-7b9b048f8338}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.CacheDependency</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

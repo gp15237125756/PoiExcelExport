@@ -1,0 +1,53 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.ParamModel.ChangePwd
+
+@{
+    ViewBag.Title = "UpdateUser";
+}
+
+<h2>UpdateUser</h2>
+
+@using (Html.BeginForm("UpdateUser", "User",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ChangePwd</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OldPwd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OldPwd)
+            @Html.ValidationMessageFor(model => model.OldPwd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserID)
+            @Html.ValidationMessageFor(model => model.UserID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LoginPwd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LoginPwd)
+            @Html.ValidationMessageFor(model => model.LoginPwd)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

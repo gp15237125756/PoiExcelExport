@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2E76B74-A64D-45AB-9CFD-E157FEC953EB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.ChinaPalmPay.Platform.RentCar.DataProx</RootNamespace>
+    <AssemblyName>Com.ChinaPalmPay.Platform.RentCar.DataProx</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OrderDataProxy.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRegisterDataProxy.cs" />
+    <Compile Include="ZSCDataProxy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory\Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory.csproj">
+      <Project>{15081fb6-3024-46b4-9b6c-95591a3c801c}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.DALFactory\Com.ChinaPalmPay.Platform.RentCar.DALFactory.csproj">
+      <Project>{28b12cd7-ff7f-4d9a-8001-ee559b5e95e6}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.DBUtility\Com.ChinaPalmPay.Platform.RentCar.DBUtility.csproj">
+      <Project>{4f260220-8f2b-4f18-a196-e063975d1810}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IBllStrategy\Com.ChinaPalmPay.Platform.RentCar.IBllStrategy.csproj">
+      <Project>{170ebbd8-d6a6-4602-be2e-4ffb4af404f0}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IBllStrategy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency\Com.ChinaPalmPay.Platform.RentCar.ICacheDependency.csproj">
+      <Project>{1c0e6f0c-6e0b-41b6-a7bd-c8bd353b7407}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.ICacheDependency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IDAL\Com.ChinaPalmPay.Platform.RentCar.IDAL.csproj">
+      <Project>{f4fb631b-8ec9-4d9f-83bb-dce8dcedb9a5}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IMessaging\Com.ChinaPalmPay.Platform.RentCar.IMessaging.csproj">
+      <Project>{00e037ff-7338-4928-94c0-3cea14ddf48f}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IMessaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.IProfileDAL\Com.ChinaPalmPay.Platform.RentCar.IProfileDAL.csproj">
+      <Project>{738538c0-c6ee-49e2-b45c-1d11ad9293ce}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.IProfileDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.Membership\Com.ChinaPalmPay.Platform.RentCar.Membership.csproj">
+      <Project>{9a1cab88-ffe0-4f06-bfa6-13578f1dab7b}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.Membership</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.MessagingFactory\Com.ChinaPalmPay.Platform.RentCar.MessagingFactory.csproj">
+      <Project>{aa2aab40-75ae-4afb-a12d-1976754b6af3}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.MessagingFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.Model\Com.ChinaPalmPay.Platform.RentCar.Model.csproj">
+      <Project>{2bf57ced-16b7-42d3-a14c-24ba162fa766}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging\Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging.csproj">
+      <Project>{ecdeacf5-bc62-4c2f-b8ec-2b112eac4a70}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.MsmqMessaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.ChinaPalmPay.Platform.RentCar.SQLServer\Com.ChinaPalmPay.Platform.RentCar.SQLServer.csproj">
+      <Project>{5afe77b6-2f76-45bf-a604-6d3a7cdd6a3c}</Project>
+      <Name>Com.ChinaPalmPay.Platform.RentCar.SQLServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

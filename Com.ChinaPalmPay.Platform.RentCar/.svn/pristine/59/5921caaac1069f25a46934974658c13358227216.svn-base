@@ -1,0 +1,210 @@
+﻿using Com.Chinapalmpay.Component.Log;
+using Com.ChinaPalmPay.Platform.RentCar.Common;
+using Com.ChinaPalmPay.Platform.RentCar.DALFactory;
+using Com.ChinaPalmPay.Platform.RentCar.IBLLS;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.IMessaging;
+using Com.ChinaPalmPay.Platform.RentCar.MessagingFactory;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.BLL
+{
+    public class PaymentHandler : IPaymentHandler
+    {
+        private static readonly IalipayMsmq alipayQueue = QueueAccess.Alipay();
+        private static readonly ICupMsmq cupQueue = QueueAccess.Cup();
+        private static readonly IOrderManager alipayDb = DataAccess.CreateOrderDbManager();
+        private static readonly IReturnCarMsmq returnPay = QueueAccess.ReturnCarPay();
+        private static readonly IPayManager paysDb = DataAccess.CreatePayDbManager();
+        public bool alipayPayment(Com.ChinaPalmPay.Platform.RentCar.Model.Alipay alipay)
+        {
+            //验证是否是支付宝发出的通知
+            //如果alipay通知正确，存入消息队列
+            if (!String.IsNullOrWhiteSpace(alipay.out_trade_no) && alipay.total_fee != 0 && !String.IsNullOrWhiteSpace(alipay.trade_status)
+                && !String.IsNullOrWhiteSpace(alipay.trade_no))
+            {
+                //1.发送到消息队列 2.存入缓存
+                //交易成功
+                if (alipay.trade_status.Equals(Commons.success) || alipay.trade_status.Equals(Commons.finished))
+                {
+                    Order order = alipayDb.QueryOrder(alipay.out_trade_no);
+                    if (order != null)
+                    {
+                        Recharge charge = new Recharge()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            UserID = order.UserID,
+                            OrderID = alipay.out_trade_no,
+                            //单位：分
+                            Amount = alipay.total_fee * 100,
+                            Creater = Commons.orderHandler.USER.ToString(),
+                            CreateTime = DateTime.Now.ToString(),
+                            PayOrderID = alipay.trade_no,
+                            Remark = "支付宝交易",
+                            Type = (int)Commons.PayType.RECHARGE
+                        };
+                        OrderLog orderlog = new OrderLog()
+                        {
+                            CarID = order.CarID,
+                            CreateTime = DateTime.Now.ToString(),
+                            OrderID = alipay.out_trade_no,
+                            Remark = "支付宝订单支付完成",
+                            State = (int)Commons.Type.USING,
+                            Time = DateTime.Now.ToString(),
+                            UserID = order.UserID
+                        };
+                        alipayQueue.Send(alipay);
+                        alipayQueue.Send(charge);
+                        //alipayQueue.Send(orderlog);
+                        LogerHelper.debug("支付宝操作成功");
+                        return true;
+                    }
+
+                }
+            }
+
+            return false;
+        }
+
+
+        public bool cupPayment(Cup cup)
+        {
+                if (!String.IsNullOrWhiteSpace(cup.txnType) && !String.IsNullOrWhiteSpace(cup.txnTime) &&
+                !String.IsNullOrWhiteSpace(cup.respCode) && !String.IsNullOrWhiteSpace(cup.merId) &&
+                !String.IsNullOrWhiteSpace(cup.orderId) && !String.IsNullOrWhiteSpace(cup.payType) &&
+                !String.IsNullOrWhiteSpace(cup.payCardNo) && cup.txnAmt != 0)
+                {
+                    //1.发送到消息队列 2.存入缓存
+                    //交易成功
+                    if (cup.respCode.Equals(Commons.CUP_SUCCESS))
+                    {
+                        Order order = alipayDb.QueryOrder(cup.orderId) as Order;
+                        //存在该订单
+                        if (order != null)
+                        {
+                            Recharge charge = new Recharge()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                UserID = order.UserID,
+                                OrderID = cup.orderId,
+                                //单位：分
+                                Amount = cup.txnAmt,
+                                Creater = Commons.orderHandler.USER.ToString(),
+                                CreateTime = DateTime.Now.ToString(),
+                                PayOrderID = cup.queryId,
+                                Remark = "银联消费类交易交易",
+                                Type = (int)Commons.PayType.RECHARGE
+                            };
+                            OrderLog orderlog = new OrderLog()
+                            {
+                                CarID = order.CarID,
+                                CreateTime = DateTime.Now.ToString(),
+                                OrderID = cup.orderId,
+                                Remark = "银联订单支付完成",
+                                State = (int)Commons.Type.USING,
+                                Time = DateTime.Now.ToString(),
+                                UserID = order.UserID
+                            };
+                            cupQueue.SendCup(cup);
+                            cupQueue.SendRecharge(charge);
+                            LogerHelper.debug("银联操作成功");
+                            //cupQueue.SendOrderLog(orderlog);
+                            return true;
+                        }
+                    }
+
+                }
+
+            return false;
+        }
+
+        //还车扣款
+        public Recharge returnCar(string userId, string orderId, out string msg)
+        {
+                //1.判断该用户是否存在有效订单且不存在扣款履历
+                //2.将扣款记录存入付款履历
+                //3.增加订单修改履历
+
+                Order o = alipayDb.SelectOrder(userId, orderId);
+
+
+
+                IList<Recharge> list = alipayDb.queryRecharge(userId, orderId);
+                if (o != null && list.Count() == 0)
+                {
+                    // //修改订单状态为已经使用
+                    alipayDb.updateStatus(o);
+                    Recharge rec = new Recharge();
+                    rec.ID = Guid.NewGuid().ToString().Replace("-", "");
+                    rec.OrderID = orderId;
+                    rec.Remark = "还车扣款";
+                    rec.UserID = userId;
+                    rec.Type = (int)Commons.PayType.CONSUME;
+
+                    rec.Creater = ((int)Commons.orderHandler.USER).ToString();
+                    rec.CreateTime = string.Format("{0:yyyyMMddHHmmssfff}", DateTime.Now);
+                    //扣款金额 
+                    rec.Amount = -100;
+
+
+                    OrderLog orderlog = new OrderLog()
+                    {
+                        CarID = alipayDb.QueryOrder(orderId).CarID,
+                        CreateTime = DateTime.Now.ToString(),
+                        OrderID = orderId,
+                        Remark = "还车扣款支付完成",
+                        State = (int)Commons.Type.USING,
+                        Time = DateTime.Now.ToString(),
+                        UserID = userId
+                    };
+                    returnPay.SendRecharge(rec);
+                    returnPay.SendLog(orderlog);
+                    msg = "还车成功";
+                    return rec;
+                }
+                msg = "还车失败";
+            return null;
+        }
+
+
+        public int queryRemainSum(string id)
+        {
+                return alipayDb.QueryMoney(id);
+        }
+        //充值（不一定有订单）
+        //return true-微信充值履历保存成功 false-微信充值履历保存失败
+        public bool chargePayment(string UserID, int? Amount, string PayOrderID, int? Type)
+        {
+            Recharge charge = new Recharge()
+            {
+                ID = Guid.NewGuid().ToString(),
+                UserID = UserID,
+                //单位：分
+                Amount = (int)Amount,
+                Creater = Commons.orderHandler.USER.ToString(),
+                CreateTime = string.Format("{0:yyyyMMddHHmmssfff}", DateTime.Now),
+                PayOrderID = PayOrderID,
+                Remark = "微信充值",
+                Type = (int)Commons.PayType.RECHARGE
+            };
+            Messages msg = new Messages()
+            {
+                userid = UserID,
+                content = string.Format("尊敬的用户你好！本条信息为系统确认消息,您于:{0}成功充值{1}元.", string.Format("{0:yyyyMMddHHmmssfff}", DateTime.Now), Amount),
+                time = string.Format("{0:yyyyMMddHHmmssfff}", DateTime.Now),
+                type = Convert.ToInt32(Commons.MessagesType.serviceType).ToString()
+            };
+            if (paysDb.Addpay(charge) != null && alipayDb.AddMsg(msg) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+}

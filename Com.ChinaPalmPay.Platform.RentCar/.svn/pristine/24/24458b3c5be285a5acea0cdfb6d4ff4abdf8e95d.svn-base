@@ -1,0 +1,227 @@
+﻿using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.IMessaging;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using Com.ChinaPalmPay.Platform.RentCar.DALFactory;
+using Com.ChinaPalmPay.Platform.RentCar.MessagingFactory;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System.Web;
+using System.Web.Caching;
+using Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory;
+using Com.ChinaPalmPay.Platform.RentCar.Model.ParamModel;
+
+
+namespace Com.ChinaPalmPay.Platform.RentCar.DataProx
+{
+    //1.缓存 2.添加消息MSMQ
+    class UserRegisterDataProxy : IUserManager
+    {
+        private static readonly int UserRegTimeout = int.Parse(ConfigurationManager.AppSettings["UserRegCacheDuration"]);
+        private static readonly bool enableCaching = bool.Parse(ConfigurationManager.AppSettings["EnableCaching"]);
+        // Get an instance of the Category DAL using the DALFactory
+        // Making this static will cache the DAL instance after the initial load
+        private static readonly IUserManager manager = DataAccess.CreateUserDbManager();
+        private static readonly IUserReg orderQueue = QueueAccess.CreateUserRegister();
+
+        /// <returns>Generic List of CategoryInfo</returns>	   		
+        /// <summary>
+        /// This method acts as a proxy between the web and business components to check whether the 
+        /// underlying data has already been cached.
+        /// </summary>
+        /// <returns>List of CategoryInfo from Cache or Business component</returns>
+        public UserLogin Create(UserGroup Base, UserLogin login, User info, UserRegister register)
+        {
+            //存入消息
+         
+             orderQueue.Send(Base,login,info,register);
+            //orderQueue.Send(login);
+            //orderQueue.Send(info);
+            //orderQueue.Send(register);
+            //如果不允许缓存
+            if (!enableCaching)
+                return login;
+            string group_key = "UserReg_Group"+login.LoginID;
+            string login_key = "UserReg_Login" + login.LoginID;
+            string user_key = "UserReg_User" + login.LoginID;
+            string regist_key = "UserReg_Register" + login.LoginID;
+            UserGroup groups = (UserGroup)HttpRuntime.Cache[group_key];
+            UserLogin logins = (UserLogin)HttpRuntime.Cache[group_key];
+            User users = (User)HttpRuntime.Cache[group_key];
+            UserRegister regs = (UserRegister)HttpRuntime.Cache[group_key];
+            // Check if the data exists in the data cache
+            if (groups == null && logins == null && users == null && regs == null)
+            {
+                //// If the data is not in the cache then fetch the data from the business logic tier
+                //data = cat.GetCategories();
+                // Create a AggregateCacheDependency object from the factory
+                AggregateCacheDependency cd = DependencyFacade.GetUserRegistDependency();
+                // Store the output in the data cache, and Add the necessary AggregateCacheDependency object
+                // HttpRuntime.Cache.Add(group_key, Base, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+                HttpRuntime.Cache.Add(login_key, login, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+                // HttpRuntime.Cache.Add(user_key, info, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+                // HttpRuntime.Cache.Add(regist_key, register, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+            }
+            return login;
+        }
+
+        public bool verifyUser(UserLogin login)
+        {
+            return true;
+        }
+        public User selectUser(User info)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User updateUser(User info)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteUser(string uid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addPrivilege(UserLogin bases)
+        {
+
+        }
+
+
+
+        public UserGroup Create(UserGroup Base)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserLogin CreateOrUpdate(UserLogin Base)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User CreateOrUpdate(User Base)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserRegister Create(UserRegister Base)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public string getUserId(UserLogin bases)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public User UserComplete(User info)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public UserLogin verifyUserPwd(string UserId, string oldPwd)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public User findLoginUser(UserLogin LoginUser)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public User findUserInfomation(string id)
+        {
+            User users = null;
+            string user_key = "UserReg_User " + id;
+            if (enableCaching)
+            {
+                users = (User)HttpRuntime.Cache[user_key];
+            }
+            if (users == null)
+            {
+                users = manager.findUserInfomation(id);
+            }
+            if (users != null)
+            {
+                AggregateCacheDependency cd = DependencyFacade.GetUserInfoSelDependency();
+                HttpRuntime.Cache.Add(user_key, users, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+            }
+            return users;
+        }
+
+
+        public bool verifyUser(UserReg login)
+        {
+            return true;
+        }
+
+
+        public User findUserId(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public string WechatBinding(string tel, string openId)
+        {
+            throw new NotImplementedException();
+        }
+
+        //根据openId查询用户
+        public User selectOpenId(string id)
+        {
+            User user = null;
+            //string key = id;
+            //if(enableCaching){
+            //    user = HttpRuntime.Cache[key] as User;
+            //}
+          //  if(user==null){
+                user = manager.selectOpenId(id);
+           // }
+            //if (user != null)
+            //{
+            //    AggregateCacheDependency cd = DependencyFacade.GetSelOpenIdDependency();
+            //    HttpRuntime.Cache.Add(key, user, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+            //}
+            return user;
+        }
+
+
+        public string selectUserIdByCardId(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public UserLogin AddExistUserLogin(UserLogin log)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool veriryUserExistOrNot(string CardId, string tel)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IList<Messages> queryMsg(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public User queryBeAutho(string Tel)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

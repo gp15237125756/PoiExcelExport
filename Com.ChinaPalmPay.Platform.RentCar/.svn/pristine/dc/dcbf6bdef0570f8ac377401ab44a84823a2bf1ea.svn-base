@@ -1,0 +1,23 @@
+﻿using Com.ChinaPalmPay.Platform.RentCar.Model.ParamModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Web;
+using System.Web.Mvc;
+
+namespace com.chinapalmpay.platform.RentCars.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Home/
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}

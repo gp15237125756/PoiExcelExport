@@ -1,0 +1,317 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System.Data.Common;
+using System.Data.Linq;
+using System.Data;
+using System.Configuration;
+using Com.ChinaPalmPay.Platform.RentCar.Common;
+using Com.Chinapalmpay.Component.Log;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.SQLServer
+{
+    public class ZSCOperations : IZSCManager
+    {
+        //获取地区列表
+        //根据地区查询租赁点
+        public IList<Station> findStation(long id)
+        {
+            //DbConnection con = null;
+            IList<Station> Stas = new List<Station>();
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Station> T_Station = db.GetTable<Station>();
+                    if (id != 0)
+                    {
+                        Stas = T_Station.Where(o => Convert.ToInt64(o.ZoneID) == id).ToList<Station>();
+                    }
+                    else
+                    {
+                        Stas = T_Station.ToList<Station>();
+                    }
+                    return Stas;
+                }
+        }
+        /*
+         SELECT b.*  ,a.stationID
+FROM   dbo.T_Piles as a, 
+       dbo.T_Car as b, 
+       (select * from 
+(select *,ROW_NUMBER() over (partition by carid order by createtime desc) as new_index from dbo.T_CarStat) a where a.new_index=1) as c
+where c.stat=1
+and c.pilesid<>0
+and c.carid =b.id
+and a.id = c.pilesid 
+         */
+        //根据租赁点查询车
+        //分三步：
+        //1.根据租赁点id查询充电桩。2.根据充电桩查车辆状态最新一条和该充电桩有关的数据
+        /*public IList<Car> findCar(int id)
+        {
+            //DbConnection conn = null;
+            IList<Car> cars = new List<Car>();
+            try
+            {//内存中不包含该用户,保存用户信息
+                if (id.ToString() != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Car> T_Car = db.GetTable<Car>();
+                        Table<Piles> T_Piles = db.GetTable<Piles>();
+                        Table<CarStat> T_CarStat = db.GetTable<CarStat>();
+                        Table<RunRealTime> T_RunRealTime = db.GetTable<RunRealTime>();
+                        IEnumerable<Piles> piles = T_Piles.Where(o => id == o.StationID);
+                        foreach (var p in piles)
+                        {
+                            IEnumerable<CarStat> t = T_CarStat.Where<CarStat>(m => (p.id == m.PilesID));
+                            if (t.Count() > 0)
+                            {
+                                CarStat stats = t.OrderByDescending(x => x.CreateTime).FirstOrDefault<CarStat>();
+                                if (stats != null && stats.stat == (int)Commons.CatStatus.idle)
+                                {
+
+                                    Car car = T_Car.FirstOrDefault<Car>(n => n.id.Equals(stats.CarID));
+                                    //返回车辆电量 起用时间 上次使用时间 可用公里数
+                                    //查询该车最新时间使用记录
+                                    if (car != null)
+                                    {
+                                        LogerHelper.debug("idle 车");
+                                        IEnumerable<CarStat> cs = T_CarStat.Where(x => x.CarID.Equals(car.id));
+                                        if (cs.Count() > 0)
+                                        {
+                                            CarStat st = cs.OrderBy(y => y.CreateTime).FirstOrDefault<CarStat>();
+                                            //上次使用时间
+                                            car.lastUsedTime = st.CreateTime;
+                                            //查询车电量 
+                                            //IList<RunRealTime> Lists=null;
+                                            //Lists=(from c in T_RunRealTime where c.TerminalId == car.TermID select c).ToList() as IList<RunRealTime>;
+                                            IEnumerable<RunRealTime> runs = T_RunRealTime.Where<RunRealTime>(o => o.TerminalId.Equals(car.TermID));
+                                            if (runs.Count() > 0)
+                                            {
+                                                RunRealTime run = runs.OrderBy(z => z.sampleTime).FirstOrDefault<RunRealTime>();
+                                                car.CarCharge = run.batteryInfo.ToString();
+                                                //查询该车公里数
+                                                car.miles = ((int.Parse(car.CarCharge)) * 10).ToString();
+                                                cars.Add(car);
+                                            }
+                                        }
+
+
+                                    }
+                                }
+                            }
+                            else {
+                                //return (from m in T_Car select m).ToList();
+                            }
+                        }
+                        if (cars.Count() > 0)
+                        {
+                            // conn.Close();
+                            return cars;
+                        }
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+
+            }
+            return null;
+        }*/
+        //获取地区列表
+        public IList<District> findDistrict(string Name)
+        {
+            //DbConnection conn = null;
+            IList<District> Districts = new List<District>();
+            //内存中不包含该用户,保存用户信息
+                if (!String.IsNullOrWhiteSpace(Name))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<City> T_City = db.GetTable<City>();
+                        Table<District> T_District = db.GetTable<District>();
+                        //根据城市查询cityid
+                        City city = T_City.First<City>(o => o.CityName.Equals(Name));
+                        if (city != null)
+                        {
+                            Districts = T_District.Where<District>(o => o.CityID == city.CityID).ToList<District>();
+                        }
+                        if (Districts.Count() > 0)
+                        {
+                            return Districts;
+                        }
+                    }
+                }
+            return null;
+        }
+
+
+        public Car findCarByCarId(string id)
+        {
+            using (DataContext db = new SqlserverContext())
+            {
+                Table<Car> T_Car = db.GetTable<Car>();
+                Table<RunRealTime> runRealTimeTable = db.GetTable<RunRealTime>();
+                Table<Order> orderTable = db.GetTable<Order>();
+                Car car = T_Car.FirstOrDefault<Car>(o => o.id.Equals(id));
+                if (car != null)
+                {
+                    RunRealTime runRealTime = (from m in runRealTimeTable where m.TerminalId == car.TermID orderby m.sampleTime descending select m).FirstOrDefault();
+                    if (runRealTime != null)
+                    {
+                        car.miles = (runRealTime.batteryInfo * 10).ToString();
+                    }
+                    Order order = (from m in orderTable where m.CarID == car.id orderby m.CreateTime descending select m).FirstOrDefault();
+                    if (order != null)
+                    {
+                        car.lastUsedTime = order.CreateTime;
+                    }
+
+                    Order uorder = (from m in orderTable where m.CarID == car.id orderby m.CreateTime select m).FirstOrDefault();
+                    if (uorder != null)
+                    {
+                        car.UpdateTime = order.CreateTime;
+                    }
+                }
+                return car;
+            }
+        }
+
+
+        public CarStat findCarStat(string userId, string carId)
+        {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<CarStat> T_CarStat = db.GetTable<CarStat>();
+                    CarStat carstat = T_CarStat.FirstOrDefault<CarStat>(o => o.UserID.Equals(userId) && o.CarID.Equals(carId) && o.stat == (int)Commons.CatStatus.idle);
+                    if (carstat != null)
+                    {
+                        return carstat;
+                    }
+                }
+
+            return null;
+        }
+
+
+        public Station findStaByPileId(string pile)
+        {
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<Piles> T_PILE = db.GetTable<Piles>();
+                    Table<Station> T_STATION = db.GetTable<Station>();
+                    Piles piles = T_PILE.FirstOrDefault<Piles>(o => o.id == Convert.ToInt32(pile));
+                    if (piles != null)
+                    {
+                        Station st = T_STATION.FirstOrDefault<Station>(x => x.id == piles.StationID);
+                        if (st != null)
+                        {
+                            return st;
+                        }
+                    }
+                }
+
+            return null;
+        }
+
+
+        public CarStat updateCarStat(Order order)
+        {
+            //增加车状态
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<CarStat> T_PILE = db.GetTable<CarStat>();
+
+                    CarStat c = (from m in T_PILE where m.CarID == order.CarID select m).FirstOrDefault();
+
+                    CarStat stat = new CarStat();
+                    stat.id = Guid.NewGuid().ToString().Replace("-", "");
+                    stat.stat = (int)Commons.CatStatus.book;
+                    stat.UserID = order.UserID;
+                    stat.CarID = order.CarID;
+                    stat.PilesID = c.PilesID;
+                    stat.CreateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    T_PILE.InsertOnSubmit(stat);
+                    db.SubmitChanges();
+                    LogerHelper.debug("Add CarStat 成功！");
+                    return stat;
+                }
+            return null;
+        }
+
+
+
+
+        public CarStat addCarStat(OrderLog order)
+        {
+            LogerHelper.DefaultInfo("addCarStat:" + order.OrderID);
+            //增加车状态
+                using (DataContext db = new SqlserverContext())
+                {
+                    Table<CarStat> T_PILE = db.GetTable<CarStat>();
+                    CarStat stat = new CarStat();
+
+                    CarStat c = (from m in T_PILE where m.CarID == order.CarID select m).FirstOrDefault();
+                    stat.id = Guid.NewGuid().ToString().Replace("-", "");
+                    stat.stat = (int)Commons.CatStatus.idle;
+                    stat.UserID = order.UserID;
+                    stat.CarID = order.CarID;
+                    stat.PilesID = c.PilesID;
+                    stat.CreateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    T_PILE.InsertOnSubmit(stat);
+                    db.SubmitChanges();
+                    LogerHelper.debug("还车 Add CarStat 成功！");
+                    return stat;
+                }
+        }
+
+
+        public IList<Car> findCar(int id)
+        {
+            using (DataContext db = new SqlserverContext())
+            {
+                Table<ValidCar> carTable = db.GetTable<ValidCar>();
+                Table<RunRealTime> runRealTimeTable = db.GetTable<RunRealTime>();
+                Table<Order> orderTable = db.GetTable<Order>();
+                List<ValidCar> validCarList = (from m in carTable where m.StationID == id select m).ToList();
+                List<Car> ret = new List<Car>();
+                foreach (ValidCar car in validCarList)
+                {
+
+                    Car catItem = new Car() { CarCharge = car.CarCharge, CarFac = car.CarFac, CarNo = car.CarNo, CarStartDate = car.CarStartDate, CarType = car.CarType, CarVolume = car.CarVolume, CreateTime = car.CreateTime, id = car.id, TermID = car.TermID };
+
+                    RunRealTime runRealTime = (from m in runRealTimeTable where m.TerminalId == car.TermID orderby m.sampleTime descending select m).FirstOrDefault();
+                    if (runRealTime != null)
+                    {
+                        catItem.miles = (runRealTime.batteryInfo * 10).ToString();
+                    }
+                    Order order = (from m in orderTable where m.CarID == car.id orderby m.CreateTime descending select m).FirstOrDefault();
+                    if (order != null)
+                    {
+                        catItem.lastUsedTime = order.CreateTime;
+                    }
+
+                    Order uorder = (from m in orderTable where m.CarID == car.id orderby m.CreateTime select m).FirstOrDefault();
+                    if (uorder != null)
+                    {
+                        catItem.UpdateTime = order.CreateTime;
+                    }
+
+                    ret.Add(catItem);   
+                }
+                return ret;
+            }
+        }
+    }
+}

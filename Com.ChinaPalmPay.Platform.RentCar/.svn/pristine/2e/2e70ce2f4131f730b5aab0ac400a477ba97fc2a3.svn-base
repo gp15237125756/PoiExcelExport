@@ -1,0 +1,116 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.Alipay
+
+@{
+    ViewBag.Title = "AlipayComplete";
+}
+
+<h2>AlipayComplete</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Alipay</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.notify_time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.notify_time)
+            @Html.ValidationMessageFor(model => model.notify_time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.notify_id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.notify_id)
+            @Html.ValidationMessageFor(model => model.notify_id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.out_trade_no)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.out_trade_no)
+            @Html.ValidationMessageFor(model => model.out_trade_no)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.subject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.subject)
+            @Html.ValidationMessageFor(model => model.subject)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.payment_type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.payment_type)
+            @Html.ValidationMessageFor(model => model.payment_type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.trade_no)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.trade_no)
+            @Html.ValidationMessageFor(model => model.trade_no)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.trade_status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.trade_status)
+            @Html.ValidationMessageFor(model => model.trade_status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.total_fee)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.total_fee)
+            @Html.ValidationMessageFor(model => model.total_fee)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.gmt_create)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.gmt_create)
+            @Html.ValidationMessageFor(model => model.gmt_create)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.gmt_payment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.gmt_payment)
+            @Html.ValidationMessageFor(model => model.gmt_payment)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.alipayParams)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.alipayParams)
+            @Html.ValidationMessageFor(model => model.alipayParams)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

@@ -1,0 +1,14 @@
+INFO  2015-05-08 11:16:36,473 [defaultLoger] RealTime/OpenCloseGate:
+INFO  2015-05-08 11:16:36,473 [defaultLoger] Home/Index:
+INFO  2015-05-08 11:16:38,203 [defaultLoger] 2015-05-08 11:16:38 收到终端开门请求
+INFO  2015-05-08 11:28:31,559 [defaultLoger] Home/Index:
+INFO  2015-05-08 11:28:37,110 [defaultLoger] RealTime/OpenCloseGate:
+INFO  2015-05-08 11:28:37,135 [defaultLoger] 2015-05-08 11:28:37 收到终端开门请求
+INFO  2015-05-08 11:30:57,480 [defaultLoger] Home/Index:
+INFO  2015-05-08 11:31:27,718 [defaultLoger] RealTime/OpenCloseGate:
+INFO  2015-05-08 11:31:27,744 [defaultLoger] 2015-05-08 11:31:27 收到终端开门请求
+INFO  2015-05-08 11:41:43,364 [defaultLoger] Home/Index:
+INFO  2015-05-08 11:41:51,102 [defaultLoger] RealTime/OpenCloseGate:
+INFO  2015-05-08 11:41:51,234 [defaultLoger] 2015-05-08 11:41:51 收到终端开门请求
+INFO  2015-05-08 13:24:46,614 [defaultLoger] Home/Index:
+INFO  2015-05-08 13:25:10,459 [defaultLoger] User/Login:

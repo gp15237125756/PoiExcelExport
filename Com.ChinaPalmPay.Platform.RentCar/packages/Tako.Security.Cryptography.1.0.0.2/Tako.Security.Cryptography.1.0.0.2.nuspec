@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Tako.Security.Cryptography</id>
+    <version>1.0.0.2</version>
+    <authors>余小章</authors>
+    <owners>余小章</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>非對稱加解密</description>
+    <copyright>Copyright (c) . 余小章 . All rights reserved.</copyright>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

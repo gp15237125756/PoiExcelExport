@@ -1,0 +1,62 @@
+﻿@model Com.ChinaPalmPay.Platform.RentCar.Model.ParamModel.WeChatUserReg
+
+@{
+    ViewBag.Title = "WeChatUserReg";
+}
+
+<h2>WeChatUserReg</h2>
+
+@using (Html.BeginForm("WeChatUserReg", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>WeChatUserReg</legend>
+        <span>上传驾照</span>
+        <br />
+        <input type="file" name="UserDriverLicense" />
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhoneNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhoneNumber)
+            @Html.ValidationMessageFor(model => model.PhoneNumber)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OpenID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OpenID)
+            @Html.ValidationMessageFor(model => model.OpenID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IDCardNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IDCardNo)
+            @Html.ValidationMessageFor(model => model.IDCardNo)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}

@@ -1,0 +1,337 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System.Data.Linq;
+using System.Data.SqlClient;
+using Com.ChinaPalmPay.Platform.RentCar.Common;
+using System.Collections;
+using Com.Chinapalmpay.Component.Log;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.SQLServer
+{
+    public class OrderOperations : IOrderManager
+    {
+        public Order Create(Order order)
+        {
+                if (order != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Order> T_order = db.GetTable<Order>();
+                        T_order.InsertOnSubmit(order);
+                        db.SubmitChanges();
+                        return order;
+                    }
+                }
+           
+            return null;
+        }
+        //订单查询
+        public IList<Order> Select(string userId)
+        {
+            IList<Order> orders = new List<Order>();
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(userId))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Order> T_order = db.GetTable<Order>();
+                        orders = T_order.Where(o => o.UserID.Equals(userId)).OrderBy(m => m.CreateTime).OrderBy(n => n.State).ToList();
+                        return orders;
+                    }
+
+                }
+                return orders;
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+        //订单撤销
+        //return  true:成功  false：失败
+        public bool cancelOrder(string orderid)
+        {
+                if (!String.IsNullOrWhiteSpace(orderid))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Order> T_order = db.GetTable<Order>();
+                        Table<OrderLog> T_orderLog = db.GetTable<OrderLog>();
+                        Table<CarStat> carStatTable = db.GetTable<CarStat>();
+                        IEnumerable<OrderLog> orders = T_orderLog.Where<OrderLog>(o => o.OrderID.Equals(orderid));
+                        if (orders != null && orders.Count() > 0)
+                        {
+                            return false;
+                        }
+                        //如果当前时间可以取消，修改该订单状态
+                        Order order = T_order.FirstOrDefault<Order>(x => x.ID.Equals(orderid));
+                        // DateTime t1 = DateTime.ParseExact(order.Time,"yyyy-MM-dd HH:mm:ss",System.Globalization.CultureInfo.CurrentCulture);
+                        if (order != null && order.State == (int)Commons.Type.BOOK)
+                        {
+                            CarStat carStat = (from m in carStatTable where m.CarID == order.CarID orderby m.CreateTime descending select m).FirstOrDefault();
+                            if (carStat.stat == (int)Commons.CatStatus.book)
+                            {
+                                order.State = (int)Commons.Type.CANCEL;
+                                CarStat stat = new CarStat();
+                                stat.id = Guid.NewGuid().ToString().Replace("-", "");
+                                stat.stat = (int)Commons.CatStatus.idle;
+                                stat.UserID = order.UserID;
+                                stat.CarID = order.CarID;
+                                stat.PilesID = carStat.PilesID;
+                                stat.CreateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                                carStatTable.InsertOnSubmit(stat);
+                                db.SubmitChanges();
+                                return true;
+                            }
+                        }
+                    }
+                }
+                return false;
+        }
+
+
+        public Order QueryOrder(string orderId)
+        {
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(orderId))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Order> T_order = db.GetTable<Order>();
+                        Order order = T_order.FirstOrDefault<Order>(x => x.ID.Equals(orderId));
+                        if (order != null)
+                        {
+                            return order;
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+
+        public int SelectNum(string userid)
+        {
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(userid))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Order> T_order = db.GetTable<Order>();
+                        int num = T_order.Where(o => o.UserID.Equals(userid)).ToList().Count();
+                        return num;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return 0;
+        }
+
+
+        public int QueryMoney(string userid)
+        {
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(userid))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<ViewRentCarLog> v = db.GetTable<ViewRentCarLog>();
+                        var query = from c in v
+                                    where c.UserId == userid
+                                    select c.TotalAmount;
+                        if (query != null && query.Count() > 0)
+                        {
+                            int money = query.FirstOrDefault();
+                            return money / 100;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return 0;
+        }
+
+
+        public Messages AddMsg(Messages msg)
+        {
+            try
+            {
+                if (msg != null)
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Messages> T_Msg = db.GetTable<Messages>();
+                        T_Msg.InsertOnSubmit(msg);
+                        db.SubmitChanges();
+                        return msg;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+
+        public Order SelectOrder(string userId, string orderId)
+        {
+            LogerHelper.DefaultInfo(string.Format("SelectOrder:{0}---{1}", userId, orderId));
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(userId) && !String.IsNullOrWhiteSpace(orderId))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Order> T_Order = db.GetTable<Order>();
+                        //Order orders = (from c in T_Order where c.UserID == userId && c.ID == orderId select c) as Order;
+                        Order orders = T_Order.FirstOrDefault<Order>(x => x.UserID.Equals(userId) && x.ID.Equals(orderId));
+                        if (orders != null)
+                        {
+                            LogerHelper.DefaultInfo(string.Format("SelectOrder11:{0}", orders.ID));
+                            return orders;
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+
+
+        public IList<Recharge> queryRecharge(string userId, string orderId)
+        {
+            IList<Recharge> list = null;
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(userId) && !String.IsNullOrWhiteSpace(orderId))
+                {
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Recharge> T_REC = db.GetTable<Recharge>();
+                        list = (from c in T_REC where c.UserID.Equals(userId) && c.OrderID.Equals(orderId) && c.Type == (int)Commons.PayType.CONSUME select c).ToList() as IList<Recharge>;
+                        return list;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return new List<Recharge>();
+        }
+
+
+        public Order updateStatus(Order order)
+        {
+            try
+            {
+
+
+                if (order != null)
+                {
+                  
+                    using (DataContext db = new SqlserverContext())
+                    {
+                        Table<Order> T_Order = db.GetTable<Order>();
+                        //Order orders = (from c in T_Order where c.UserID == userId && c.ID == orderId select c) as Order;
+                        Order orders = T_Order.FirstOrDefault<Order>(x => x.ID.Equals(order.ID));
+                        LogerHelper.debug(orders.UserID);
+                        if (orders != null)
+                        {
+
+                            Order order1 = T_Order.FirstOrDefault<Order>(x => x.ID.Equals(order.ID));
+                            order1.State = (int)Commons.Type.USING;
+                            db.SubmitChanges();
+                            LogerHelper.debug("还车修改订单状态成功！" + orders.State);
+                            if (orders != null)
+                            {
+                                return orders;
+                            }
+                        }
+                        else
+                        {
+                            LogerHelper.debug("还车修改订单状态失败！");
+                        }
+                    }
+
+                }
+                else
+                {
+                    LogerHelper.debug("输入order为空");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogerHelper.debug("还车修改订单状态失败！");
+                LogerHelper.DefaultInfo(ex.Source + ":" + ex.ToString());
+            }
+            finally
+            {
+
+
+            }
+            return null;
+        }
+    }
+}

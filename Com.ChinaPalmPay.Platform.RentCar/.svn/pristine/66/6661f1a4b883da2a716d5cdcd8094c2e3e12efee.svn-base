@@ -1,0 +1,728 @@
+﻿2015-04-28 09:07:51,759 [8076] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:07:52,643 [8076] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:08:00,512 [8356] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:08:00,539 [8356] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:08:01,719 [3664] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:08:01,748 [3664] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:08:40,528 [6860] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:08:40,557 [6860] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:08:43,581 [10184] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:08:43,611 [10184] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:08:44,802 [6724] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:08:44,832 [6724] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:08:46,012 [6912] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:08:46,044 [6912] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:09:37,797 [10204] ERROR myServer-49147025 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:09:37,817 [10204] ERROR myServer-49147025 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:09:52,372 [5432] ERROR myServer-45653674 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:09:52,397 [5432] ERROR myServer-45653674 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:12:43,345 [8432] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:12:53,819 [8432] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:14:29,018 [9736] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:14:31,727 [9736] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:33:16,763 [5976] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:33:18,167 [5976] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:34:01,535 [4624] ERROR myServer-28589617 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:34:01,566 [4624] ERROR myServer-28589617 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:34:29,617 [4008] ERROR myServer-45653674 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:34:29,633 [4008] ERROR myServer-45653674 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:36:09,426 [3140] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:36:09,457 [3140] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:36:11,704 [6088] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:36:11,735 [6088] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:37:27,037 [3092] ERROR myServer-37121646 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:37:27,053 [3092] ERROR myServer-37121646 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:39:36,210 [6392] ERROR myServer-37121646 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:39:36,228 [6392] ERROR myServer-37121646 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:41:09,925 [6764] ERROR myServer-33156464 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:41:09,944 [6764] ERROR myServer-33156464 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:41:41,289 [5596] ERROR myServer-22008501 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:41:41,307 [5596] ERROR myServer-22008501 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:44:49,337 [5680] ERROR myServer-45653674 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:44:49,355 [5680] ERROR myServer-45653674 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:46:56,373 [6024] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:46:56,409 [6024] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 09:47:21,695 [7140] ERROR myServer-37121646 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 09:47:21,713 [7140] ERROR myServer-37121646 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:48:32,220 [6180] ERROR myServer-45653674 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:48:32,238 [6180] ERROR myServer-45653674 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:51:03,407 [5544] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:51:03,432 [5544] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:51:31,526 [5052] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:51:31,552 [5052] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:52:10,334 [2292] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:52:10,359 [2292] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:54:46,393 [6528] ERROR myServer-46104728 - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:54:46,419 [6528] ERROR myServer-46104728 - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:55:41,763 [4184] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:55:41,766 [4184] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:55:41,766 [4184] ERROR DefaultBootstrap - Failed to setup server instance!
+2015-04-28 10:56:09,437 [6648] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:56:09,440 [6648] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:56:09,440 [6648] ERROR DefaultBootstrap - Failed to setup server instance!
+2015-04-28 10:56:31,889 [624] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:56:31,892 [624] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:56:31,892 [624] ERROR DefaultBootstrap - Failed to setup server instance!
+2015-04-28 10:56:56,217 [4320] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:56:56,220 [4320] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:56:56,220 [4320] ERROR DefaultBootstrap - Failed to setup server instance!
+2015-04-28 10:58:07,499 [6864] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:58:07,502 [6864] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:58:07,502 [6864] ERROR DefaultBootstrap - Failed to setup server instance!
+2015-04-28 10:58:51,170 [1708] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:58:51,173 [1708] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:58:51,173 [1708] ERROR DefaultBootstrap - Failed to setup server instance!
+2015-04-28 10:59:29,419 [5384] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 10:59:29,422 [5384] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 10:59:29,422 [5384] ERROR DefaultBootstrap - Failed to setup server instance!
+2015-04-28 11:01:02,463 [7844] ERROR myServer - System.Exception: Failed to get commands from the assembly SuperSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null! ---> System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.TypeInitializationException: “SuperSocketServer.RunRealTimeCommand”的类型初始值设定项引发异常。 ---> System.ArgumentNullException: 值不能为 null。
+参数名: assemblyString
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean forIntrospection)
+   在 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   在 System.Reflection.Assembly.Load(String assemblyString)
+   在 Com.ChinaPalmPay.Platform.RentCar.BLLFacs.BllAccess.CreateRealTimeService() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.BLLFacs\BllAccess.cs:行号 61
+   在 SuperSocketServer.RunRealTimeCommand..cctor() 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\SuperSocketServer\RunRealTimeCommand.cs:行号 19
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SuperSocketServer.RunRealTimeCommand..ctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   在 System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   在 System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   在 System.Activator.CreateInstance(Type type)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly, Type targetType)
+   在 SuperSocket.Common.AssemblyUtil.GetImplementedObjectsByInterface[TBaseInterface](Assembly assembly)
+   在 SuperSocket.SocketBase.Command.ReflectCommandLoader`1.TryLoadCommands(IEnumerable`1& commands)
+   --- 内部异常堆栈跟踪的结尾 ---
+2015-04-28 11:01:02,466 [7844] ERROR myServer - Failed load commands from the command loader SuperSocket.SocketBase.Command.ReflectCommandLoader`1[SuperSocket.SocketBase.Command.ICommand`2[SuperSocketServer.MySession,SuperSocket.SocketBase.Protocol.StringRequestInfo]].
+2015-04-28 11:01:02,466 [7844] ERROR DefaultBootstrap - Failed to setup server instance!

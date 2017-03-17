@@ -1,0 +1,143 @@
+INFO  2015-05-04 13:10:56,399 [defaultLoger] .Net SqlClient Data Provider:System.Data.SqlClient.SqlException (0x80131904): 列名 'State' 无效。
+列名 'State' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   在 System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   在 System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   在 System.Data.Linq.Table`1.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   在 System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   在 Com.ChinaPalmPay.Platform.RentCar.SQLServer.ZSCOperations.findCarStat(String userId, String carId) 位置 f:\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar\Com.ChinaPalmPay.Platform.RentCar.SQLServer\ZSCOperations.cs:行号 207
+ClientConnectionId:af731648-1019-4bda-9bed-dec61688b046
+INFO  2015-05-04 17:18:15,477 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:19:26,554 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:19:58,157 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:21:10,298 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:21:37,850 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:25:09,957 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:27:21,583 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:35:34,079 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:36:42,959 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:37:00,157 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:42:30,440 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:44:03,415 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:46:16,925 [defaultLoger] 2015-05-04 17:46:16 txnType=01&respCode=11&channelType=08&currencyCode=156&orderDesc='xxxx'&merId=http://weixin.mandelaauto.com&txnSubType=01&txnAmt=1&version=5.0.0&signMethod=01&backUrl=http://weixin.mandelaauto.com/Pay/CupComplete&certId=3474813271258769001041842579301293446&encoding=UTF-8&respMsg=[9100004]Signature verification failed&reqReserved=透传信息&bizType=000201&signature=oQ4OFW6N/xlPsJ+1/F+vXmxX+OZHbRdZqpF+hvTb3lIGpRIblvEC3vt0IWNQ7GZcc1Ckf+410mnSmna8QwodYFtFzOLpbGFWlrJRFDU5rktQSwImD1O2zBlM7qXZi9DERZnEe1QOCSOrlGmfov50gZzeqZXdzX3MrnB+FdgSNVq384m3GZ4FN+RiGDiTyCjzFY+4UYZolh558tt5uwrdijUu7W7PfP1M54x978PSXV/0BRq5bJA4zpusNYEWun2ppxgEJ9x7UFeXfg7Qf2afl+PbaMuq4hEG++NSUzqsnY3fcmLmosApCqrHoIHwVJNva0B+54N8eMyQUM0XuRAbZw==&orderId=20150504174404863&txnTime=20150504174413&accessType=0
+INFO  2015-05-04 17:48:38,889 [defaultLoger] 2015-05-04 17:48:38 txnType
+INFO  2015-05-04 17:48:42,695 [defaultLoger] 2015-05-04 17:48:42 respCode
+INFO  2015-05-04 17:48:44,765 [defaultLoger] 2015-05-04 17:48:44 channelType
+INFO  2015-05-04 17:48:46,176 [defaultLoger] 2015-05-04 17:48:46 currencyCode
+INFO  2015-05-04 17:48:47,455 [defaultLoger] 2015-05-04 17:48:47 orderDesc
+INFO  2015-05-04 17:48:49,434 [defaultLoger] 2015-05-04 17:48:49 merId
+INFO  2015-05-04 17:48:50,490 [defaultLoger] 2015-05-04 17:48:50 txnSubType
+INFO  2015-05-04 17:48:51,506 [defaultLoger] 2015-05-04 17:48:51 txnAmt
+INFO  2015-05-04 17:48:52,937 [defaultLoger] 2015-05-04 17:48:52 version
+INFO  2015-05-04 17:48:53,982 [defaultLoger] 2015-05-04 17:48:53 signMethod
+INFO  2015-05-04 17:48:54,751 [defaultLoger] 2015-05-04 17:48:54 backUrl
+INFO  2015-05-04 17:48:55,755 [defaultLoger] 2015-05-04 17:48:55 certId
+INFO  2015-05-04 17:48:56,399 [defaultLoger] 2015-05-04 17:48:56 encoding
+INFO  2015-05-04 17:48:56,830 [defaultLoger] 2015-05-04 17:48:56 respMsg
+INFO  2015-05-04 17:48:57,190 [defaultLoger] 2015-05-04 17:48:57 reqReserved
+INFO  2015-05-04 17:48:57,546 [defaultLoger] 2015-05-04 17:48:57 bizType
+INFO  2015-05-04 17:48:57,896 [defaultLoger] 2015-05-04 17:48:57 signature
+INFO  2015-05-04 17:48:58,432 [defaultLoger] 2015-05-04 17:48:58 orderId
+INFO  2015-05-04 17:48:58,879 [defaultLoger] 2015-05-04 17:48:58 txnTime
+INFO  2015-05-04 17:48:59,301 [defaultLoger] 2015-05-04 17:48:59 accessType
+INFO  2015-05-04 17:49:21,700 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:49:25,487 [defaultLoger] 2015-05-04 17:49:25 txnType=01&respCode=11&channelType=08&currencyCode=156&orderDesc='xxxx'&merId=http://weixin.mandelaauto.com&txnSubType=01&txnAmt=1&version=5.0.0&signMethod=01&backUrl=http://weixin.mandelaauto.com/Pay/CupComplete&certId=3474813271258769001041842579301293446&encoding=UTF-8&respMsg=[9100004]Signature verification failed&reqReserved=透传信息&bizType=000201&signature=LVM02dJy8AP3rEb06pkGVcEm2kD0k1kbCIuA6Kj5099E1r7JScpSi5YRbM5AOGLzCau8lK7zA6Uei6jBO/QVAr++QpUWyfcvhH4HEJjeNbfbCiZa3mKNFTTn05us4BD1Rq4fLtIjmhEWVU/929z6+GjyTQlD5QRkaSb6F2I5MISxGqpPIHKoJOwTurV74w3zgykPwZkxNWqt528DxBTthPs9mNnAYvJvNmwtE2FMbz8dDtqAGVSm2Vkpw71fLJKEozY02VwwWiOLYREOmZzt5rISFJIcSlDcib32Z6dqVuqPNA4YAuFUBsJTHL0l9xx0IR12ZsZyQjApSHU8mPTTZA==&orderId=20150504174921478&txnTime=20150504174921&accessType=0
+INFO  2015-05-04 17:49:25,487 [defaultLoger] 2015-05-04 17:49:25 txnType
+INFO  2015-05-04 17:49:29,382 [defaultLoger] 2015-05-04 17:49:29 respCode
+INFO  2015-05-04 17:49:33,396 [defaultLoger] 2015-05-04 17:49:33 channelType
+INFO  2015-05-04 17:49:33,396 [defaultLoger] 2015-05-04 17:49:33 currencyCode
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 orderDesc
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 merId
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 txnSubType
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 txnAmt
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 version
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 signMethod
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 backUrl
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 certId
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 encoding
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 respMsg
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 reqReserved
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 bizType
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 signature
+INFO  2015-05-04 17:49:33,397 [defaultLoger] 2015-05-04 17:49:33 orderId
+INFO  2015-05-04 17:49:33,398 [defaultLoger] 2015-05-04 17:49:33 txnTime
+INFO  2015-05-04 17:49:33,398 [defaultLoger] 2015-05-04 17:49:33 accessType
+INFO  2015-05-04 17:49:42,861 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:50:11,309 [defaultLoger] 2015-05-04 17:50:11 txnType=01&respCode=11&channelType=08&currencyCode=156&orderDesc='xxxx'&merId=http://weixin.mandelaauto.com&txnSubType=01&txnAmt=1&version=5.0.0&signMethod=01&backUrl=http://weixin.mandelaauto.com/Pay/CupComplete&certId=3474813271258769001041842579301293446&encoding=UTF-8&respMsg=[9100004]Signature verification failed&reqReserved=透传信息&bizType=000201&signature=Y+k+3feCISUD2zNab+8gKl+5Ivb0o0QQT5p9XN7p9HW4wfZuu6pNM0PREJLI4Wsfb7sK/ohfdHbP9H2Vcr2GalTjC4qfaWapDPR8DBsAZ9GPyor4byhVgXVwv/6SIqW8NucumTzgJ+H8btLH6AX6UTrgU4IrXEIJxd5fb6gwh0GvPUHdaJjbZK4Yx5I8p2vmzBUDickSpqiVOdXmWCyN9X0t95cleee3cx/yG6JRAIKFfwWPwtm+n9nFOHRC3dOkZ3U72aojjrOLRKzqzRsBQ4YbdWbuntQ+Yjc3rcAncvT2PMe3EbRT15zs8UuUOmVtx/3GqRHRvb8TPmksS1JLwQ==&orderId=20150504174942825&txnTime=20150504174942&accessType=0
+INFO  2015-05-04 17:50:11,309 [defaultLoger] 2015-05-04 17:50:11 txnType
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 respCode
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 channelType
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 currencyCode
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 orderDesc
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 merId
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 txnSubType
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 txnAmt
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 version
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 signMethod
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 backUrl
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 certId
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 encoding
+INFO  2015-05-04 17:50:11,310 [defaultLoger] 2015-05-04 17:50:11 respMsg
+INFO  2015-05-04 17:50:11,311 [defaultLoger] 2015-05-04 17:50:11 reqReserved
+INFO  2015-05-04 17:50:11,311 [defaultLoger] 2015-05-04 17:50:11 bizType
+INFO  2015-05-04 17:50:11,311 [defaultLoger] 2015-05-04 17:50:11 signature
+INFO  2015-05-04 17:50:11,311 [defaultLoger] 2015-05-04 17:50:11 orderId
+INFO  2015-05-04 17:50:11,311 [defaultLoger] 2015-05-04 17:50:11 txnTime
+INFO  2015-05-04 17:50:11,311 [defaultLoger] 2015-05-04 17:50:11 accessType
+INFO  2015-05-04 17:51:43,365 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:51:50,906 [defaultLoger] 2015-05-04 17:51:50 txnType=01&respCode=11&frontUrl=http://localhost:8080/demo/utf8/FrontRcvResponse.aspx&channelType=08&currencyCode=156&orderDesc='xxxx'&merId=http://weixin.mandelaauto.com&txnSubType=01&txnAmt=1&version=5.0.0&signMethod=01&backUrl=http://weixin.mandelaauto.com/Pay/CupComplete&certId=3474813271258769001041842579301293446&encoding=UTF-8&respMsg=[9100004]Signature verification failed&reqReserved=透传信息&bizType=000201&signature=W3xcxom5sRlc3p8bN66tXx4sfFTmIBnx2LL7ZL/hvTPd/sELZVAnvDsKI6L6GVt19ZldIOQwWN6gFcC/TVXUUL6O65+yfMJTwqJbmqntAG1hDxPeRILM4QYsiIQhEv0FArbKLZFkRPRjQrFb+Vh9vcr1Cr52t6Gkp5NsLGnIO/dCL3ciCzBr0DMfP7u/6v0WZXsJRqJc2IKkBpQ1ETwFUhkBg8y4NpeUBhrUEwop5ZwFa6CqQsHNpPiQVrq97TnVTlpVIXkWqDb9L3ghKMyqCBUIWQ+yhYpnvXcRRDzQeYCWiB/hRdMXsGzaXmTJthNWqa1QGIjbNXNUu8z1Fd5tJQ==&orderId=20150504175143675&txnTime=20150504175143&accessType=0
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 txnType
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 respCode
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 frontUrl
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 channelType
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 currencyCode
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 orderDesc
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 merId
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 txnSubType
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 txnAmt
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 version
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 signMethod
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 backUrl
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 certId
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 encoding
+INFO  2015-05-04 17:51:50,907 [defaultLoger] 2015-05-04 17:51:50 respMsg
+INFO  2015-05-04 17:51:50,908 [defaultLoger] 2015-05-04 17:51:50 reqReserved
+INFO  2015-05-04 17:51:50,908 [defaultLoger] 2015-05-04 17:51:50 bizType
+INFO  2015-05-04 17:51:50,908 [defaultLoger] 2015-05-04 17:51:50 signature
+INFO  2015-05-04 17:51:50,908 [defaultLoger] 2015-05-04 17:51:50 orderId
+INFO  2015-05-04 17:51:50,908 [defaultLoger] 2015-05-04 17:51:50 txnTime
+INFO  2015-05-04 17:51:50,908 [defaultLoger] 2015-05-04 17:51:50 accessType
+INFO  2015-05-04 17:55:36,657 [defaultLoger] System.Web.HttpRequestWrapper
+INFO  2015-05-04 17:59:00,703 [defaultLoger] 2015-05-04 17:59:00 txnType=01&respCode=11&frontUrl=http://localhost:8080/demo/utf8/FrontRcvResponse.aspx&channelType=08&currencyCode=156&orderDesc='xxxx'&merId=http://weixin.mandelaauto.com&txnSubType=01&txnAmt=1&version=5.0.0&signMethod=01&backUrl=http://weixin.mandelaauto.com/Pay/CupComplete&certId=3474813271258769001041842579301293446&encoding=UTF-8&respMsg=[9100004]Signature verification failed&reqReserved=透传信息&bizType=000201&signature=GHtWwI2pXpbZkYfQ3jBeGC0OcV7YdnGEX56MlLD6Be5C8AnYIQn1VyK5OKdNqrr75XiGWXJRHGk1K28l0o5D2bsRvL0KZX2ZStGsy+dicmtK3jqKqb6uy0/qVJSnuPjm3NStcMhTRDSsE8c9/VgpVZ0zTFYz/n/yfXvq/dW0v3YzeQdDrLJVppYFxHpso3/vrj8gslwhtJ79BwvfS3ux/CnbdEb8mMDt/BnZjVByU/mODJDx6hBBqKjuA7fWSIMdukgXCDrs/Mwb9Xo9wTH/wtA8SfzBoag42sq8NrLzqtwARITjNwZshNbxn+mBgTeVGzywRtiISamgIg0bYQSc+w==&orderId=20150504175537512&txnTime=20150504175650&accessType=0
+INFO  2015-05-04 17:59:05,098 [defaultLoger] 2015-05-04 17:59:05 txnType
+INFO  2015-05-04 17:59:05,098 [defaultLoger] 2015-05-04 17:59:05 respCode
+INFO  2015-05-04 17:59:05,098 [defaultLoger] 2015-05-04 17:59:05 frontUrl
+INFO  2015-05-04 17:59:05,099 [defaultLoger] 2015-05-04 17:59:05 channelType
+INFO  2015-05-04 17:59:05,099 [defaultLoger] 2015-05-04 17:59:05 currencyCode
+INFO  2015-05-04 17:59:05,099 [defaultLoger] 2015-05-04 17:59:05 orderDesc
+INFO  2015-05-04 17:59:05,099 [defaultLoger] 2015-05-04 17:59:05 merId
+INFO  2015-05-04 17:59:05,099 [defaultLoger] 2015-05-04 17:59:05 txnSubType
+INFO  2015-05-04 17:59:05,099 [defaultLoger] 2015-05-04 17:59:05 txnAmt
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 version
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 signMethod
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 backUrl
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 certId
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 encoding
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 respMsg
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 reqReserved
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 bizType
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 signature
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 orderId
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 txnTime
+INFO  2015-05-04 17:59:05,100 [defaultLoger] 2015-05-04 17:59:05 accessType

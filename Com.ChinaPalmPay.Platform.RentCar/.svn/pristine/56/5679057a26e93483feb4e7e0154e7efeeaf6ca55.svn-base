@@ -1,0 +1,86 @@
+﻿2015-04-28 11:06:10,290 [5920] INFO  myServer - The server instance myServer has been started!
+2015-04-28 11:08:54,835 [4220] INFO  myServer - The server instance myServer has been started!
+2015-04-28 11:10:14,032 [7164] INFO  myServer - The server instance myServer has been started!
+2015-04-28 11:10:15,074 [7588] INFO  myServer - Session: 350f688d-4c6b-4057-9c7e-ec4efd5a0483/127.0.0.1:3743
+A new session connected!
+2015-04-28 11:13:03,532 [6448] INFO  myServer - Session: 350f688d-4c6b-4057-9c7e-ec4efd5a0483/127.0.0.1:3743
+This session was closed for ClientClosing!
+2015-04-28 11:13:31,337 [7588] INFO  myServer - Session: 8d689600-275d-4609-8ced-5c45184d2b83/127.0.0.1:3768
+A new session connected!
+2015-04-28 11:16:19,367 [5684] INFO  myServer - The server instance myServer has been started!
+2015-04-28 11:16:23,940 [6692] INFO  myServer - Session: bcbbae3d-1283-4b8e-b935-6b6e963e7ca3/127.0.0.1:3832
+A new session connected!
+2015-04-28 11:17:08,782 [6508] INFO  myServer - Session: bcbbae3d-1283-4b8e-b935-6b6e963e7ca3/127.0.0.1:3832
+This session was closed for ClientClosing!
+2015-04-28 11:17:11,756 [1592] INFO  myServer - Session: 6b88b9e3-9cdf-4ed0-ad58-a26d68607222/127.0.0.1:3836
+A new session connected!
+2015-04-28 11:17:41,509 [5044] INFO  myServer - Session: 6b88b9e3-9cdf-4ed0-ad58-a26d68607222/127.0.0.1:3836
+This session was closed for ClientClosing!
+2015-04-28 11:17:49,409 [1592] INFO  myServer - Session: c2e44f2c-86c5-4a12-8b45-a6d415680add/127.0.0.1:3841
+A new session connected!
+2015-04-28 11:18:03,437 [4832] INFO  myServer - Session: c2e44f2c-86c5-4a12-8b45-a6d415680add/127.0.0.1:3841
+This session was closed for ClientClosing!
+2015-04-28 11:18:06,078 [1592] INFO  myServer - Session: 3b4818b9-1dfc-4c09-9441-b48e3f4cd472/127.0.0.1:3845
+A new session connected!
+2015-04-28 11:18:18,130 [4832] INFO  myServer - Session: 3b4818b9-1dfc-4c09-9441-b48e3f4cd472/127.0.0.1:3845
+This session was closed for ClientClosing!
+2015-04-28 11:18:34,003 [1592] INFO  myServer - Session: eb3028e0-eae2-4d08-99f2-1df2e6173eab/127.0.0.1:3849
+A new session connected!
+2015-04-28 11:18:47,103 [5200] INFO  myServer - Session: eb3028e0-eae2-4d08-99f2-1df2e6173eab/127.0.0.1:3849
+This session was closed for ClientClosing!
+2015-04-28 11:20:56,148 [1592] INFO  myServer - Session: 89e736d5-2911-4af0-831a-c90883a2124a/127.0.0.1:3873
+A new session connected!
+2015-04-28 11:22:21,612 [7544] INFO  myServer - Session: 6810c95a-3a5f-4b20-8e06-77e407c4c0b9/127.0.0.1:3888
+A new session connected!
+2015-04-28 11:22:45,084 [7856] INFO  myServer - Session: 6810c95a-3a5f-4b20-8e06-77e407c4c0b9/127.0.0.1:3888
+This session was closed for ClientClosing!
+2015-04-28 11:22:57,526 [7544] INFO  myServer - Session: 7310db66-3b78-47f8-9641-6cec8b528705/127.0.0.1:3893
+A new session connected!
+2015-04-28 11:26:10,822 [7872] INFO  myServer - The server instance myServer has been started!
+2015-04-28 11:26:36,291 [6820] INFO  myServer - Session: 2f4c2b9e-e8d3-4507-b58d-ae230891fc0c/127.0.0.1:3954
+A new session connected!
+2015-04-28 12:43:39,770 [6636] INFO  myServer - The server instance myServer has been started!
+2015-04-28 12:44:05,801 [5160] INFO  myServer - Session: b7784480-08e1-4b8c-a2fc-036027970a44/127.0.0.1:4693
+A new session connected!
+2015-04-28 12:45:29,997 [7016] INFO  myServer - Session: b7784480-08e1-4b8c-a2fc-036027970a44/127.0.0.1:4693
+This session was closed for ClientClosing!
+2015-04-28 12:45:33,563 [6272] INFO  myServer - Session: 9496387f-d0b6-4bb1-97f1-caf1d31423e7/127.0.0.1:4700
+A new session connected!
+2015-04-28 12:47:30,674 [5748] INFO  myServer - Session: 9496387f-d0b6-4bb1-97f1-caf1d31423e7/127.0.0.1:4700
+This session was closed for ClientClosing!
+2015-04-28 12:47:34,804 [5960] INFO  myServer - Session: 01754aa6-5a84-46e6-a7e6-c1f56e0107cd/127.0.0.1:4909
+A new session connected!
+2015-04-28 12:47:51,322 [6128] INFO  myServer - Session: 01754aa6-5a84-46e6-a7e6-c1f56e0107cd/127.0.0.1:4909
+This session was closed for ClientClosing!
+2015-04-28 12:47:54,145 [7900] INFO  myServer - Session: 6fb6375e-22c1-471d-ade2-dc4a6c98f651/127.0.0.1:4913
+A new session connected!
+2015-04-28 12:54:47,587 [3608] INFO  myServer - Session: 6fb6375e-22c1-471d-ade2-dc4a6c98f651/127.0.0.1:4913
+This session was closed for ClientClosing!
+2015-04-28 12:54:51,253 [6988] INFO  myServer - Session: 85150957-19cb-4a7a-9f8c-1fb17f5d35d7/127.0.0.1:5347
+A new session connected!
+2015-04-28 12:57:16,599 [8008] INFO  myServer - Session: 85150957-19cb-4a7a-9f8c-1fb17f5d35d7/127.0.0.1:5347
+This session was closed for ClientClosing!
+2015-04-28 12:57:19,115 [6988] INFO  myServer - Session: 506c881a-1726-4d0f-9ed3-30ca2efcaa79/127.0.0.1:5452
+A new session connected!
+2015-04-28 12:58:20,169 [7656] INFO  myServer - Session: 506c881a-1726-4d0f-9ed3-30ca2efcaa79/127.0.0.1:5452
+This session was closed for ClientClosing!
+2015-04-28 12:58:23,006 [6988] INFO  myServer - Session: ce6fc26e-fd7b-46a7-a00a-bb5c9ea5cd5e/127.0.0.1:5552
+A new session connected!
+2015-04-28 12:58:57,593 [6072] INFO  myServer - Session: ce6fc26e-fd7b-46a7-a00a-bb5c9ea5cd5e/127.0.0.1:5552
+This session was closed for ClientClosing!
+2015-04-28 12:59:01,451 [5800] INFO  myServer - Session: dce9236e-7e20-4a9c-b256-cb70cacc5d38/127.0.0.1:5555
+A new session connected!
+2015-04-28 13:02:59,995 [7116] INFO  myServer - Session: dce9236e-7e20-4a9c-b256-cb70cacc5d38/127.0.0.1:5555
+This session was closed for ClientClosing!
+2015-04-28 13:03:02,919 [5800] INFO  myServer - Session: 70fcf2c9-3cbd-472d-a5f8-3e3bff660a3f/127.0.0.1:5719
+A new session connected!
+2015-04-28 13:03:05,378 [6008] INFO  myServer - Session: 70fcf2c9-3cbd-472d-a5f8-3e3bff660a3f/127.0.0.1:5719
+This session was closed for ClientClosing!
+2015-04-28 13:03:09,304 [5800] INFO  myServer - Session: 8547a55b-6eef-458c-90dd-2a93728715f1/127.0.0.1:5721
+A new session connected!
+2015-04-28 13:03:22,114 [7116] INFO  myServer - Session: 8547a55b-6eef-458c-90dd-2a93728715f1/127.0.0.1:5721
+This session was closed for ClientClosing!
+2015-04-28 13:03:26,643 [5800] INFO  myServer - Session: 1527011d-ca72-44cd-a4fa-186767165a5a/127.0.0.1:5724
+A new session connected!
+2015-04-28 13:04:53,122 [1188] INFO  myServer - Session: 1527011d-ca72-44cd-a4fa-186767165a5a/127.0.0.1:5724
+This session was closed for ClientClosing!

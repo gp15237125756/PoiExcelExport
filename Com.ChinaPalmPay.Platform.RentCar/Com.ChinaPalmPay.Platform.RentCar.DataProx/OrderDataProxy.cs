@@ -1,0 +1,175 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Com.ChinaPalmPay.Platform.RentCar.IDAL;
+using Com.ChinaPalmPay.Platform.RentCar.Model;
+using System.Web;
+using System.Web.Caching;
+using System.Configuration;
+using Com.ChinaPalmPay.Platform.RentCar.DALFactory;
+using Com.ChinaPalmPay.Platform.RentCar.CacheDependencyFactory;
+
+namespace Com.ChinaPalmPay.Platform.RentCar.DataProx
+{
+    public class OrderDataProxy : IOrderManager
+    {
+        private static readonly int UserRegTimeout = int.Parse(ConfigurationManager.AppSettings["UserRegCacheDuration"]);
+        private static readonly IZSCManager ZSCManager = DataAccess.CreateZSCCacheManager();
+        private static readonly bool enableCaching = bool.Parse(ConfigurationManager.AppSettings["EnableCaching"]);
+        private static readonly IOrderManager OrderManager = DataAccess.CreateOrderDbManager();
+        private static readonly IZSCManager zsc_manager = DataAccess.CreateZSCDbManager();
+
+        public Order Create(Order order)
+        {
+            Order groups = null;
+            if (!enableCaching)
+                return order;
+            string group_key = "Create_Order " + order.ID;
+            groups = (Order)HttpRuntime.Cache[group_key];
+            // Check if the data exists in the data cache
+            if (groups == null && order != null)
+            {
+                //// If the data is not in the cache then fetch the data from the business logic tier
+                AggregateCacheDependency cd = DependencyFacade.GetOrderCreateDependency();
+                // Store the output in the data cache, and Add the necessary AggregateCacheDependency object
+                HttpRuntime.Cache.Add(group_key, order, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+            }
+            return order;
+        }
+
+        public IList<Order> Select(string userId)
+        {
+            IList<Order> order = new List<Order>();
+            //string group_key = "Select_Order " + userId;
+            ////判断有没有启用缓存
+            //if (enableCaching)
+            //{
+            //    order = HttpRuntime.Cache[group_key] as IList<Order>;
+            //}
+
+            //if (order == null)
+            //{
+                order = OrderManager.Select(userId);
+                if (order.Count() > 0)
+                {
+                    foreach (var o in order)
+                    {
+                        Car c = zsc_manager.findCarByCarId(o.CarID);
+                        o.CarType = c.CarType;
+                        o.CarNo = c.CarNo;
+                        o.TerminalId = c.TermID; 
+                    }
+                }
+           // }
+            //不论有没有启用缓存，都加入缓存
+            //if(order!=null&&order.Count()>0){
+            //AggregateCacheDependency cd = DependencyFacade.GetOrderSelDependency();
+            //HttpRuntime.Cache.Add(group_key, order, cd, DateTime.Now.AddHours(UserRegTimeout), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
+            //}
+                return order;
+        }
+
+
+
+        public bool cancelOrder(string orderid)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Order QueryOrder(string orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public int SelectNum(string userid)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public int QueryMoney(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Messages AddMsg(Messages msg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Order SelectOrder(string userId, string orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Recharge queryRecharge(string userId, string orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        IList<Recharge> IOrderManager.queryRecharge(string userId, string orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Order updateStatus(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public UserAuthorization Add(UserAuthorization auth)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Order queryValidOrderById(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool AuthorizeOrNot(string orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool cancelAuth(string userId, string Order)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool updateToOpenDoor()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool updateToOpenDoor(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        bool IOrderManager.queryValidOrderById(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        double IOrderManager.QueryMoney(string id)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
