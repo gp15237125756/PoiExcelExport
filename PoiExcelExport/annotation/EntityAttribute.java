@@ -21,7 +21,11 @@ public @interface EntityAttribute {
 	/**	whether required*/
 	boolean required() default false;
 
+<<<<<<< HEAD
 	int[] col() default 0;
+=======
+	int col() default 0;
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 	
 	int[] row() default 0;
 	

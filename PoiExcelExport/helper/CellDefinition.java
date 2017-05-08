@@ -15,7 +15,11 @@ public class CellDefinition {
 	/**
 	 * 列号
 	 */
+<<<<<<< HEAD
 	private int[] col;
+=======
+	private int col;
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 	/**
 	 * 行号
 	 */
@@ -53,6 +57,7 @@ public class CellDefinition {
      * 属性注解
      */
     private EntityAttribute annotation;
+<<<<<<< HEAD
     
 	public int[] getCol() {
 		return col;
@@ -61,6 +66,14 @@ public class CellDefinition {
 		this.col = col;
 	}
 	
+=======
+	public int getCol() {
+		return col;
+	}
+	public void setCol(int col) {
+		this.col = col;
+	}
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 	public int[] getRow() {
 		return row;
 	}

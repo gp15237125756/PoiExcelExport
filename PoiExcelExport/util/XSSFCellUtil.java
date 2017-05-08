@@ -6,7 +6,10 @@ import java.util.Objects;
 
 import org.apache.poi.hssf.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.BorderStyle;
+<<<<<<< HEAD
 import org.apache.poi.ss.usermodel.CellStyle;
+=======
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
@@ -20,7 +23,10 @@ import org.springframework.util.Assert;
  * @author Cruz
  * @since  01-00
  */
+<<<<<<< HEAD
 @SuppressWarnings("deprecation")
+=======
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 public class XSSFCellUtil {
 	//create cell
 	public static XSSFCell createCellIfNotPresent(XSSFRow row,int colIndex){
@@ -33,6 +39,10 @@ public class XSSFCellUtil {
 		return cell;
 	}
 	
+<<<<<<< HEAD
+=======
+	@SuppressWarnings("deprecation")
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 	public static void createMergedRegionIfNotPresent(XSSFSheet sheet,int firstRow, int lastRow, int firstCol, int lastCol){
 		String message="XSSFSheet must not be null!";
 		Objects.requireNonNull(sheet, () -> message);
@@ -65,6 +75,7 @@ public class XSSFCellUtil {
 		cellStyle.setBorderRight(BorderStyle.THIN);
 		return cellStyle;
 	}
+<<<<<<< HEAD
  	
  	//vertical and horizon center aligned
  	 	public static XSSFCellStyle createTitleXSSFCellStyle(XSSFWorkbook wb){
@@ -82,6 +93,8 @@ public class XSSFCellUtil {
  			cellStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
  			return cellStyle;
  		}
+=======
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 	
 	
 	/**
@@ -186,6 +199,10 @@ public class XSSFCellUtil {
 		String message="XSSFRow or XSSFCellStyle must not be null!";
 		Objects.requireNonNull(row, () -> message);
 		Objects.requireNonNull(style, () -> message);
+<<<<<<< HEAD
+=======
+		XSSFCell cell=createCellIfNotPresent(row,col);
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 		setCellProperties(createCellIfNotPresent(row, col), value, style);
 	}
 	

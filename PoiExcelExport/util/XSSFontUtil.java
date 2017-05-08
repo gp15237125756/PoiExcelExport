@@ -45,5 +45,8 @@ public class XSSFontUtil {
 		}
 		return cellfont;
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> fe2012a7f8558d8df36b789847bdc41c788d6eaf
 }
