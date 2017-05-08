@@ -15,7 +15,7 @@ public class CellDefinition {
 	/**
 	 * 列号
 	 */
-	private int col;
+	private int[] col;
 	/**
 	 * 行号
 	 */
@@ -53,12 +53,14 @@ public class CellDefinition {
      * 属性注解
      */
     private EntityAttribute annotation;
-	public int getCol() {
+    
+	public int[] getCol() {
 		return col;
 	}
-	public void setCol(int col) {
+	public void setCol(int[] col) {
 		this.col = col;
 	}
+	
 	public int[] getRow() {
 		return row;
 	}

@@ -11,6 +11,7 @@ import com.ld.datacenter.poi.exception.CellStyleNotFoundException;
 import com.ld.datacenter.poi.helper.CellStyle;
 import com.ld.datacenter.poi.style.DefaultCellStyleImpl;
 import com.ld.datacenter.poi.style.TextCellStyleImpl;
+import com.ld.datacenter.poi.style.TitleCellStyleImpl;
 /**
  * 定義cell樣式庫，可以動態追加
  * @author Cruz
@@ -21,6 +22,7 @@ public class XSSFCellStyleLib {
 	/** 樣式緩存*/
 	private  final Map<CellStyle,XSSFCellStyle> CELL_STYLE_MAP=new LinkedHashMap<CellStyle, XSSFCellStyle>();
 	
+	@SuppressWarnings("unused")
 	private  final XSSFWorkbook wb;
 	 
 	public XSSFCellStyleLib(XSSFWorkbook wb){
@@ -30,6 +32,7 @@ public class XSSFCellStyleLib {
 		convert.convert(CellStyle.NONE, new DefaultCellStyleImpl(wb),this);
 		convert.convert(CellStyle.DEFAULT, new DefaultCellStyleImpl(wb),this);
 		convert.convert(CellStyle.STANDARD, new TextCellStyleImpl(wb),this);
+		convert.convert(CellStyle.TITLE, new TitleCellStyleImpl(wb),this);
 	}
 	
 	

@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import org.apache.poi.hssf.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
@@ -19,6 +20,7 @@ import org.springframework.util.Assert;
  * @author Cruz
  * @since  01-00
  */
+@SuppressWarnings("deprecation")
 public class XSSFCellUtil {
 	//create cell
 	public static XSSFCell createCellIfNotPresent(XSSFRow row,int colIndex){
@@ -31,7 +33,6 @@ public class XSSFCellUtil {
 		return cell;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static void createMergedRegionIfNotPresent(XSSFSheet sheet,int firstRow, int lastRow, int firstCol, int lastCol){
 		String message="XSSFSheet must not be null!";
 		Objects.requireNonNull(sheet, () -> message);
@@ -64,6 +65,23 @@ public class XSSFCellUtil {
 		cellStyle.setBorderRight(BorderStyle.THIN);
 		return cellStyle;
 	}
+ 	
+ 	//vertical and horizon center aligned
+ 	 	public static XSSFCellStyle createTitleXSSFCellStyle(XSSFWorkbook wb){
+ 			String message="XSSFWorkbook must not be null!";
+ 			Objects.requireNonNull(wb, () -> message);
+ 			XSSFCellStyle cellStyle=wb.createCellStyle();
+ 			cellStyle.setWrapText(true);
+ 			cellStyle.setVerticalAlignment(XSSFCellStyle.VERTICAL_CENTER);
+ 			cellStyle.setAlignment(XSSFCellStyle.ALIGN_CENTER);
+ 			cellStyle.setBorderBottom(BorderStyle.THIN);
+ 			cellStyle.setBorderLeft(BorderStyle.THIN);
+ 			cellStyle.setBorderTop(BorderStyle.THIN);
+ 			cellStyle.setBorderRight(BorderStyle.THIN);
+ 			cellStyle.setFillForegroundColor(new XSSFColor( new Color(75, 172, 198)));
+ 			cellStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
+ 			return cellStyle;
+ 		}
 	
 	
 	/**
@@ -168,7 +186,6 @@ public class XSSFCellUtil {
 		String message="XSSFRow or XSSFCellStyle must not be null!";
 		Objects.requireNonNull(row, () -> message);
 		Objects.requireNonNull(style, () -> message);
-		XSSFCell cell=createCellIfNotPresent(row,col);
 		setCellProperties(createCellIfNotPresent(row, col), value, style);
 	}
 	

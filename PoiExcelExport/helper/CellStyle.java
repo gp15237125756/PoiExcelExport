@@ -5,5 +5,5 @@ package com.ld.datacenter.poi.helper;
  *
  */
 public enum CellStyle {
-	NONE,DEFAULT,STANDARD
+	NONE,DEFAULT,TITLE,STANDARD
 }

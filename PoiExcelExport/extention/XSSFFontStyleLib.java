@@ -11,6 +11,7 @@ import com.ld.datacenter.poi.convert.IFontStyleConvert;
 import com.ld.datacenter.poi.exception.FontStyleNotFoundException;
 import com.ld.datacenter.poi.font.ColorCellFontImpl;
 import com.ld.datacenter.poi.font.DefaultCellFontImpl;
+import com.ld.datacenter.poi.font.TitleCellFontImpl;
 import com.ld.datacenter.poi.helper.FontStyle;
 
 public class XSSFFontStyleLib {
@@ -18,6 +19,7 @@ public class XSSFFontStyleLib {
 	/** 樣式緩存*/
 	private  final Map<FontStyle,XSSFFont> FONT_STYLE_MAP=new LinkedHashMap<FontStyle, XSSFFont>();
 	
+	@SuppressWarnings("unused")
 	private  final XSSFWorkbook wb;
 	 
 	public XSSFFontStyleLib(XSSFWorkbook wb){
@@ -26,6 +28,7 @@ public class XSSFFontStyleLib {
 		//添加cell樣式 
 		convert.convert(FontStyle.NONE, new DefaultCellFontImpl(wb),this);
 		convert.convert(FontStyle.DEFAULT, new DefaultCellFontImpl(wb),this);
+		convert.convert(FontStyle.TITLE, new TitleCellFontImpl(wb),this);
 		convert.convert(FontStyle.COLOR, new ColorCellFontImpl(wb),this);
 	}
 	

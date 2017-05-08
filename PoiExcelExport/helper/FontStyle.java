@@ -5,5 +5,5 @@ package com.ld.datacenter.poi.helper;
  *
  */
 public enum FontStyle {
-	NONE,DEFAULT,COLOR
+	NONE,DEFAULT,TITLE,COLOR
 }

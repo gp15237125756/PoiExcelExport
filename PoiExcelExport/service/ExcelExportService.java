@@ -23,14 +23,19 @@ import sun.misc.BASE64Decoder;
 
 import com.ld.datacenter.poi.annotation.EntityAttribute;
 import com.ld.datacenter.poi.annotation.ExcelEntity;
+import com.ld.datacenter.poi.annotation.RenderDirection;
+import com.ld.datacenter.poi.annotation.TitleAttribute;
+import com.ld.datacenter.poi.annotation.TitleAttributes;
 import com.ld.datacenter.poi.exception.AnnotationNotFoundException;
 import com.ld.datacenter.poi.exception.IllegalTempClassException;
 import com.ld.datacenter.poi.helper.CellDefinition;
 import com.ld.datacenter.poi.helper.CellStyle;
 import com.ld.datacenter.poi.helper.FontStyle;
+import com.ld.datacenter.poi.helper.RenderStyle;
 import com.ld.datacenter.poi.util.CellValueUtil;
 
 /**
+ * 注解方式实现导出功能
  * @Description generate excel inputStream
  * @author Cruz
  * @version 01-00
@@ -44,10 +49,18 @@ public class ExcelExportService extends ExportBuilder {
 	private final String quarter;
 	// month
 	private final String month;
-	
+	//列数量
 	private int COLUMN_NUMBER;
+	//列数量 
+	private int ROW_NUMBER;
+	//标题数量
+	private int TITLE_NUMBER;
+	//数据渲染方向
+	private RenderStyle RENDER_DIRECTION;
 	
 	private int ROWS;
+	
+	private int COLS;
 	//data
 	private List<T> data;
 	//data class  type
@@ -62,7 +75,10 @@ public class ExcelExportService extends ExportBuilder {
 	private final int pictureStartRow;
 	// picture plot end row
 	private final int pictureEndRow;
-
+	//title values
+	private final List<String> titles;
+ 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ExcelExportService(Builder builder) {
 		// required
 		this.setFileName(builder.fileName);
@@ -82,9 +98,12 @@ public class ExcelExportService extends ExportBuilder {
 		this.pictureEndCol = builder.pictureEndCol;
 		this.pictureStartRow = builder.pictureStartRow;
 		this.pictureEndRow = builder.pictureEndRow;
+		this.titles = builder.titles;
+		
 		/******************** optional parameter *******************/
 	}
 
+	@SuppressWarnings("hiding")
 	public static class Builder<T> {
 		private final String fileName;
 		private final String sheetName;
@@ -98,6 +117,8 @@ public class ExcelExportService extends ExportBuilder {
 		private int pictureEndCol;
 		private int pictureStartRow;
 		private int pictureEndRow;
+		//title values
+		private List<String> titles;
 
 		public Builder(String fileName, String sheetName, List<T> data,Class<T> dataType) {
 			this.fileName = fileName;
@@ -145,6 +166,11 @@ public class ExcelExportService extends ExportBuilder {
 			this.pictureEndRow = pictureEndRow;
 			return this;
 		}
+		
+		public Builder<T> setTitles(List<String> titles) {
+			this.titles = titles;
+			return this;
+		}
 
 		public ExcelExportService build() {
 			return new ExcelExportService(this);
@@ -167,23 +193,43 @@ public class ExcelExportService extends ExportBuilder {
 		this.setSheet(sheet);
 		this.setSheetName(this.getSheetName());
 	}
-
-	// load template class ,then set cells
+	//set title according to template configure
 	@Override
-	void setCellValues(Class<?> loadCls) {
-		if (loadCls == null || !Class.class.isAssignableFrom(loadCls)) {
+	void setTitle(Class<?> loadCls){
+		if (loadCls == null) {
 			if (LOG.isDebugEnabled()) {
-				LOG.debug("loadCls must not be Class type!");
+				LOG.debug("loadCls must be Class type!");
 			}
+			throw new IllegalArgumentException(
+					"loadCls must be Class type!");
 		}
 		ExcelEntity entity = loadCls.getAnnotation(ExcelEntity.class);
 		if (entity == null) {
 			if (LOG.isDebugEnabled()) {
-				LOG.debug("[" + loadCls.getName() + "] must not be Class type!");
+				LOG.debug("[" + loadCls.getName() + "] must not be excel type!");
 			}
 			throw new AnnotationNotFoundException(loadCls,
 					" is not a excel entity!");
 		}
+		TitleAttributes title = loadCls.getAnnotation(TitleAttributes.class);
+		//set title if configured
+		if (null!=title) {
+			TitleAttribute[] titles=title.value();
+			this.TITLE_NUMBER=titles.length;
+			for(int i=0;i<TITLE_NUMBER;i++){
+				TitleAttribute t=titles[i];
+				int row=t.row(),col=t.col();
+				CellStyle style=t.cellStyle();
+				FontStyle font=t.fontStyle();
+				CellValueUtil.setCell(this.getWb(),super.getSheet(),new int[]{row,col},style,font,this.titles.get(i));
+			}
+		}
+	}
+	
+	// load template class ,then set cells
+	@Override
+	void setCellValues(Class<?> loadCls) {
+		ExcelEntity entity = loadCls.getAnnotation(ExcelEntity.class);
 		//tangle year,quarter,or month columns
 		tangleHeader(entity);
 		//load attributes type definition
@@ -192,33 +238,45 @@ public class ExcelExportService extends ExportBuilder {
 			throw new IllegalTempClassException(loadCls,
 					" is not a legal entity!");
 		}
-		this.COLUMN_NUMBER=contentDefinitionList.size();
-		/****************** vertical direction draw  ********************/
-		/*for(int _row=0;_row<this.ROWS;_row++){
+		//get data render way which determine the iterate order of data set
+ 		RenderDirection direction=loadCls.getAnnotation(RenderDirection.class);
+		if(null==direction){
+			this.RENDER_DIRECTION=RenderStyle.HORIZATION;
+		}else{
+			this.RENDER_DIRECTION=direction.value();
+		}
+		//horizon
+		if(this.RENDER_DIRECTION.equals(RenderStyle.HORIZATION)){
+			this.COLUMN_NUMBER=contentDefinitionList.size();
+			/****************** horizon direction render  ********************/
 			for(int i=0;i<COLUMN_NUMBER;i++){
+				//inner loop specify one type per time
 				CellDefinition def=contentDefinitionList.get(i);
-				int col=def.getCol();
+				int[] col=def.getCol();
 				int[] rows=def.getRow();
 				CellStyle style=def.getCellStyle();
 				FontStyle font=def.getFontStyle();
-				CellValueUtil.setCell(this.getWb(),super.getSheet(),new int[]{rows[_row],col},style,font,this.getCount(this.dataType, this.data.get(_row*COLUMN_NUMBER+i)));
+				for(int _row=0;_row<this.ROWS;_row++){
+					CellValueUtil.setCell(this.getWb(),super.getSheet(),new int[]{rows[_row],col[0]},style,font,this.getCount(this.dataType, this.data.get(i*ROWS+_row)));
+				}
 			}
-		}*/
-		/****************** vertical direction draw  ********************/
-		
-		/****************** horizon direction draw  ********************/
-		for(int i=0;i<COLUMN_NUMBER;i++){
-			//inner loop specify one type per time
-			CellDefinition def=contentDefinitionList.get(i);
-			int col=def.getCol();
-			int[] rows=def.getRow();
-			CellStyle style=def.getCellStyle();
-			FontStyle font=def.getFontStyle();
-			for(int _row=0;_row<this.ROWS;_row++){
-				CellValueUtil.setCell(this.getWb(),super.getSheet(),new int[]{rows[_row],col},style,font,this.getCount(this.dataType, this.data.get(i*ROWS+_row)));
+			/****************** horizon direction render  ********************/
+		}else{
+		//vertical
+			this.ROW_NUMBER=contentDefinitionList.size();
+			/****************** vertical direction draw  ********************/
+			for(int _row=0;_row<this.ROW_NUMBER;_row++){
+				CellDefinition def=contentDefinitionList.get(_row);
+				int[] col=def.getCol();
+				int[] rows=def.getRow();
+				CellStyle style=def.getCellStyle();
+				FontStyle font=def.getFontStyle();
+				for(int i=0;i<COLS;i++){
+					CellValueUtil.setCell(this.getWb(),super.getSheet(),new int[]{rows[0],col[i]},style,font,this.getCount(this.dataType, this.data.get(_row*COLS+i)));
+				}
 			}
+			/****************** vertical direction draw  ********************/
 		}
-		/****************** horizon direction draw  ********************/
 		
 	}
 	
@@ -249,6 +307,7 @@ public class ExcelExportService extends ExportBuilder {
 		int[] yrs = entity.yrPos(), quars = entity.quaPos(), mons = entity
 				.monPos();
 		this.ROWS=entity.row();
+		this.COLS=entity.col();
 		CellStyle style = entity.yrCellStyle();
 		FontStyle font=entity.yrFontStyle();
 		// set year value

@@ -45,6 +45,7 @@ public abstract class ExportBuilder {
 			throws IOException {
 		initWorkbook();
 		setSheet();
+		setTitle(cls);
 		setCellValues(cls);
 		extractPicture();
 		outputStreamResult();
@@ -57,6 +58,9 @@ public abstract class ExportBuilder {
 
 	// sheetName
 	abstract void setSheet();
+	
+	// title
+	abstract void setTitle(Class<?> cls);
 
 	// selCellValue
 	abstract void setCellValues(Class<?> cls);
